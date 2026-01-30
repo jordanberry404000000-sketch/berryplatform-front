@@ -1,0 +1,128 @@
+{
+  "platformId": "BERRY_PLATFORM",
+  "label": "Berry Platform — Combined Subsystem Manifest",
+  "version": "2026.01.28",
+  "status": "ready-for-host-deployment",
+
+  "vault": {
+    "path": "/mnt/chromeos/removable/Berry02",
+    "usbSafe": true,
+    "sharedWithLinux": true
+  },
+
+  "subsystems": [
+    {
+      "subsystemId": "DX_TERMINAL",
+      "label": "DX Terminal Collection Subsystem",
+      "type": "collection",
+      "version": "2026.01.28",
+      "orchestrator": {
+        "script": "dx_terminal_orchestrator.js",
+        "heartbeat": "DX_TERMINAL_SUBSYSTEM_HEARTBEAT.json",
+        "cron": "0 */4 * * *",
+        "logfile": "/tmp/dx_terminal_orchestrator.log"
+      },
+      "nodes": [
+        {
+          "id": "DX_TERMINAL_NFT_METRICS",
+          "type": "metrics",
+          "script": "dx_terminal_nft_metrics.js",
+          "wrapper": "dx_nft_metrics_wrapper.js",
+          "entrypoint": "dx_nft_metrics_entrypoint.sh",
+          "heartbeat": "DX_TERMINAL_NFT_METRICS_HEARTBEAT.json",
+          "outputPattern": "DX_TERMINAL_NFT_METRICS_*.json"
+        },
+        {
+          "id": "DX_TERMINAL_METRICS",
+          "type": "metrics",
+          "script": "dx_terminal_metrics.js",
+          "wrapper": "dx_metrics_wrapper.js",
+          "entrypoint": "dx_metrics_entrypoint.sh",
+          "heartbeat": "DX_TERMINAL_METRICS_HEARTBEAT.json",
+          "outputPattern": "DX_TERMINAL_METRICS_*.json"
+        },
+        {
+          "id": "DX_TERMINAL_MASTER_CERT",
+          "type": "cert-node",
+          "script": "dx_terminal_master_cert.js",
+          "wrapper": "dx_master_cert_wrapper.js",
+          "entrypoint": "dx_master_cert_entrypoint.sh",
+          "heartbeat": "DX_TERMINAL_MASTER_HEARTBEAT.json",
+          "outputPattern": "DX_TERMINAL_MASTER_CERT_*.json"
+        }
+      ],
+      "contracts": [
+        "0x41dc69132cce31fcbf6755c84538ca268520246f",
+        "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2"
+      ],
+      "lineage": {
+        "flow": [
+          "DX_TERMINAL_NFT_METRICS → DX_TERMINAL_MASTER_CERT",
+          "DX_TERMINAL_METRICS → DX_TERMINAL_MASTER_CERT",
+          "DX_TERMINAL_MASTER_CERT → DEX_CORRIDOR_DXTERMINAL"
+        ]
+      }
+    },
+
+    {
+      "subsystemId": "RPC_HEALTH_MONITOR",
+      "label": "RPC Health Monitoring Subsystem",
+      "type": "infrastructure",
+      "version": "2026.01.28",
+      "endpoints": {
+        "statusRoute": "/status",
+        "description": "Returns health of Ethereum RPC, Base RPC (primary), and Base RPC (fallback)."
+      },
+      "heartbeat": {
+        "file": "RPC_HEALTH_HEARTBEAT.json",
+        "description": "Stores last RPC health check, latencies, fallback state, and cert events triggered."
+      },
+      "rpcProviders": {
+        "ethereum": {
+          "expectedChainId": 1,
+          "envVar": "ETHEREUM_RPC"
+        },
+        "basePrimary": {
+          "expectedChainId": 8453,
+          "envVar": "ALCHEMY_BASE_RPC"
+        },
+        "baseFallback": {
+          "expectedChainId": 8453,
+          "envVar": "BASE_FALLBACK_RPC"
+        }
+      },
+      "certEvents": [
+        "CERT_BASE_RPC_FALLBACK_ENGAGED",
+        "CERT_BASE_RPC_PRIMARY_DOWN",
+        "CERT_BASE_RPC_PRIMARY_RECOVERED",
+        "CERT_BASE_RPC_BOTH_DOWN"
+      ],
+      "integration": {
+        "orchestratorDependency": true,
+        "dashboardPanel": "Network Health",
+        "certSystem": "Infrastructure Certs"
+      }
+    }
+  ],
+
+  "dashboard": {
+    "statusAggregator": "node_status_aggregator.js",
+    "output": "BERRY_PLATFORM_NODE_STATUS.json",
+    "panels": [
+      "DX Terminal Subsystem",
+      "RPC Health Subsystem",
+      "Node Heartbeats",
+      "Infrastructure Status"
+    ]
+  },
+
+  "operator": {
+    "name": "Bez",
+    "location": "Nelson, UK",
+    "role": "Platform Operator",
+    "ens": "berry1984second.cb.id",
+    "wallet": "0xEb8447eeeEDaE9715F0c7600983BDa8e335fB256"
+  },
+
+  "notes": "This combined manifest certifies the full Berry Platform stack as ready for host deployment. All subsystems, nodes, orchestrators, heartbeats, and cert events are declared in a single unified manifest to prevent onboarding errors."
+}

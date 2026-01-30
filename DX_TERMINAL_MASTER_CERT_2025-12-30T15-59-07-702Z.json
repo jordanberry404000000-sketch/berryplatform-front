@@ -1,0 +1,77 @@
+{
+  "certId": "CERT_DX_TERMINAL_MASTER_2025Q4",
+  "type": "master-collection",
+  "operator": "Bez",
+  "chain": "Base",
+  "collection": {
+    "name": "DX Terminal",
+    "slug": "dx-terminal",
+    "creator": "DXTERMINAL",
+    "verified": false,
+    "category": "Gaming",
+    "contract": "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "items": null,
+    "totalSupply": null
+  },
+  "market": {
+    "floorPriceEth": null,
+    "topOfferEth": null,
+    "volume24hEth": null,
+    "totalVolumeEth": null,
+    "oneDayFloorChangePercent": -5,
+    "observationTimestamp": "2025-12-30T15:59:07.702Z"
+  },
+  "session": {
+    "userHandle": "Berry1984",
+    "wallet": "0xEb8447eeeEDaE9715F0c7600983BDa8e335fB256",
+    "ens": "berry1984second.cb.id",
+    "context": "OpenSea / Base DX Terminal viewing context for Berry1984 identity and session wallet"
+  },
+  "onChain": {
+    "contract": "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "treasuryCounterparty": "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2",
+    "treasuryOwnership": "unknown_third_party",
+    "mintRevenueFlow": "contract -> treasury_counterparty",
+    "internalTxSample": [],
+    "contractInfo": {
+      "creationTx": null,
+      "createdAt": null,
+      "ageDays": null,
+      "verified": false,
+      "contractName": null,
+      "compilerVersion": null
+    },
+    "nftActivity": {
+      "sampleTransferCount": 0,
+      "approxDistinctHoldersFromSample": 0,
+      "sampleTransfers": []
+    },
+    "notes": "On-chain data describes DX Terminal NFT contract behavior and its counterparty treasury flows; no custody claim over treasury."
+  },
+  "itemExemplar": {
+    "certId": "CERT_DX_ITEM_EDIREJECT_27770",
+    "tokenId": "27770",
+    "name": "EDIReject",
+    "floorPriceEth": null,
+    "lastSaleEth": null,
+    "status": "tradeable",
+    "anchors": {
+      "marketplace": "OpenSea",
+      "screenshotRef": "OPENSEA_DX_TERMINAL_EDIREJECT_27770_2025-12-30"
+    }
+  },
+  "slotMap": {
+    "DX_TERMINAL_SESSION": "0xEb8447eeeEDaE9715F0c7600983BDa8e335fB256",
+    "DX_TERMINAL_COLLECTION": "DX_TERMINAL_BASE",
+    "ETH_PRIMARY": "0x76837828D0Fff13998B2e28E74D191f96781220e",
+    "RABBY_1": "0x74df2c...a63a24"
+  },
+  "sources": {
+    "nodeSnapshot": "DX_TERMINAL_MASTER_CERT_2025-12-30T15-59-07-702Z.json",
+    "collectionCert": "CERT_DX_TERMINAL_COLLECTION_2025Q4",
+    "identityCert": "CERT_DX_TERMINAL_IDENTITY_LINK",
+    "itemCert": "CERT_DX_ITEM_EDIREJECT_27770"
+  },
+  "status": "active",
+  "notes": "Unified DX Terminal ledger object combining market data, on-chain flows (with third-party treasury), identity context, and exemplar item."
+}

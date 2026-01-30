@@ -1,0 +1,20 @@
+{
+  "nodeId": "DX_TERMINAL_METRICS",
+  "label": "DX Terminal Metrics Node",
+  "type": "metrics",
+  "status": "healthy",
+  "lastRun": "2026-01-28T21:14:00Z",
+  "lastSuccess": "2026-01-28T21:14:00Z",
+  "lastHash": "abc123deadbeef...",
+  "lastFile": "DX_TERMINAL_METRICS_2026-01-28T21-14-00Z.json",
+  "uptime": {
+    "successRate7d": 100,
+    "failures7d": 0,
+    "runs7d": 42
+  },
+  "meta": {
+    "chain": "Base",
+    "contract": "0xc4a2cafbf82c723628d10054b5b11c5f0ceedc0e",
+    "notes": "Auto-generated DX Terminal metrics snapshot (OpenSea + BaseScan, IPv4-safe)"
+  }
+}

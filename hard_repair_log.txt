@@ -1,0 +1,48 @@
+=== Berry Platform — Hard Integrity Repair Log ===
+Timestamp: Thu Jan 29 05:36:42 PM GMT 2026
+
+[2] Checking manifest JSON syntax...
+  ✔ Manifest is valid JSON
+[3] Manifest header:
+  platformId: BERRY_PLATFORM
+  status:     ready-for-host-deployment
+  version:    2026.01.28
+[4] Vault path:
+  Declared vault path: /mnt/chromeos/removable/Berry02
+  ✖ Vault path does NOT exist on host (ok if USB not mounted)
+[5] Scanning subsystems from manifest...
+  Subsystems declared: 2
+  → Subsystem: DX_TERMINAL (DX Terminal Collection Subsystem) [collection]
+    ✔ Orchestrator script: dx_terminal_orchestrator.js
+    ✔ Orchestrator heartbeat: DX_TERMINAL_SUBSYSTEM_HEARTBEAT.json
+    ℹ Orchestrator logfile: /tmp/dx_terminal_orchestrator.log (will be created at runtime)
+    Nodes: 3
+      • Node: DX_TERMINAL_NFT_METRICS
+        ✔ script: dx_terminal_nft_metrics.js
+        ✔ wrapper: dx_nft_metrics_wrapper.js
+        ✔ entrypoint: dx_nft_metrics_entrypoint.sh
+        ✔ heartbeat: DX_TERMINAL_NFT_METRICS_HEARTBEAT.json
+      • Node: DX_TERMINAL_METRICS
+        ✔ script: dx_terminal_metrics.js
+        ✔ wrapper: dx_metrics_wrapper.js
+        ✔ entrypoint: dx_metrics_entrypoint.sh
+        ✔ heartbeat: DX_TERMINAL_METRICS_HEARTBEAT.json
+      • Node: DX_TERMINAL_MASTER_CERT
+        ✔ script: dx_terminal_master_cert.js
+        ✔ wrapper: dx_master_cert_wrapper.js
+        ✔ entrypoint: dx_master_cert_entrypoint.sh
+        ✔ heartbeat: DX_TERMINAL_MASTER_HEARTBEAT.json
+
+  → Subsystem: RPC_HEALTH_MONITOR (RPC Health Monitoring Subsystem) [infrastructure]
+
+[6] Checking dashboard configuration...
+  ✔ statusAggregator: node_status_aggregator.js
+  ℹ dashboard output will be created at runtime: BERRY_PLATFORM_NODE_STATUS.json
+[7] Checking operator vs identity anchor...
+  ✔ Identity anchor present
+  Operator (manifest):
+    name:   Bez
+    wallet: 0xEb8447eeeEDaE9715F0c7600983BDa8e335fB256
+    ens:    berry1984second.cb.id
+[8] Hard Integrity Repair complete.
+    See /home/berry-base/BerryPlatform/hard_repair_log.txt for full details.

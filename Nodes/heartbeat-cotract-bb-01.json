@@ -1,0 +1,11 @@
+{
+  "nodeId": "heartbeat-contract-bb-01",
+  "label": "BoundlessBerries Contract Heartbeat",
+  "type": "heartbeat",
+  "schedule": "*/2 * * * *",
+  "meta": {
+    "chain": "Base",
+    "rpc": "https://base-mainnet.g.alchemy.com/v2/yourKey",
+    "contract": "0xa25e0Af7Dd580fcF7121FD7BE95c3f3beE258e8f"
+  }
+}

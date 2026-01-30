@@ -1,0 +1,20 @@
+{
+  "nodeId": "STRING",
+  "label": "STRING",
+  "type": "metrics | scanner | cert-node | dex-node | heartbeat",
+  "status": "healthy | degraded | error | offline",
+  "lastRun": "ISO-8601 timestamp",
+  "lastSuccess": "ISO-8601 timestamp or null",
+  "lastHash": "SHA256 or null",
+  "lastFile": "filename or null",
+  "uptime": {
+    "successRate7d": "PERCENT or null",
+    "failures7d": "NUMBER",
+    "runs7d": "NUMBER"
+  },
+  "meta": {
+    "chain": "Base | Ethereum | etc",
+    "contract": "0x…",
+    "notes": "STRING"
+  }
+}

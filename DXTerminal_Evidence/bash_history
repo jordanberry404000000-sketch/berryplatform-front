@@ -1,0 +1,2000 @@
+  | select(.value.address? and (.value.address | test("^0x[0-9a-fA-F]{40}$")))
+  | {
+      address: (.value.address | ascii_downcase),
+      symbol: (.value.symbol // ""),
+      name: (.value.name // ""),
+      decimals: (.value.decimals // ""),
+      chainId: (
+        if (.value.iconUrl? // "" | test("tokenIcons/[0-9]+/")) then
+          (.value.iconUrl | capture("tokenIcons/(?<cid>[0-9]+)/").cid)
+        else "" end
+      ),
+      aggregators: (.value.aggregators // [])
+    }
+  | [.address, .symbol, .name, .chainId, .decimals, (.aggregators | join("|"))]
+  | @csv
+' MetaMask_state.json > token_contracts_combined.csv
+sha256sum token_contracts_combined.csv >> CERT_METAMASK_STATE_0X_SWARM.sha256
+find ~/ -type f -size 0 -print > empty_files.txt
+cat empty_files.txt | xargs -I{} echo "rm '{}'" > purge_script.sh
+bash purge_script.sh
+find ~/ -type f -name "*.json" -exec jq empty {} \; -exec echo {} \; 2>&1 | grep -B1 "parse error" > broken_json.txt
+cat broken_json.txt | grep '^/' | xargs -I{} echo "rm '{}'" >> purge_script.sh
+bash purge_script.sh
+mkdir -p /media/usb1/cert_blocks
+cp CERT_METAMASK_STATE_*.tar.gz /media/usb1/cert_blocks/
+cp CERT_METAMASK_STATE_*.sha256 /media/usb1/cert_blocks/
+mkdir -p /media/sdcard/cert_blocks
+cp CERT_METAMASK_STATE_*.tar.gz /media/sdcard/cert_blocks/
+ls /media/usb1/cert_blocks > /media/usb1/cert_blocks/index.txt
+ls /media/sdcard/cert_blocks > /media/sdcard/cert_blocks/index.txt
+sha256sum walletchainaggregatorpivot.csv >> CERTMETAMASKSTATE0X_SWARM.sha256
+sha256sum wallet_chain_aggregator_pivot.csv >> CERT_METAMASK_STATE_0X_SWARM.sha256
+du -b token_contract_addresses.txt token_contracts_combined.csv chain_counts.txt aggregator_counts.txt wallet_chain_aggregator_pivot.csv CERT_METAMASK_STATE_0X_SWARM.sha256
+# Find empty files
+find ~/ -type f -size 0 > empty_files.txt
+# Find broken JSON files
+find ~/ -type f -name "*.json" -exec jq empty {} \; -exec echo {} \; 2>&1 | grep -B1 "parse error" | grep '^/' > broken_json.txt
+# Combine purge list
+cat empty_files.txt broken_json.txt > purge_list.txt
+cat purge_list.txt | xargs -I{} echo "rm '{}'" > purge_bad_files.sh
+chmod +x purge_bad_files.sh
+bash purge_bad_files.sh
+jq -r '
+  to_entries[]
+  | select(.value.address? and (.value.address | test("^0x[0-9a-fA-F]{40}$")))
+  | {
+      address: (.value.address | ascii_downcase),
+      symbol: (.value.symbol // ""),
+      name: (.value.name // ""),
+      decimals: (.value.decimals // ""),
+      chainId: (
+        if (.value.iconUrl? // "" | test("tokenIcons/[0-9]+/")) then
+          (.value.iconUrl | capture("tokenIcons/(?<cid>[0-9]+)/").cid)
+        else "" end
+      ),
+      aggregators: (.value.aggregators // [])
+    }
+  | [.address, .symbol, .name, .chainId, .decimals, (.aggregators | join("|"))]
+  | @csv
+' MetaMask_state.json > token_contracts_combined.csv
+sha256sum token_contracts_combined.csv >> CERT_METAMASK_STATE_0X_SWARM.sha256
+cut -d, -f4 token_contracts_combined.csv | tail -n +2 | sort | uniq -c | sort -nr > chain_counts.txt
+sha256sum chain_counts.txt >> CERT_METAMASK_STATE_0X_SWARM.sha256
+cut -d, -f6 token_contracts_combined.csv | tail -n +2 | tr '|' '\n' | sort | uniq -c | sort -nr > aggregator_counts.txt
+sha256sum aggregator_counts.txt >> CERT_METAMASK_STATE_0X_SWARM.sha256
+awk -F, 'NR==1{next} {split($6,aggs,"|"); for(i in aggs){print "selectedAddress,"$4","aggs[i]}}' token_contracts_combined.csv | sort | uniq -c | awk '{print $2","$3","$4","$1}' > wallet_chain_aggregator_pivot.csv
+sha256sum wallet_chain_aggregator_pivot.csv >> CERT_METAMASK_STATE_0X_SWARM.sha256
+cp token_contracts_combined.csv chain_counts.txt aggregator_counts.txt wallet_chain_aggregator_pivot.csv /media/usb1/cert_blocks/
+lsblk
+mkdir -p ~/usb1
+sudo mount /dev/sda1 ~/usb1
+mkdir -p ~/usb2
+sudo mount /dev/sdb2 ~/usb2
+df -h | grep usb
+sudo apt-get install -y exfat-fuse exfat-utils
+sudo mount /dev/sda1 ~/usb1
+ls /mnt/chromeos/removable/
+mkdir -p "/mnt/chromeos/removable/SD Card/cert_blocks"
+cp token_contracts_combined.csv chain_counts.txt aggregator_counts.txt wallet_chain_aggregator_pivot.csv CERT_METAMASK_STATE_0X_SWARM.sha256 "/mnt/chromeos/removable/SD Card/cert_blocks/"
+ls -lh "/mnt/chromeos/removable/SD Card/cert_blocks"
+jq -r '
+  to_entries[]
+  | select(.value.address? and (.value.address | test("^0x[0-9a-fA-F]{40}$")))
+  | {
+      address: (.value.address | ascii_downcase),
+      symbol: (.value.symbol // ""),
+      name: (.value.name // ""),
+      decimals: (.value.decimals // ""),
+      chainId: (
+        if (.value.iconUrl? // "" | test("tokenIcons/[0-9]+/")) then
+          (.value.iconUrl | capture("tokenIcons/(?<cid>[0-9]+)/").cid)
+        else "" end
+      ),
+      aggregators: (.value.aggregators // [])
+    }
+  | [.address, .symbol, .name, .chainId, .decimals, (.aggregators | join("|"))]
+  | @csv
+' MetaMask_state.json > "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv"
+cut -d, -f4 "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | tail -n +2 | sort | uniq -c | sort -nr > "/mnt/chromeos/removable/SD Card/cert_blocks/chain_counts.txt"
+cut -d, -f6 "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | tail -n +2 | tr '|' '\n' | sort | uniq -c | sort -nr > "/mnt/chromeos/removable/SD Card/cert_blocks/aggregator_counts.txt"
+awk -F, 'NR==1{next} {split($6,aggs,"|"); for(i in aggs){print "selectedAddress,"$4","aggs[i]}}' "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | sort | uniq -c | awk '{print $2","$3","$4","$1}' > "/mnt/chromeos/removable/SD Card/cert_blocks/wallet_chain_aggregator_pivot.csv"
+ls -lh "/mnt/chromeos/removable/SD Card/cert_blocks"
+ls -lh MetaMask_state.json
+jq 'keys' MetaMask_state.json | head -20
+jq '.metamask | keys' MetaMask_state.json | head -30
+jq -r '
+  .metamask.allTokens
+  | to_entries[]
+  | .value[]
+  | {
+      address: (.address // ""),
+      symbol: (.symbol // ""),
+      name: (.name // ""),
+      chainId: (.chainId // ""),
+      decimals: (.decimals // ""),
+      aggregators: (.aggregators // [])
+    }
+  | [.address, .symbol, .name, .chainId, .decimals, (.aggregators | join("|"))]
+  | @csv
+' MetaMask_state.json > "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv"
+cut -d, -f4 "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | tail -n +2 | sort | uniq -c | sort -nr > "/mnt/chromeos/removable/SD Card/cert_blocks/chain_counts.txt"
+cut -d, -f6 "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | tail -n +2 | tr '|' '\n' | sort | uniq -c | sort -nr > "/mnt/chromeos/removable/SD Card/cert_blocks/aggregator_counts.txt"
+awk -F, 'NR==1{next} {split($6,aggs,"|"); for(i in aggs){print "selectedAddress,"$4","aggs[i]}}' "/mnt/chromeos/removable/SD Card/cert_blocks/token_contracts_combined.csv" | sort | uniq -c | awk '{print $2","$3","$4","$1}' > "/mnt/chromeos/removable/SD Card/cert_blocks/wallet_chain_aggregator_pivot.csv"
+ls -lh "/mnt/chromeos/removable/SD Card/cert_blocks"
+[200~curl --request GET   --url https://api.prime.coinbase.com/v1/portfolios~
+PortfoliosService portfoliosService = PrimeServiceFactory.createPortfoliosService(client);
+ListPortfoliosResponse response = portfoliosService.listPortfolios();
+import requests
+url = "https://api.prime.coinbase.com/v1/portfolios"
+response = requests.get(url)
+print(response.text)
+cdp.js
+run_cdp.js
+node np
+node
+base id
+/base.id
+jordanberry.base.eth
+find berry.base
+berry.base.eth
+run npm.js/berry.base.rth
+import { CdpClient } from "@coinbase/cdp-sdk";
+import dotenv from "dotenv";
+dotenv.config();
+const cdp = new CdpClient();
+const account = await cdp.evm.createAccount();
+console.log(`Created EVM account: ${account.address}`);
+npm get list
+npm config get key
+npm get key
+get npm key
+find npm key
+get key 
+npm get key
+⟨/commands/npm-config#location⟩ 
+npm get
+npm config audit
+npm fix config
+config find
+config npm files/key
+npm run
+npm config list
+"run npm config 1s -1"
+npm install @coinbase/cdp-sdk
+console.log(process.env.KEY_NAME, process.env.KEY_SECRET);
+import { generateJwt } from "@coinbase/cdp-sdk/auth";
+// For REST (HTTP) requests
+const jwt = await generateJwt({
+});
+console.log(jwt);
+// For websocket connections
+const websocketJwt = await generateJwt({
+});
+console.log(websocketJwt);
+pnpm cat-file sha512-mvavhfVcEREI7d8dfvfvIkuBLnx7+rrkHHnPi8mpEDUlNpY4CUY+CvJ5mrrLl18iQYo1odFwBV7z/cOypG7xxQ==pnpm cat-file sha512-mvavhfVcEREI7d8dfvfvIkuBLnx7+rrkHHnPi8mpEDUlNpY4CUY+CvJ5mrrLl18iQYo1odFwBV7z/cOypG7xxQ==
+pnpm cat-file sha512-mvavhfVcEREI7d8dfvfvIkuBLnx7+rrkHHnPi8mpEDUlNpY4CUY+CvJ5mrrLl18iQYo1odFwBV7z/cOypG7xxQ==
+pnpm cat-index <pkg name>@<pkg version>
+npm audit
+npm fix
+npm help
+const jwt = await generateJwt({
+npm fix
+npm update
+npm audit
+npm accounts
+npm help
+npm help config
+npm audit
+view, whoami
+whoami
+npm profile
+find token [200~npm@10.9.4 /home/berry1984/.config/nvm/versions/node/v22.21.1/lib/node_modules/npm~
+<dependency>
+</dependency>
+npm new token pharse
+npm help
+get  https://api.coinbase.com/v2/accounts
+pip install PyJWT==2.8.0
+pip install cryptography==42.0.5
+export KEY_NAME="organizations/{org_id}/apiKeys/{key_id}"
+export KEY_SECRET="-----BEGIN EC PRIVATE KEY-----\nYOUR PRIVATE KEY\n-----END EC PRIVATE KEY-----\n"
+export REQUEST_METHOD="GET"
+export REQUEST_PATH="/api/v3/brokerage/accounts"
+export REQUEST_HOST="api.coinbase.com"
+npm install jsonwebtoken
+import jwt
+from cryptography.hazmat.primitives import serialization
+import time
+import secrets
+import os 
+# Fetch values from exported environment variables
+key_name = os.getenv('KEY_NAME')  
+key_secret = os.getenv('KEY_SECRET') 
+request_method = os.getenv('REQUEST_METHOD')  
+request_host = os.getenv('REQUEST_HOST')  
+request_path = os.getenv('REQUEST_PATH')  
+def build_jwt(uri):
+def main():
+if __name__ == "__main__":;     main()# Install dependencies
+pip install PyJWT cryptography
+# Run the script
+python main.py
+export API_ENDPOINT="https://$REQUEST_HOST$REQUEST_PATH"
+# Now, use that endpoint in your curl command
+curl -L -X "$HTTP_METHOD" "$API_ENDPOINT"   -H "Authorization: Bearer $JWT"   -H "Content-Type: application/json"   -H "Accept: application/json"
+{   "mcpServers": {;     "wpcom-mcp": {;       "command": "npx",;       "args": [;         "-y",;         "@automattic/mcp-wpcom-remote@latest";       ];     }
+}
+npm run
+npm jordanberry.base.eth
+npm help
+{   "starred": false,;   "editors_can_edit_access": true,;   "last_modified_by_any_user": "2025-02-21T02:57:57.300Z",;   "last_modified_by_me": "2025-02-21T02:57:57.300Z",;   "content_last_modified": "2025-02-21T02:57:57.300Z",;   "created": "2025-02-21T02:57:57.608Z",;   "permissions": [;     {       "id": "16973450727463536867",;       "name": "Jordan Berry",;       "type": "user",;       "role": "owner",;       "value": "jordanberry493@gmail.com",;       "kind": "drive#permission",;       "photo_link": "https://lh3.googleusercontent.com/a/ACg8ocIyVtt_JkErtYaQNE8AviY7K1u2MJbiLKMwSawFGhE-EKm9ytOl=s64",;       "email_address": "jordanberry493@gmail.com",;       "domain": "gmail.com",;       "deleted": false,;       "pending_owner": false;     };   ],;   "title": "acorn-loose.d.ts",;   "drive_id": "1pPP0NxHjkETMUdhp98r572ePCu2j9Kp5",;   "mime_type": "video/mpeg"; }
+npm debug
+run cdp debug
+npm check
+POST https://api.coinbase.com/v2/accounts/:account_id/transactions
+curl https://api.coinbase.com/v2/accounts/:account_id/transactions   -X POST   -H 'Authorization: Bearer <token>'   -d '{"type": "send", "to": "1AUJ8z5...", "amount": "0.1", "currency": "BTC"}'
+POST https://api.coinbase.com/v2/accounts/:account_id/transactions
+export KEY_NAME="organizations/{org_id}/apiKeys/{key_id}"
+export KEY_SECRET="-----BEGIN EC PRIVATE KEY-----\nYOUR PRIVATE KEY\n-----END EC PRIVATE KEY-----\n"
+export REQUEST_METHOD="GET"
+export REQUEST_PATH="/api/v3/brokerage/accounts"
+export REQUEST_HOST="api.coinbase.com"
+npm install jsonwebtoken
+mkdir go-jwt-example
+touch main.py
+touch main.ts
+touch main.py
+import jwt
+from cryptography.hazmat.primitives import serialization
+import time
+import secrets
+import os 
+# Fetch values from exported environment variables
+key_name = os.getenv('KEY_NAME')  
+key_secret = os.getenv('KEY_SECRET') 
+request_method = os.getenv('REQUEST_METHOD')  
+request_host = os.getenv('REQUEST_HOST')  
+request_path = os.getenv('REQUEST_PATH')  
+def build_jwt(uri):
+def main():
+if __name__ == "__main__":;     main()
+pip install PyJWT cryptography
+# Run the script
+python main.py
+export API_ENDPOINT="https://$REQUEST_HOST$REQUEST_PATH"
+# Now, use that endpoint in your curl command
+curl -L -X "$HTTP_METHOD" "$API_ENDPOINT"   -H "Authorization: Bearer $JWT"   -H "Content-Type: application/json"   -H "Accept: application/json"
+export API_ENDPOINT="https://$REQUEST_HOST$REQUEST_PATH"
+# Now, use that endpoint in your curl command
+curl -L -X "$HTTP_METHOD" "$API_ENDPOINT"   -H "Authorization: Bearer $JWT"   -H "Content-Type: application/json"   -H "Accept: application/json"
+pip install PyJWT cryptography
+python main.py
+pip install PyJWT cryptography
+python main.py
+eyJhbGciOiJFUzI1NiIsImtpZCI6Im9yZ2FuaXphdGlvbnMvLi4uIiwibm9uY2UiOiIuLi4ifQ.eyJzdWIiOi...
+pip install PyJWT cryptography
+python main.pyeyJhbGciOiJFUzI1NiIsImtpZCI6Im9yZ2FuaXphdGlvbnMvLi4uIiwibm9uY2UiOiIuLi4ifQ.eyJzdWIiOi...export API_ENDPOINT="https://$REQUEST_HOST$REQUEST_PATH"
+# Now, use that endpoint in your curl command
+curl -L -X "$HTTP_METHOD" "$API_ENDPOINT"   -H "Authorization: Bearer $JWT"   -H "Content-Type: application/json"   -H "Accept: application/json"
+pip install PyJWT cryptography
+python main.py
+export JWT=$(python main.py)
+curl -H "Authorization: Bearer $JWT" "https://api.coinbase.com/api/v3/brokerage/accounts"
+Cache-Control: <directive>, <directive>, ...
+https://api.developer.coinbase.com/rpc/v1/base/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu
+curl -s https://api.developer.coinbase.com/rpc/v1/base/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "id": 1, "method": "eth_blockNumber", "params": []}'
+import { CdpClient } from "@coinbase/cdp-sdk";
+import dotenv from "dotenv";
+dotenv.config();
+const cdp = new CdpClient();
+const account = await cdp.evm.createAccount();
+console.log(`Created EVM account: ${account.address}`);
+import asyncio
+from cdp import CdpClient
+from dotenv import load_dotenv
+load_dotenv() async def main():
+asyncio.run(main())
+run npm
+get npm
+import { CdpClient } from "@coinbase/cdp-sdk";
+import dotenv from "dotenv";
+dotenv.config();
+const cdp = new CdpClient();
+const account = await cdp.evm.createAccount();
+const faucetResponse = await cdp.evm.requestFaucet({
+});
+console.log(`Requested funds from ETH faucet: https://sepolia.basescan.org/tx/${faucetResponse.transactionHash}`);
+import asyncio
+from cdp import CdpClient
+from dotenv import load_dotenv
+load_dotenv() async def main():
+asyncio.run(main())
+syntax audit
+.env
+const account = await cdp.solana.getOrCreateAccount({
+});
+npm_config_
+"xdg-open"
+#!/usr/bin/env bash
+set -euo pipefail
+# Colors
+g="\033[32m" # Green
+y="\033[33m" # Yellow
+b="\033[34m" # Blue
+p="\033[35m" # Purple
+r="\033[0m"  # Reset
+bold="\033[1m"
+export DOCKER_CLI_HINTS=false
+if [ ! -t 0 ]; then   NON_INTERACTIVE=1; else   NON_INTERACTIVE=${NON_INTERACTIVE:-0}; fi
+AZTEC_PATH=$HOME/.aztec
+BIN_PATH=${BIN_PATH:-$AZTEC_PATH/bin}
+# Define version if specified, otherwise set to "latest".
+VERSION=${VERSION:-"latest"}
+INSTALL_URI=${INSTALL_URI:-https://install.aztec.network}
+if [ "$VERSION" != "latest" ]; then   INSTALL_URI+="/$VERSION"; fi
+# Add color to the AZTEC ascii art.
+function print_colored() {   local b=$'\033[34m' # Blue
+  local y=$'\033[33m' # Yellow
+  local r=$'\033[0m'  # Reset
+  echo "$1" | sed -E "s/(█+)/${b}\1${y}/g"; }
+function title() {   echo;   print_colored " █████╗ ███████╗████████╗███████╗ ██████╗";   print_colored "██╔══██╗╚══███╔╝╚══██╔══╝██╔════╝██╔════╝";   print_colored "███████║  ███╔╝    ██║   █████╗  ██║";   print_colored "██╔══██║ ███╔╝     ██║   ██╔══╝  ██║";   print_colored "██║  ██║███████╗   ██║   ███████╗╚██████╗";   print_colored "╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝ ╚═════╝";   echo -e "${r}";   echo -e "Welcome to the ${bold}${b}Aztec${r} installer! Your journey into blockchain privacy begins... ${bold}${p}now${r}.";   echo -e "We provide a docker image that works on any modern system (specifically: x64 or ARM64).";   echo -e "Please ensure docker is installed for your platform: https://docs.docker.com/engine/install";   echo;   if [ "$(uname -s)" == "Darwin" ]; then     echo -e "${y}WARNING: For best performance we recommend adjusting your default docker settings:";     echo -e "         - Under general, enable VirtioFS.";     echo -e "         - Under resources, set CPUs to ~80% your maximum.";     echo -e "         - Under resources, set Memory to ~80% your maximum.";     echo -e "You may receive a warning about your home directory being mounted into a container.";     echo -e "This is requested so we can read and write project files, that is all.";     echo -e "${r}";   fi;   echo -e "This will install the following scripts and update your PATH if necessary:";   echo -e "  ${bold}${g}aztec${r}                      - a collection of tools to launch subsystems and interact with the aztec network.";   echo -e "  ${bold}${g}aztec-nargo${r}                - aztec's build of nargo, the noir compiler toolchain.";   echo -e "  ${bold}${g}aztec-postprocess-contract${r} - postprocessing tool for Aztec contracts (transpilation and VK generation).";   echo -e "  ${bold}${g}aztec-up${r}                   - a tool to upgrade the aztec toolchain to the latest, or specific versions.";   echo -e "  ${bold}${g}aztec-wallet${r}               - our minimalistic CLI wallet";   echo;   read -p "Do you wish to continue? (y/n)" -n 1 -r;   echo;   if [[ ! $REPLY =~ ^[Yy]$ ]]; then     exit 0;   fi; }
+# Print text in green.
+function info {   echo -e "${g}$1${r}"; }
+# Print text in yellow.
+function warn {   echo -e "${y}$1${r}"; }
+# Copy a file from the install source path to the bin path and make it executable.
+function install_bin {   local dest="$BIN_PATH/$1";   curl -fsSL "$INSTALL_URI/$1" -o "$dest";   chmod +x "$dest";   echo "Installed: $dest"; }
+# Updates appropriate shell script to ensure the bin path is in the PATH.
+function update_path_env_var {   TARGET_DIR="${1}"
+  if [[ ":$PATH:" != *":$TARGET_DIR:"* ]]; then
+    SHELL_PROFILE="";     case $SHELL in     */bash)       SHELL_PROFILE="$HOME/.bash_profile";       ;;     */zsh)       SHELL_PROFILE="$HOME/.zshrc";       ;;
+    *)       echo "Unsupported shell: $SHELL";       return;       ;;     esac;      if [ "$NON_INTERACTIVE" -eq 0 ]; then
+      warn "The directory $TARGET_DIR is not in your PATH.";       read -p "Add it to $SHELL_PROFILE to make the aztec binaries accessible? (y/n)" -n 1 -r;       echo;       if [[ ! $REPLY =~ ^[Yy]$ ]]; then         warn "Skipped updating PATH. You might need to add $TARGET_DIR to your PATH manually to use the binary.";         return;       fi;     fi; 
+    echo "export PATH=\"\$PATH:$TARGET_DIR\"" >>"$SHELL_PROFILE";      if [ "$NON_INTERACTIVE" -eq 0 ] && [ "${NO_NEW_SHELL:-0}" -eq 0 ]; then       info "Done! Starting fresh shell...";       exec $SHELL;     fi;   fi; }
+# Show title if we're in a terminal.
+[ "$NON_INTERACTIVE" -eq 0 ] && title
+# Check if Docker is available.
+if ! command -v docker &>/dev/null; then   warn "Docker is not installed. Please install Docker and try again.";   exit 1; fi
+ssh dappnode@<DAPPNODE_LOCAL_IP_ADDRESS>
+npm
+npm help 7 config
+npm audit
+ssh dappnode@<DAPPNODE_LOCAL_IP_ADDRESS>
+ssh dappnode@<192.168.0.1
+bash -i <(curl -s https://install.aztec.network)
+aztec-up
+aztec
+$ repo init -u https://android.googlesource.com/a/platform/manifest
+URI: http://c.pki.goog/wr2/75r4ZyA3vA0.crl
+./generate-gateway.sh --proto-path ./examples/currency.proto
+https://github.com/grpc-ecosystem/grpc-gateway
+package customparser
+import (
+	"net/url"
+	"strconv"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
+	"google.golang.org/protobuf/proto"
+	your_service_v1 "path/to/your/service/v1"
+)
+// CustomQueryParameterParser parses query parameters into the appropriate gRPC message fields.
+type CustomQueryParameterParser struct{}
+// Parse parses query parameters and populates the appropriate fields in the gRPC request message.
+func (p *CustomQueryParameterParser) Parse(target proto.Message, values url.Values, filter *utilities.DoubleArray) error {
+	switch req := target.(type) {
+	// Different messages/requests can have different parsers, of course
+	case *your_service_v1.ListStuffRequest: 		return populateListStuffParams(values, req)
+	}
+	
+	return (runtime.DefaultQueryParser{}).Parse(target, values, filter)
+}
+// populateListStuffParams populates the ListStuffRequest with query parameters.
+func populateListStuffParams(values url.Values, r *your_service_v1.ListStuffRequest) error {
+	pageOptions := &your_service_v1.PageOptions{}
+	
+	if limit := values.Get("limit"); limit != "" {
+		if parsedLimit, err := strconv.Atoi(limit); err == nil {
+			pageOptions.Limit = int32(parsedLimit)
+		}
+	}
+	if page := values.Get("page"); page != "" {
+		if parsedPage, err := strconv.Atoi(page); err == nil {
+			pageOptions.Page = int32(parsedPage)
+		}
+	}
+	r.Pagination = pageOptions
+	return nil
+}
+package main
+import (
+	"context"
+	"net/http"
+	
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/encoding/protojson"
+	"your_module/path/customparser"
+)
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+	// whatever custom code you may need before you create the mux...
+	
+	return runtime.NewServeMux(
+		// Custom query parameter parser
+		runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+		
+		// other runtime options you may need...
+	)
+}
+package main
+import (
+	"context"
+	"net/http"
+	
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/encoding/protojson"
+	"your_module/path/customparser"
+)
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+	// whatever custom code you may need before you create the mux...
+	
+	return runtime.NewServeMux(
+		// Custom query parameter parser
+		runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+		
+		// other runtime options you may need...
+	)
+}
+package main
+import (
+	"context"
+	"net/http"
+	
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc/metadata"
+	"google.golang.org/protobuf/encoding/protojson"
+	"your_module/path/customparser"
+)
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+	// whatever custom code you may need before you create the mux...
+	
+	return runtime.NewServeMux(
+		// Custom query parameter parser
+		runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+		
+		// other runtime options you may need...
+	)
+}import (
+type: google.api.Service
+config_version: 3
+name: calendar.googleapis.com
+title: Google Calendar API
+apis:
+- name: google.calendar.v3.Calendar
+authentication:
+backend:
+Each subsection typically corresponds to a .proto message where you configure various aspects of the service. For example:
+authentication: specifies how callers are authenticated.
+backend: controls remote backend routing.
+http: defines the rules for mapping an RPC method to one or more HTTP REST API methods.
+usage: lets you selectively enable and disable API key validation.
+The official schema for the service configuration is defined by the .proto message google.api.Service.
+Basic configuration
+The Bookstore sample, which is used in the gRPC tutorials, includes a basic interface definition file and a service configuration file.
+The Bookstore interface definition, bookstore.proto:
+syntax = "proto3";
+package endpoints.examples.bookstore;
+option java_multiple_files = true;
+option java_outer_classname = "BookstoreProto";
+option java_package = "com.google.endpoints.examples.bookstore";
+import "google/protobuf/empty.proto";
+service Bookstore {
+}
+message Shelf {
+}
+message Book {
+}
+The Bookstore service configuration, api_config.yaml:
+type: google.api.Service
+config_version: 3
+name: bookstore.endpoints.MY_PROJECT_ID.cloud.goog
+title: Bookstore gRPC API
+apis:
+- name: endpoints.examples.bookstore.Bookstore
+list errors 
+npm_update
+update npm
+npm audit
+https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+berry1984@penguin:~$ $ repo init -u https://android.googlesource.com/a/platform/manifest
+-bash: $: command not found
+berry1984@penguin:~$ URI: http://c.pki.goog/wr2/75r4ZyA3vA0.crl
+-bash: URI:: command not found
+berry1984@penguin:~$ ./generate-gateway.sh --proto-path ./examples/currency.proto
+-bash: ./generate-gateway.sh: No such file or directory
+berry1984@penguin:~$ https://github.com/grpc-ecosystem/grpc-gateway
+-bash: https://github.com/grpc-ecosystem/grpc-gateway: No such file or directory
+berry1984@penguin:~$ package customparser
+import (
+)
+// CustomQueryParameterParser parses query parameters into the appropriate gRPC message fields.
+type CustomQueryParameterParser struct{}
+// Parse parses query parameters and populates the appropriate fields in the gRPC request message.
+func (p *CustomQueryParameterParser) Parse(target proto.Message, values url.Values, filter *utilities.DoubleArray) error {
+}       return nilon = pageOptionss.Page = int32(parsedPage)r == nil { {tuffRequest) error
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: net/url: No such file or directory
+-bash: strconv: command not found
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/utilities: No such file or directory
+-bash: google.golang.org/protobuf/proto: No such file or directory
+-bash: your_service_v1: command not found
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: type: CustomQueryParameterParser: not found
+-bash: type: struct{}: not found
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `p'
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `return'
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `runtime.DefaultQueryParser{}'
+-bash: syntax error near unexpected token `}'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+[1] 7099
+-bash: your_service_v1.PageOptions{}: command not found
+-bash: pageOptions: command not found
+[1]+  Exit 127                pageOptions :=
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `}'
+-bash: r.Pagination: command not found
+-bash: return: nil: numeric argument required
+-bash: return: can only `return' from a function or sourced script
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+}       )
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+}       )
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+        "your_module/path/customparser"oding/protojson"ime"
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+berry1984@penguin:~$ type: google.api.Service
+config_version: 3
+name: calendar.googleapis.com
+title: Google Calendar API
+apis:
+- name: google.calendar.v3.Calendar
+authentication:
+  providers:
+  - id: google_calendar_auth
+    jwks_uri: https://www.googleapis.com/oauth2/v1/certs
+    issuer: https://securetoken.google.com
+  rules:
+  - selector: "*"
+    requirements:
+      provider_id: google_calendar_auth
+backend:
+  rules:
+    - selector: "*"
+      address: grpcs://my-service-98sdf8sd0-uc.a.run.app
+Each subsection typically corresponds to a .proto message where you configure various aspects of the service. For example:
+
+authentication: specifies how callers are authenticated.
+- name: endpoints.examples.bookstore.Bookstoregoogml:rotobuf.Empty) {}{}}ic interface defi
+-bash: type:: command not found
+-bash: config_version:: command not found
+-bash: name:: command not found
+-bash: title:: command not found
+-bash: apis:: command not found
+-bash: -: command not found
+-bash: authentication:: command not found
+-bash: providers:: command not found
+-bash: -: command not found
+-bash: jwks_uri:: command not found
+-bash: issuer:: command not found
+-bash: rules:: command not found
+-bash: -: command not found
+-bash: requirements:: command not found
+-bash: provider_id:: command not found
+-bash: backend:: command not found
+-bash: rules:: command not found
+-bash: -: command not found
+-bash: address:: command not found
+-bash: Each: command not found
+-bash: authentication:: command not found
+-bash: backend:: command not found
+-bash: http:: command not found
+-bash: usage:: command not found
+-bash: The: command not found
+-bash: Basic: command not found
+-bash: The: command not found
+-bash: The: command not found
+-bash: syntax: command not found
+-bash: package: command not found
+-bash: option: command not found
+-bash: option: command not found
+-bash: option: command not found
+-bash: import: command not found
+-bash: service: command not found
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: message: command not found
+-bash: int64: command not found
+-bash: string: command not found
+-bash: syntax error near unexpected token `}'
+-bash: message: command not found
+-bash: int64: command not found
+-bash: string: command not found
+-bash: syntax error near unexpected token `}'
+-bash: The: command not found
+-bash: type:: command not found
+-bash: config_version:: command not found
+-bash: name:: command not found
+-bash: title:: command not found
+-bash: apis:: command not found
+-bash: -: command not found
+berry1984@penguin:~$ list errors 
+-bash: list: command not found
+berry1984@penguin:~$ npm_update
+-bash: npm_update: command not found
+berry1984@penguin:~$ update npm
+-bash: update: command not found
+berry1984@penguin:~$ npm audit
+# npm audit report
+
+form-data  <2.5.4
+Severity: critical
+form-data uses unsafe random function in form-data for choosing boundary - https://github.com/advisories/GHSA-fjxv-7rqg-78g4
+No fix available
+node_modules/request/node_modules/form-data
+  request  *
+  Depends on vulnerable versions of form-data
+  Depends on vulnerable versions of tough-cookie
+  node_modules/request
+
+
+tough-cookie  <4.1.3
+Severity: moderate
+tough-cookie Prototype Pollution vulnerability - https://github.com/advisories/GHSA-72xf-g2v4-qvf3
+No fix available
+node_modules/tough-cookie
+
+3 vulnerabilities (1 moderate, 2 critical)
+
+Some issues need review, and may require choosing
+a different dependency.
+berry1984@penguin:~$ https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+-bash: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32: No such file or directory
+berry1984@penguin:~$ https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+-bash: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32: No such file or directory
+berry1984@penguin:~$ 
+https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1
+openjs-copyright
+dependabot/npm_and_yarn/next-14.2.35
+dependabot/npm_and_yarn/packages/benchmarks/generator/jws-3.2.3
+main
+dependabot/npm_and_yarn/glob-10.5.0
+code-of-conduct
+lit-ssr-direct-html
+dependabot/npm_and_yarn/modelcontextprotocol/sdk-1.24.0dependabot/npm_and_yarn/multi-75e6bc5210dependabot/npm_and_yarn/glob-10.5.0openjs-copyrightlru-static-cache4.0-css-tagcustom-static-cachessr-thunks-benchmarks
+dependabot/npm_and_yarn/packages/benchmarks/generator/multi-ec1cdd145c
+configurable-ssr-cache
+nmp audit
+npm cbp base run
+npm audit
+list dependency
+get -1_v=1
+//aut_run==
+====
+#
+open==
+//open=
+Bumps the actions group with 4 updates: [actions/setup-go](https://github.com/actions/setup-go), [actions/github-script](https://github.com/actions/github-script), [actions/setup-node](https://github.com/actions/setup-node) and [actions/setup-python](https://github.com/actions/setup-python).
+Updates `actions/setup-go` from 5 to 6
+- [Release notes](https://github.com/actions/setup-go/releases)
+- [Commits](actions/setup-go@v5...v6)
+Updates `actions/github-script` from 7 to 8
+- [Release notes](https://github.com/actions/github-script/releases)
+- [Commits](actions/github-script@v7...v8)
+Updates `actions/setup-node` from 4 to 5
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](actions/setup-node@v4...v5)
+Updates `actions/setup-python` from 5 to 6
+- [Release notes](https://github.com/actions/setup-python/releases)
+- [Commits](actions/setup-python@v5...v6)
+---
+updated-dependencies:
+- dependency-name: actions/setup-go
+- dependency-name: actions/github-script
+- dependency-name: actions/setup-node
+- dependency-name: actions/setup-python
+...
+function elite { local GRAY="\[\033[1;30m\]"; local LIGHT_GRAY="\[\033[0;37m\]"; local CYAN="\[\033[0;36m\]"; local LIGHT_CYAN="\[\033[1;36m\]"; local NO_COLOUR="\[\033[0m\]";  case $TERM in     xterm*|rxvt*)         local TITLEBAR='\[\033]0;\u@\h:\w\007\]';         ;;     *)         local TITLEBAR="";         ;; esac;  local temp=$(tty); local GRAD1=${temp:5}; PS1="$TITLEBAR\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\u$GRAY@$CYAN\h\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\#$GRAY/$CYAN$GRAD1\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\$(date +%H%M)$GRAY/$CYAN\$(date +%d-%b-%y)\
+$LIGHT_CYAN)$CYAN-$GRAY-\
+$LIGHT_GRAY\n\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\$$GRAY:$CYAN\w\
+$LIGHT_CYAN)$CYAN-$GRAY-$LIGHT_GRAY " ; PS2="$LIGHT_CYAN-$CYAN-$GRAY-$NO_COLOUR "; }
+I define the colours as temporary shell variables in the name of readability. It's easier to work with. The "GRAD1" variable is a check to determine what terminal you're on. Like the test to determine if you're working in an Xterm, it only needs to be done once. The prompt you see look like this, except in colour:
+
+--(giles@gcsu202014)-(30/pts/6)-(0816/01-Aug-01)--
+--($:~/tmp)--
+audit
+run audit
+npm audit
+npm fix
+npm help
+npm completion
+const { generateJwt } = require("@coinbase/cdp-sdk/auth");
+function elite { local GRAY="\[\033[1;30m\]"; local LIGHT_GRAY="\[\033[0;37m\]"; local CYAN="\[\033[0;36m\]"; local LIGHT_CYAN="\[\033[1;36m\]"; local NO_COLOUR="\[\033[0m\]";  case $TERM in     xterm*|rxvt*)         local TITLEBAR='\[\033]0;\u@\h:\w\007\]';         ;;     *)         local TITLEBAR="";         ;; esac;  local temp=$(tty); local GRAD1=${temp:5}; PS1="$TITLEBAR\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\u$GRAY@$CYAN\h\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\#$GRAY/$CYAN$GRAD1\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\$(date +%H%M)$GRAY/$CYAN\$(date +%d-%b-%y)\
+$LIGHT_CYAN)$CYAN-$GRAY-\
+$LIGHT_GRAY\n\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\$$GRAY:$CYAN\w\
+$LIGHT_CYAN)$CYAN-$GRAY-$LIGHT_GRAY " ; PS2="$LIGHT_CYAN-$CYAN-$GRAY-$NO_COLOUR "; }
+7b4c9fef7d525bea10275fda6c357d4452f466c6
+Bumps the actions group with 4 updates: [actions/setup-go](https://github.com/actions/setup-go), [actions/github-script](https://github.com/actions/github-script), [actions/setup-node](https://github.com/actions/setup-node) and [actions/setup-python](https://github.com/actions/setup-python).
+Updates `actions/setup-go` from 5 to 6
+- [Release notes](https://github.com/actions/setup-go/releases)
+- [Commits](actions/setup-go@v5...v6)
+Updates `actions/github-script` from 7 to 8
+- [Release notes](https://github.com/actions/github-script/releases)
+- [Commits](actions/github-script@v7...v8)
+Updates `actions/setup-node` from 4 to 5
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](actions/setup-node@v4...v5)
+Updates `actions/setup-python` from 5 to 6
+- [Release notes](https://github.com/actions/setup-python/releases)
+- [Commits](actions/setup-python@v5...v6)
+---
+updated-dependencies:
+- dependency-name: actions/setup-go
+- dependency-name: actions/github-script
+- dependency-name: actions/setup-node
+- dependency-name: actions/setup-python
+...
+name: 'CodeQL: Autobuild'
+description: 'Attempt to automatically build code'
+author: 'GitHub'
+inputs:
+runs:
+node_modules
+/*!
+function trimTabAndSpaces(str) {
+}
+module.exports = function(str, options) {
+};
+function identity(str) {
+}
+/*!
+function trimTabAndSpaces(str) {
+}
+module.exports = function(str, options) {
+};
+function identity(str) {
+}/*!
+function trimTabAndSpaces(str) {
+}
+module.exports = function(str, options) {
+};
+function identity(str) {
+}
+/*!
+function trimTabAndSpaces(str) {
+}
+module.exports = function(str, options) {
+};
+function identity(str) {
+}
+{   "name": "@aashutoshrathi/word-wrap",;   "description": "Wrap words to a specified length.",;   "version": "1.2.6",;   "homepage": "https://github.com/aashutoshrathi/word-wrap",;   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",;   "contributors": [;     "Aashutosh Rathi <aashutoshrathi@gmail.com>",;     "Danilo Sampaio <danilo.sampaio@gmail.com> (localhost:8080)",;     "Fede Ramirez <i@2fd.me> (https://2fd.github.io)",;     "Joe Hildebrand <joe-github@cursive.net> (https://twitter.com/hildjj)",;     "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)",;     "Todd Kennedy (https://tck.io)",;     "Waldemar Reusch (https://github.com/lordvlad)",;     "Wolfgang Faust (http://www.linestarve.com)",;     "Zach Hale <zachhale@gmail.com> (http://zachhale.com)";   ],;   "repository": {;     "type": "git",;     "url": "git+https://github.com/aashutoshrathi/word-wrap.git";   },;   "bugs": {;     "url": "https://github.com/aashutoshrathi/word-wrap/issues";   },;   "license": "MIT",;   "files": [;     "index.js",;     "index.d.ts";   ],;   "main": "index.js",;   "engines": {;     "node": ">=0.10.0";   },;   "scripts": {;     "test": "mocha";   },;   "devDependencies": {;     "gulp-format-md": "^0.1.11",;     "mocha": "^10.2.0";   },;   "keywords": [;     "break",;     "carriage",;     "line",;     "new-line",;     "newline",;     "return",;     "soft",;     "text",;     "word",;     "word-wrap",;     "words",;     "wrap";   ],;   "typings": "index.d.ts",;   "verb": {;     "toc": false,;     "layout": "default",;     "tasks": [;       "readme";     ],;     "plugins": [;       "gulp-format-md";     ],;     "lint": {;       "reflinks": true;     },;     "related": {;       "list": [;         "common-words",;         "shuffle-words",;         "unique-words",;         "wordcount";       ];     },;     "reflinks": [;       "verb",;       "verb-generate-readme";     ];   }
+}
+The MIT License (MIT)
+Copyright (c) 2014-2016, Jon Schlinkert
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+author: 'GitHub'
+inputs:
+5 years ago
+Search for the CodeQL bundle in multiple places.
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+2 years ago
+Improve description of codeql-action/init languages input (#1919)
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+3 years ago
+Convert from json to yaml for registries input
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+3 years ago
+Add support for downloading packs from GHES
+3 years ago
+Change to using a single input
+3 years ago
+Add support for downloading packs from GHES
+Clarify description of `registries` input
+3 years ago
+Apply suggestions from code review
+3 years ago
+Add support for downloading packs from GHES
+3 years ago
+Convert from json to yaml for registries input
+3 years ago
+Clarify description of `registries` input
+3 years ago
+Convert from json to yaml for registries input
+3 years ago
+Clarify description of `registries` input
+3 years ago
+Convert from json to yaml for registries input
+3 years ago
+Update changelog and input descriptions
+3 years ago
+Convert from json to yaml for registries input
+3 years ago
+Update changelog and input descriptions
+3 years ago
+Convert from json to yaml for registries input
+3 years ago
+Update changelog and input descriptions
+5 years ago
+add matrix input to init action
+3 years ago
+Add support for downloading packs from GHES
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+4 years ago
+Add configuration option to set CodeQL DB location
+2 years ago
+Improve description of codeql-action/init languages input (#1919)
+2 years ago
+Update init/action.yml : PR review
+2 years ago
+- Add new configuration Parameter
+5 years ago
+Add new input to the init action configuration
+5 years ago
+Allow "additive" queries in workflow by prefixing with "+"
+5 years ago
+Add new input to the init action configuration
+4 years ago
+Add new `packs` input to init action
+4 years ago
+Add extra integration test for packaging
+4 years ago
+Add new `packs` input to init action
+4 years ago
+Add extra integration test for packaging
+4 years ago
+Add new `packs` input to init action
+5 years ago
+include missing changes
+3 years ago
+Add support for downloading packs from GHES
+5 years ago
+include missing changes
+5 years ago
+Install python deps on init
+4 years ago
+Add 'source-root' input to init action
+4 years ago
+Refer to $GITHUB_WORKSPACE specifically in source-root description
+4 years ago
+Make 'source-root' init input relative to github.workspace
+4 years ago
+Add RAM and threads options to init action
+4 years ago
+Add an option to upload some debugging artifacts
+3 years ago
+Mention that debug mode is automatically enabled when step debugging on
+4 years ago
+Add an option to upload some debugging artifacts
+4 years ago
+Make name of debugging artifact and DB within it configurable
+3 years ago
+Add option to override TRAP caching feature flag
+5 years ago
+Report the path of CodeQL as an output
+outputs:
+5 years ago
+Fix indentation for action output
+5 years ago
+Initial commit (from f5274cbdce4ae7c9e4b937dcdf95ac70ae436d5f)
+runs:
+3 years ago
+Use Node.js v16 in all Actions
+5 years ago
+rename the action entrypoint files
+auth
+node_modules/%2540aashutoshrathi
+{ local GRAY="\[\033[1;30m\]"; local LIGHT_GRAY="\[\033[0;37m\]"; local CYAN="\[\033[0;36m\]"; local LIGHT_CYAN="\[\033[1;36m\]"; local NO_COLOUR="\[\033[0m\]";  case $TERM in     xterm*|rxvt*)         local TITLEBAR='\[\033]0;\u@\h:\w\007\]';         ;;     *)         local TITLEBAR="";         ;; esac;  local temp=$(tty); local GRAD1=${temp:5}; PS1="$TITLEBAR\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\u$GRAY@$CYAN\h\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\#$GRAY/$CYAN$GRAD1\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\$(date +%H%M)$GRAY/$CYAN\$(date +%d-%b-%y)\
+$LIGHT_CYAN)$CYAN-$GRAY-\
+$LIGHT_GRAY\n\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\$$GRAY:$CYAN\w\
+$LIGHT_CYAN)$CYAN-$GRAY-$LIGHT_GRAY " ; PS2="$LIGHT_CYAN-$CYAN-$GRAY-$NO_COLOUR "; }
+https://securetoken.google.com
+https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1
+compute@developer.gserviceaccount.com
+[200~https://www.googleapis.com/oauth2/v1/certs~
+https://www.googleapis.com/oauth2/v1/certs
+https://openid.net/specs/openid-connect-discovery-1_0.html
+2.2.4.  User Input using "acct" URI Syntax
+To find the Issuer for the given user input in the form of an account URI acct:juliet%40capulet.example@shopping.example.com, the WebFinger parameters are as follows:
+WebFinger Parameter	Value
+resource	acct:juliet%40capulet.example@shopping.example.com
+host	shopping.example.com
+rel	http://openid.net/specs/connect/1.0/issuer
+The RP would make the following WebFinger request to discover the Issuer location (with line wraps within lines for display purposes only):
+https://openid.net/specs/openid-connect-discovery-1_0.html#HostPortExample:~:text=instance%2C%20the%20site-,example.org,-might%20have%20a
+id_token token
+g /.well-known/openid-configuration
+application/json
+Metadata Name: userinfo_endpoint
+Metadata Description: URL of the OP's UserInfo Endpoint
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: acr_values_supported
+Metadata Description: JSON array containing a list of the Authentication Context Class References that this OP supports
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: subject_types_supported
+Metadata Description: JSON array containing a list of the Subject Identifier types that this OP supports
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: id_token_signing_alg_values_supported
+Metadata Description: JSON array containing a list of the JWS "alg" values supported by the OP for the ID Token
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: id_token_encryption_alg_values_supported
+Metadata Description: JSON array containing a list of the JWE "alg" values supported by the OP for the ID Token
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: id_token_encryption_enc_values_supported
+Metadata Description: JSON array containing a list of the JWE "enc" values supported by the OP for the ID Token
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: userinfo_signing_alg_values_supported
+Metadata Description: JSON array containing a list of the JWS "alg" values supported by the UserInfo Endpoint
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: userinfo_encryption_alg_values_supported
+Metadata Description: JSON array containing a list of the JWE "alg" values supported by the UserInfo Endpoint
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: userinfo_encryption_enc_values_supported
+Metadata Description: JSON array containing a list of the JWE "enc" values supported by the UserInfo Endpoint
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: request_object_signing_alg_values_supported
+Metadata Description: JSON array containing a list of the JWS "alg" values supported by the OP for Request Objects
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: request_object_encryption_alg_values_supported
+Metadata Description: JSON array containing a list of the JWE "alg" values supported by the OP for Request Objects
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: request_object_encryption_enc_values_supported
+Metadata Description: JSON array containing a list of the JWE "enc" values supported by the OP for Request Objects
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: display_values_supported
+Metadata Description: JSON array containing a list of the "display" parameter values that the OpenID Provider supports
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: claim_types_supported
+Metadata Description: JSON array containing a list of the Claim Types that the OpenID Provider supports
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: claims_supported
+Metadata Description: JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: claims_locales_supported
+Metadata Description: Languages and scripts supported for values in Claims being returned, represented as a JSON array of BCP 47 language tag values
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: claims_parameter_supported
+Metadata Description: Boolean value specifying whether the OP supports use of the "claims" parameter
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: request_parameter_supported
+Metadata Description: Boolean value specifying whether the OP supports use of the "request" parameter
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: request_uri_parameter_supported
+Metadata Description: Boolean value specifying whether the OP supports use of the "request_uri" parameter
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+Metadata Name: require_request_uri_registration
+Metadata Description: Boolean value specifying whether the OP requires any "request_uri" values used to be pre-registered
+Change Controller: OpenID Foundation Artifact Binding Working Group - openid-specs-ab@lists.openid.net
+Specification Document(s): Section 3 of this specification
+
+
+ TOC 
+9.  References
+
+ TOC 
+9.1. Normative References
+[CORS]	Opera Software ASA, “Cross-Origin Resource Sharing,” July 2010.
+[IANA.well-known]	IANA, “Well-Known URIs.”
+[JWA]	Jones, M., “JSON Web Algorithms (JWA),” RFC 7518, DOI 10.17487/RFC7518, May 2015.
+[JWE]	Jones, M. and J. Hildebrand, “JSON Web Encryption (JWE),” RFC 7516, DOI 10.17487/RFC7516, May 2015.
+[JWK]	Jones, M., “JSON Web Key (JWK),” RFC 7517, DOI 10.17487/RFC7517, May 2015.
+[JWS]	Jones, M., Bradley, J., and N. Sakimura, “JSON Web Signature (JWS),” RFC 7515, DOI 10.17487/RFC7515, May 2015.
+[JWT]	Jones, M., Bradley, J., and N. Sakimura, “JSON Web Token (JWT),” RFC 7519, DOI 10.17487/RFC7519, May 2015.
+[OAuth.Responses]	de Medeiros, B., Ed., Scurtescu, M., Tarjan, P., and M. Jones, “OAuth 2.0 Multiple Response Type Encoding Practices,” February 2014.
+[OpenID.Core]	Sakimura, N., Bradley, J., Jones, M., de Medeiros, B., and C. Mortimore, “OpenID Connect Core 1.0,” December 2023.
+[OpenID.Registration]	Sakimura, N., Bradley, J., and M. Jones, “OpenID Connect Dynamic Client Registration 1.0,” December 2023.
+[RFC2119]	Bradner, S., “Key words for use in RFCs to Indicate Requirement Levels,” BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.
+[RFC3986]	Berners-Lee, T., Fielding, R., and L. Masinter, “Uniform Resource Identifier (URI): Generic Syntax,” STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005.
+[RFC5322]	Resnick, P., Ed., “Internet Message Format,” RFC 5322, DOI 10.17487/RFC5322, October 2008.
+[RFC5646]	Phillips, A., Ed. and M. Davis, Ed., “Tags for Identifying Languages,” BCP 47, RFC 5646, DOI 10.17487/RFC5646, September 2009.
+[RFC5785]	Nottingham, M. and E. Hammer-Lahav, “Defining Well-Known Uniform Resource Identifiers (URIs),” RFC 5785, DOI 10.17487/RFC5785, April 2010.
+[RFC6125]	Saint-Andre, P. and J. Hodges, “Representation and Verification of Domain-Based Application Service Identity within Internet Public Key Infrastructure Using X.509 (PKIX) Certificates in the Context of Transport Layer Security (TLS),” RFC 6125, DOI 10.17487/RFC6125, March 2011.
+[RFC6749]	Hardt, D., Ed., “The OAuth 2.0 Authorization Framework,” RFC 6749, DOI 10.17487/RFC6749, October 2012.
+[RFC7033]	Jones, P., Salgueiro, G., Jones, M., and J. Smarr, “WebFinger,” RFC 7033, DOI 10.17487/RFC7033, September 2013.
+[RFC7565]	Saint-Andre, P., “The 'acct' URI Scheme,” RFC 7565, DOI 10.17487/RFC7565, May 2015.
+[RFC8259]	Bray, T., Ed., “The JavaScript Object Notation (JSON) Data Interchange Format,” STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
+[RFC8996]	Moriarty, K. and S. Farrell, “Deprecating TLS 1.0 and TLS 1.1,” BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021.
+[RFC9325]	Sheffer, Y., Saint-Andre, P., and T. Fossati, “Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS),” BCP 195, RFC 9325, DOI 10.17487/RFC9325, November 2022.
+[UNICODE]	The Unicode Consortium, “The Unicode Standard.”
+[USA15]	Whistler, K., “Unicode Normalization Forms,” Unicode Standard Annex 15, August 2023.
+
+ TOC 
+9.2. Informative References
+[IANA.OAuth.Parameters]	IANA, “OAuth Parameters.”
+[OWASP.CSRF]	OWASP, “Cross-Site Request Forgery Prevention Cheat Sheet.”
+[OpenID.Discovery.Errata1]	Sakimura, N., Bradley, J., Jones, M., and E. Jay, “OpenID Connect Discovery 1.0 incorporating errata set 1,” November 2014.
+[OpenID.Discovery.Final]	Sakimura, N., Bradley, J., Jones, M., and E. Jay, “OpenID Connect Discovery 1.0 (final),” February 2014.
+[OpenID.Session]	de Medeiros, B., Agarwal, N., Sakimura, N., Bradley, J., and M. Jones, “OpenID Connect Session Management 1.0,” September 2022.
+[RFC8414]	Jones, M., Sakimura, N., and J. Bradley, “OAuth 2.0 Authorization Server Metadata,” RFC 8414, DOI 10.17487/RFC8414, June 2018.
+[XRI_Syntax_2.0]	Reed, D. and D. McAlpin, “Extensible Resource Identifier (XRI) Syntax V2.0,” November 2005.
+
+ TOC 
+Appendix A.  Acknowledgements
+The OpenID Community would like to thank the following people for their contributions to this specification:
+
+
+Andrew Arnott (andarno@microsoft.com), Microsoft
+
+Dirk Balfanz (balfanz@google.com), Google
+
+Casper Biering (cb@peercraft.com), Peercraft
+
+John Bradley (ve7jtb@ve7jtb.com), Yubico (was at Ping Identity)
+
+Johnny Bufu (johnny.bufu@gmail.com), independent (was at Janrain)
+
+Brian Campbell (bcampbell@pingidentity.com), Ping Identity
+
+Blaine Cook (romeda@gmail.com), independent
+
+Breno de Medeiros (breno@google.com), Google
+
+Pamela Dingle (Pamela.Dingle@microsoft.com), Microsoft (was at Ping Identity)
+
+Vladimir Dzhuvinov (vladimir@connect2id.com), Connect2id (was at Nimbus Directory Services)
+
+George Fletcher (gffletch@aol.com), Capital One (was at AOL)
+
+Dick Hardt (dick.hardt@gmail.com), independent
+
+Roland Hedberg (roland@catalogix.se), independent (was at University of Umeå)
+
+Edmund Jay (ejay@mgi1.com), Illumila
+
+Michael B. Jones (michael_b_jones@hotmail.com), Self-Issued Consulting (was at Microsoft)
+
+Torsten Lodderstedt (torsten@lodderstedt.net), independent (was at Deutsche Telekom)
+
+Nov Matake (nov@matake.jp), independent
+
+Chuck Mortimore (charliemortimore@gmail.com), Disney (was at Salesforce)
+
+Anthony Nadalin (nadalin@prodigy.net), independent (was at Microsoft)
+
+Axel Nennker (axel.nennker@telekom.de), Deutsche Telekom
+
+John Panzer (jpanzer@google.com), Google
+
+Justin Richer (justin@bspk.io), Bespoke Engineering (was at MITRE)
+
+Nat Sakimura (nat@nat.consulting), NAT.Consulting (was at NRI)
+
+Owen Shepherd (owen.shepherd@e43.eu), independent
+
+Andreas Åkre Solberg (Andreas.Solberg@sikt.no), Sikt (was at UNINET)
+
+Kick Willemse (k.willemse@evidos.nl), Evidos B.V.
+
+
+
+ TOC 
+Appendix B.  Notices
+Copyright (c) 2023 The OpenID Foundation.
+
+The OpenID Foundation (OIDF) grants to any Contributor, developer, implementer, or other interested party a non-exclusive, royalty free, worldwide copyright license to reproduce, prepare derivative works from, distribute, perform and display, this Implementers Draft or Final Specification solely for the purposes of (i) developing specifications, and (ii) implementing Implementers Drafts and Final Specifications based on such documents, provided that attribution be made to the OIDF as the source of the material, but that such attribution does not indicate an endorsement by the OIDF.
+
+The technology described in this specification was made available from contributions from various sources, including members of the OpenID Foundation and others. Although the OpenID Foundation has taken steps to help ensure that the technology is available for distribution, it takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this specification or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any independent effort to identify any such rights. The OpenID Foundation and the contributors to this specification make no (and hereby expressly disclaim any) warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to this specification, and the entire risk as to implementing this specification is assumed by the implementer. The OpenID Intellectual Property Rights policy requires contributors to offer a patent promise not to assert certain patent claims against other contributors and against implementers. The OpenID Foundation invites any interested party to bring to its attention any copyrights, patents, patent applications, or other proprietary rights that may cover technology that may be required to practice this specification.
+
+
+ TOC 
+Authors' Addresses
+https://www.iana.org/assignments/oauth-parameters
+https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+https://openid.net/specs/openid-connect-discovery-1_0-errata1.html
+https://openid.net/specs/openid-connect-discovery-1_0-final.html_https://openid.net/specs/openid-connect-session-1_0.html_https://www.rfc-editor.org/info/rfc8414_https://www.oasis-open.org/committees/download.php/15377/xri-syntax-V2.0-cs.pdf
+https://www.rfc-editor.org/info/rfc9325
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+https://www.rfc-editor.org/rfc/rfc9325.html#RFC5116
+compress_certificate extension in [RFC8879]. See also Section 5 of [RFC8879] for security and privacy considerations associated with its use. For the avoidance of doubt, CRIME-style attacks on TLS compression do not apply to certificate compression.
+Due to the strong likelihood of middlebox interference, compression in the style of [RFC8879] has not been made available in TLS 1.2. In theory, the cached_info extension defined in [RFC7924] could be used, but it is not supported widely enough to be considered a practical alternative.
+'no_application_protocol' alert.
+https://www.rfc-editor.org/rfc/rfc9325.html#name-protocol-versions
+https://www.rfc-editor.org/rfc/rfc9325.html#name-introduction
+npm execute
+npm 7 help
+npm help
+function elite { local GRAY="\[\033[1;30m\]"; local LIGHT_GRAY="\[\033[0;37m\]"; local CYAN="\[\033[0;36m\]"; local LIGHT_CYAN="\[\033[1;36m\]"; local NO_COLOUR="\[\033[0m\]";  case $TERM in     xterm*|rxvt*)         local TITLEBAR='\[\033]0;\u@\h:\w\007\]';         ;;     *)         local TITLEBAR="";         ;; esac;  local temp=$(tty); local GRAD1=${temp:5}; PS1="$TITLEBAR\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\u$GRAY@$CYAN\h\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\#$GRAY/$CYAN$GRAD1\
+$LIGHT_CYAN)$CYAN-$LIGHT_CYAN(\
+$CYAN\$(date +%H%M)$GRAY/$CYAN\$(date +%d-%b-%y)\
+$LIGHT_CYAN)$CYAN-$GRAY-\
+$LIGHT_GRAY\n\
+$GRAY-$CYAN-$LIGHT_CYAN(\
+$CYAN\$$GRAY:$CYAN\w\
+$LIGHT_CYAN)$CYAN-$GRAY-$LIGHT_GRAY " ; PS2="$LIGHT_CYAN-$CYAN-$GRAY-$NO_COLOUR "; }
+Bumps the actions group with 4 updates: [actions/setup-go](https://github.com/actions/setup-go), [actions/github-script](https://github.com/actions/github-script), [actions/setup-node](https://github.com/actions/setup-node) and [actions/setup-python](https://github.com/actions/setup-python).
+Updates `actions/setup-go` from 5 to 6
+- [Release notes](https://github.com/actions/setup-go/releases)
+- [Commits](actions/setup-go@v5...v6)
+Updates `actions/github-script` from 7 to 8
+- [Release notes](https://github.com/actions/github-script/releases)
+- [Commits](actions/github-script@v7...v8)
+Updates `actions/setup-node` from 4 to 5
+- [Release notes](https://github.com/actions/setup-node/releases)
+- [Commits](actions/setup-node@v4...v5)
+Updates `actions/setup-python` from 5 to 6
+- [Release notes](https://github.com/actions/setup-python/releases)
+- [Commits](actions/setup-python@v5...v6)
+---
+updated-dependencies:
+- dependency-name: actions/setup-go
+- dependency-name: actions/github-script
+- dependency-name: actions/setup-node
+- dependency-name: actions/setup-python
+...
+.github/workflows/python312-windows.yml
+//https://github.com/github/codeql-action/tree/028bacb8e9c13fef2063aff0419b99212f30c374/analyze
+{   // Use IntelliSense to learn about possible attributes.;   // Hover to view descriptions of existing attributes.;   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387;   "version": "0.2.0",;   "configurations": [;     {       "type": "node",;       "request": "launch",;       "name": "Debug AVA test file",;       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",;       "runtimeArgs": [;         "${file}",;         "--break",;         "--serial",;         "--timeout=20m";       ],;       "port": 9229,;       "outputCapture": "std",;       "skipFiles": [;         "<node_internals>/**/*.js";       ];     };   ]; }
+{   "files.exclude": {;     // include the defaults from VS Code;     "**/.git": true,;     "**/.DS_Store": true,;      // transpiled JavaScript;     "lib": true,;   },;   // Installing a new Node package often triggers VS Code's git limit warnings as there is typically
+  // an intermediate stage where many files are modified. This setting suppresses these warnings.
+  "git.ignoreLimitWarning": true,
+  // Use the vendored TypeScript version to have a consistent development experience across
+  // machines.
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - tsconfig.json"
+		}
+	]
+}
+name: 'CodeQL: Autobuild'
+description: 'Attempt to automatically build code'
+author: 'GitHub'
+inputs:
+  token:
+    default: ${{ github.token }}
+  matrix:
+    default: ${{ toJson(matrix) }}
+  working-directory:
+    description: >-
+      Run the autobuilder using this path (relative to $GITHUB_WORKSPACE) as
+      working directory. If this input is not set, the autobuilder runs with
+      $GITHUB_WORKSPACE as its working directory.
+    required: false
+runs:
+  using: 'node16'
+  main: '../lib/autobuild-action.js'
+-(giles@gcsu202014)-(30/pts/6)-(0816/01-Aug-01)--
+--($:~/tmp)--
+#!/bin/bash
+#
+#   This file echoes a bunch of color codes to the 
+#   terminal to demonstrate what's available.  Each  T='gYw'   # The test text
+ echo -e "\n                 40m     41m     42m     43m\
+     44m     45m     46m     47m"; for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m'            '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m'            '  36m' '1;36m' '  37m' '1;37m';   do FG=${FGs// /};   echo -en " $FGs \033[$FG  $T  ";   for BG in 40m 41m 42m 43m 44m 45m 46m 47m;     do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+#!/bin/bash
+#
+#   This file echoes a bunch of color codes to the 
+#   terminal to demonstrate what's available.  Each 
+#   line is the color code of one forground color,
+#   out of 17 (default + 16 escapes), followed by a 
+#   test use of that color on all nine background 
+#   colors (default + 8 escapes).
+#
+T='gYw'   # The test text
+echo -e "\n                 40m     41m     42m     43m\
+     44m     45m     46m     47m";
+for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m'            '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m'            '  36m' '1;36m' '  37m' '1;37m';   do FG=${FGs// /};   echo -en " $FGs \033[$FG  $T  ";   for BG in 40m 41m 42m 43m 44m 45m 46m 47m;     do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+cmd
+android-latest-release i
+rust_binary {
+}
+rust*
+https://source.android.com/docs/setup/build/rust/building-rust-modules/binary-modules
+https://source.android.com/docs/setup/build/rust/building-rust-modules/library-modules
+rust_fuzz
+https://source.android.com/docs/setup/build/rust/building-rust-modules/source-code-generators/bindgen-module
+https://source.android.com/docs/setup/build/rust/building-rust-modules/source-code-generators/bindgen-modules
+npm ai
+rust_binary {
+}
+mkdir android-kernel && cd android-kernel
+repo init -u https://android.googlesource.com/kernel/manifest -b BRANCH
+mkdir android-kernel && cd android-kernelmkdir android-kernel && cd android-kernel
+repo init -u https://android.googlesource.com/kernel/manifest -b repo
+
+berry1984@penguin:~$ $ repo init -u https://android.googlesource.com/a/platform/manifest
+-bash: $: command not found
+berry1984@penguin:~$ URI: http://c.pki.goog/wr2/75r4ZyA3vA0.crl
+-bash: URI:: command not found
+berry1984@penguin:~$ ./generate-gateway.sh --proto-path ./examples/currency.proto
+-bash: ./generate-gateway.sh: No such file or directory
+berry1984@penguin:~$ https://github.com/grpc-ecosystem/grpc-gateway
+-bash: https://github.com/grpc-ecosystem/grpc-gateway: No such file or directory
+berry1984@penguin:~$ package customparser
+import (
+)
+// CustomQueryParameterParser parses query parameters into the appropriate gRPC message fields.
+type CustomQueryParameterParser struct{}
+// Parse parses query parameters and populates the appropriate fields in the gRPC request message.
+func (p *CustomQueryParameterParser) Parse(target proto.Message, values url.Values, filter *utilities.DoubleArray) error {
+}       return nilon = pageOptionss.Page = int32(parsedPage)r == nil { {tuffRequest) error
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: net/url: No such file or directory
+-bash: strconv: command not found
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/utilities: No such file or directory
+-bash: google.golang.org/protobuf/proto: No such file or directory
+-bash: your_service_v1: command not found
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: type: CustomQueryParameterParser: not found
+-bash: type: struct{}: not found
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `p'
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `return'
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `runtime.DefaultQueryParser{}'
+-bash: syntax error near unexpected token `}'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+[1] 7099
+-bash: your_service_v1.PageOptions{}: command not found
+-bash: pageOptions: command not found
+[1]+  Exit 127                pageOptions :=
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: syntax error near unexpected token `}'
+-bash: r.Pagination: command not found
+-bash: return: nil: numeric argument required
+-bash: return: can only `return' from a function or sourced script
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+}       )
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+}       )
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `}'
+berry1984@penguin:~$ package main
+
+import (
+        "context"
+        "net/http"
+        
+        "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+        "google.golang.org/grpc/metadata"
+        "google.golang.org/protobuf/encoding/protojson"
+
+        "your_module/path/customparser"
+)
+
+// create a new ServeMux with custom parser and other runtime options as needed
+func createGRPCGatewayMux() *runtime.ServeMux {
+        // whatever custom code you may need before you create the mux...
+        
+        return runtime.NewServeMux(
+                // Custom query parameter parser
+                runtime.SetQueryParameterParser(&customparser.CustomQueryParameterParser{}),
+                
+                // other runtime options you may need...
+        "your_module/path/customparser"oding/protojson"ime"
+-bash: package: command not found
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+-bash: syntax error near unexpected token `)'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `('
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `&'
+-bash: //: Is a directory
+-bash: syntax error near unexpected token `)'
+-bash: syntax error near unexpected token `newline'
+-bash: context: command not found
+-bash: net/http: No such file or directory
+-bash: github.com/grpc-ecosystem/grpc-gateway/v2/runtime: No such file or directory
+-bash: google.golang.org/grpc/metadata: No such file or directory
+-bash: google.golang.org/protobuf/encoding/protojson: No such file or directory
+-bash: your_module/path/customparser: No such file or directory
+berry1984@penguin:~$ type: google.api.Service
+config_version: 3
+name: calendar.googleapis.com
+title: Google Calendar API
+apis:
+- name: google.calendar.v3.Calendar
+authentication:
+  providers:
+  - id: google_calendar_auth
+    jwks_uri: https://www.googleapis.com/oauth2/v1/certs
+    issuer: https://securetoken.google.com
+  rules:
+  - selector: "*"
+    requirements:
+      provider_id: google_calendar_auth
+backend:
+  rules:
+    - selector: "*"
+      address: grpcs://my-service-98sdf8sd0-uc.a.run.app
+Each subsection typically corresponds to a .proto message where you configure various aspects of the service. For example:
+
+authentication: specifies how callers are authenticated.
+- name: endpoints.examples.bookstore.Bookstoregoogml:rotobuf.Empty) {}{}}ic interface defi
+-bash: type:: command not found
+-bash: config_version:: command not found
+-bash: name:: command not found
+-bash: title:: command not found
+-bash: apis:: command not found
+-bash: -: command not found
+-bash: authentication:: command not found
+-bash: providers:: command not found
+-bash: -: command not found
+-bash: jwks_uri:: command not found
+-bash: issuer:: command not found
+-bash: rules:: command not found
+-bash: -: command not found
+-bash: requirements:: command not found
+-bash: provider_id:: command not found
+-bash: backend:: command not found
+-bash: rules:: command not found
+-bash: -: command not found
+-bash: address:: command not found
+-bash: Each: command not found
+-bash: authentication:: command not found
+-bash: backend:: command not found
+-bash: http:: command not found
+-bash: usage:: command not found
+-bash: The: command not found
+-bash: Basic: command not found
+-bash: The: command not found
+-bash: The: command not found
+-bash: syntax: command not found
+-bash: package: command not found
+-bash: option: command not found
+-bash: option: command not found
+-bash: option: command not found
+-bash: import: command not found
+-bash: service: command not found
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `('
+-bash: syntax error near unexpected token `}'
+-bash: message: command not found
+-bash: int64: command not found
+-bash: string: command not found
+-bash: syntax error near unexpected token `}'
+-bash: message: command not found
+-bash: int64: command not found
+-bash: string: command not found
+-bash: syntax error near unexpected token `}'
+-bash: The: command not found
+-bash: type:: command not found
+-bash: config_version:: command not found
+-bash: name:: command not found
+-bash: title:: command not found
+-bash: apis:: command not found
+-bash: -: command not found
+berry1984@penguin:~$ list errors 
+-bash: list: command not found
+berry1984@penguin:~$ npm_update
+-bash: npm_update: command not found
+berry1984@penguin:~$ update npm
+-bash: update: command not found
+berry1984@penguin:~$ npm audit
+# npm audit report
+
+form-data  <2.5.4
+Severity: critical
+form-data uses unsafe random function in form-data for choosing boundary - https://github.com/advisories/GHSA-fjxv-7rqg-78g4
+No fix available
+node_modules/request/node_modules/form-data
+  request  *
+  Depends on vulnerable versions of form-data
+  Depends on vulnerable versions of tough-cookie
+  node_modules/request
+
+
+tough-cookie  <4.1.3
+Severity: moderate
+tough-cookie Prototype Pollution vulnerability - https://github.com/advisories/GHSA-72xf-g2v4-qvf3
+No fix available
+node_modules/tough-cookie
+
+3 vulnerabilities (1 moderate, 2 critical)
+
+Some issues need review, and may require choosing
+a different dependency.
+berry1984@penguin:~$ https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+-bash: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32: No such file or directory
+berry1984@penguin:~$ https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+-bash: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32: No such file or directory
+berry1984@penguin:~$WARNING vsh: [../libchrome-0.0.1/platform2/libchrome/dbus/bus.cc:653] Bus::SendWithReplyAndBlock took 1419ms to process message: type=method_call, path=/org/chromium/VmCicerone, interface=org.chromium.VmCicerone, member=LaunchVshd
+berry1984@penguin:~/android-kernel$ repo syncrepo syncrepo sync
+-bash: repo: command not found
+berry1984@penguin:~/android-kernel$ repo syn
+-bash: repo: command not found
+berry1984@penguin:~/android-kernel$ repo init -u https://android.googlesource.com/kernel/manifest -b branch
+-bash: repo: command not found
+berry1984@penguin:~/android-kernel$ repo
+-bash: repo: command not found
+berry1984@penguin:~/android-kernel$ repo sync
+-bash: repo: command not found
+berry1984@penguin:~/android-kernel$ https://source.android.com/docs/setup/reference/bazel-support
+-bash: https://source.android.com/docs/setup/reference/bazel-support: No such file or directory
+berry1984@penguin:~/android-kernel$ https://source.android.com/docs/setup/build/building-pixel-kernels
+-bash: https://source.android.com/docs/setup/build/building-pixel-kernels: No such file or directory
+berry1984@penguin:~/android-kernel$ ^[[200~$ repo init -b common-android-mainline && repo sync.~
+-bash: $'\E[200~$': command not found
+berry1984@penguin:~/android-kernel$ https://source.android.com/docs/setup/reference/bazel-support
+-bash: https://source.android.com/docs/setup/reference/bazel-support: No such file or directory
+berry1984@penguin:~/android-kernel$ https://bazel.build/
+-bash: https://bazel.build/: No such file or directory
+berry1984@penguin:~/android-kernel$ 
+berry1984@penguin:~/android-kernel$ npm audit
+# npm audit report
+
+form-data  <2.5.4
+Severity: critical
+form-data uses unsafe random function in form-data for choosing boundary - https://github.com/advisories/GHSA-fjxv-7rqg-78g4
+No fix available
+node_modules/request/node_modules/form-data
+  request  *
+  Depends on vulnerable versions of form-data
+  Depends on vulnerable versions of tough-cookie
+  node_modules/request
+
+
+tough-cookie  <4.1.3
+Severity: moderate
+tough-cookie Prototype Pollution vulnerability - https://github.com/advisories/GHSA-72xf-g2v4-qvf3
+No fix available
+node_modules/tough-cookie
+
+3 vulnerabilities (1 moderate, 2 critical)
+
+Some issues need review, and may require choosing
+a different dependency.
+berry1984@penguin:~/android-kernel$ 
+  "name": "jws",
+  "version": "4.0.1",
+  "description": "Implementation of JSON Web Signatures",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brianloveswords/node-jws.git"
+  },
+  "keywords": [
+    "jws",
+    "json",
+    "web",
+    "signatures"
+  ],
+  "author": "Brian J Brennan",
+  "license": "MIT",
+  "readmeFilename": "readme.md",
+  "gitHead": "c0f6b27bcea5a2ad2e304d91c2e842e4076a6b03",
+  "dependencies": {
+    "jwa": "^2.0.1",
+    "safe-buffer": "^5.0.1"
+  },
+  "devDependencies": {
+    "semver": "^5.1.0",
+    "tape": "~2.14.0"
+  }
+}
+
+/*global exports*/
+var SignStream = require('./lib/sign-stream');
+var VerifyStream = require('./lib/verify-stream');
+
+var ALGORITHMS = [
+  'HS256', 'HS384', 'HS512',
+  'RS256', 'RS384', 'RS512',
+  'PS256', 'PS384', 'PS512',
+  'ES256', 'ES384', 'ES512'
+];
+
+exports.ALGORITHMS = ALGORITHMS;
+exports.sign = SignStream.sign;
+exports.verify = VerifyStream.verify;
+exports.decode = VerifyStream.decode;
+exports.isValid = VerifyStream.isValid;
+exports.createSign = function createSign(opts) {
+  return new SignStream(opts);
+};
+exports.createVerify = function createVerify(opts) {
+  return new VerifyStream(opts);
+};
+
+[200~$ BUILD_CONFIG=common/build.config.gki.aarch64 build/build.sh~
+[200~<uses-library>~
+Android.bp
+@SystemApi
+https://source.android.com/docs/setup/build/java-library
+https://developer.android.com/tools/releases/platform-tools#downloads
+https://developer.android.com/studio/intro/update#sdk-manager
+berry1984@penguin:~/android-kernel$ 
+/*global exports*/
+var SignStream = require('./lib/sign-stream');
+var VerifyStream = require('./lib/verify-stream');
+var ALGORITHMS = [
+];
+exports.ALGORITHMS = ALGORITHMS;
+exports.sign = SignStream.sign;
+exports.verify = VerifyStream.verify;
+exports.decode = VerifyStream.decode;
+exports.isValid = VerifyStream.isValid;
+exports.createSign = function createSign(opts) {
+};
+exports.createVerify = function createVerify(opts) {
+};
+iodihamcpbpeioajjeobimgagajmlibd: Secure Shell (stable)
+algkcnfjnajfhgimadimbjhmpaeohhln: Secure Shell (dev)
+pnhechapfaindjhompbnflcldabbghjo: Secure Shell Legacy App (stable)
+okddffdblfhhnmhodogpojmfkjmhinfp: Secure Shell Legacy App (dev)
+https://chromium.googlesource.com/apps/libapps/+/HEAD/nassh/docs/uri.md
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+https://github.com/powerline/fonts/commit/a029626780dd4af32f15a3e708a5b00528c22f1d
+https://github.com/powerline/fonts/custom-properties
+https://github.com/powerline/fonts/releases/tag/2015-12-04
+git@github.com:powerline/fonts.git
+https://github.com/powerline/fonts/archive/refs/tags/2015-12-04.tar.gz
+https://github.com/powerline/fonts/archive/refs/tags/2015-12-04.zip
+install.sh
+# Set source and target directories
+powerline_fonts_dir=$( cd "$( dirname "$0" )" && pwd )
+find_command="find \"$powerline_fonts_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+if [[ `uname` == 'Darwin' ]]; then
+  font_dir="$HOME/Library/Fonts"; else
+  font_dir="$HOME/.local/share/fonts";   mkdir -p $font_dir; fi
+# Copy all fonts to user fonts directory
+echo "Copying fonts..."
+eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+# Reset font cache on Linux
+if command -v fc-cache @>/dev/null ; then     echo "Resetting font cache, this may take a moment...";     fc-cache -f $font_dir; fi
+echo "All Powerline fonts installed to $font_dir"~npm update
+npm audit
+$sa = new-object -comobject shell.application
+$fonts =  $sa.NameSpace(0x14)
+gci $PSScriptRoot -i *.ttf, *.otf -Recurse | %{$fonts.CopyHere($_.FullName)}
+https://bitbucket.org/ZyX_I/bitmap-font-patcher
+cd client/components/googlePayPayments/oneTimePayment/html
+npm install
+# .env file
+PAYPAL_SANDBOX_CLIENT_ID=your_client_id
+PAYPAL_SANDBOX_CLIENT_SECRET=your_client_secret
+npm start
+http://localhost:3000
+<html lang="en">
+</html>
+async function onPayPalWebSdkLoaded() {
+}
+async function setupGooglePayButton(sdkInstance) {
+}
+async function getGooglePaymentDataRequest(purchaseAmount, googlePayConfig) {
+}
+function getGoogleTransactionInfo(purchaseAmount, countryCode) {
+async function onPaymentAuthorized(
+) {
+}
+function getPayPalOrderPayload(purchaseAmount) {
+}
+// GET /paypal-api/auth/browser-safe-client-token
+async function getBrowserSafeClientToken() {
+}
+// POST /paypal-api/checkout/orders/create
+async function createOrder(orderPayload) {
+}
+// POST /paypal-api/checkout/orders/{orderId}/capture
+async function captureOrder({ orderId }) {
+}
+// POST /paypal-api/checkout/orders/{orderId}/capture
+async function captureOrder({ orderId }) {
+}
+npm 
+PayPal SDK instance
+https://stake.lido.fi/rewards?address=0x767fE3f2c844DB013E03DcfDd537B44b2Ba641Db
+https://stake.lido.fi/rewards?address=0x767fE3f2c844DB013E03DcfDd537B44b2Ba641Db/deing 
+get accoumts
+{ presentationMode: "auto" }; { presentationMode: "redirect" }; { presentationMode: "payment-handler" }
+https://github.com/paypal-examples/v6-web-sdk-sample-integration
+cd client/components/googlePayPayments/oneTimePayment/html
+npm install
+npm start
+{"id":1,"jsonrpc":"2.0","result":{"paymasterAndData":"0x2faeb0760d4230ef2ac21496bb4f0b47d634fd4c000069248a24000000000000d51c884489014392934d948e02c8c69c0101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000069788f7cef7d2dfb3ec9be7a637e9ffdb3b8677e43e0e3bf1591edc5280a00b2ffa46ab8894ae30de0b8bd6b1e0cb9e97e29034ea822d2b87b4d441ed7df3764a6bb1b"}}
+npm_run
+npm ausit
+y
+https://api.developer.coinbase.com/rpc/v1/base/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu
+{"id":1,"jsonrpc":"2.0","result":"0x24d1584"}
+{"id":1,"jsonrpc":"2.0","result":"0x20894fa"} [testnet base]
+https://api.developer.coinbase.com/rpc/v1/base-sepolia/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu
+curl -s https://api.developer.coinbase.com/rpc/v1/base/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "id": 1, "method": "pm_getPaymasterStubData", "params": [{"sender":"0xF7DCa789B08Ed2F7995D9bC22c500A8CA715D0A8","nonce":"0x192a01d5c9a0000000000000000","initCode":"0x","callData":"0xb61d27f6000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000","callGasLimit":"0x0","verificationGasLimit":"0x0","preVerificationGas":"0x0","maxFeePerGas":"0x0","maxPriorityFeePerGas":"0x0","paymasterAndData":"0x","signature":"0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000041fffffffffffffffffffffffffffffff0000000000000000000000000000000007aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1c00000000000000000000000000000000000000000000000000000000000000"},"0x5ff137d4b0fdcd49dca30c7cf57e578a026d2789","0x2105",{}]}'
+curl -s https://api.developer.coinbase.com/rpc/v1/base/Keh2lv8IDqUfb0R9oyM08wDLvcjvIgtu -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "id": 1, "method": "eth_blockNumber", "params": []}'
+npm install @coinbase/onchainkit
+[200~node --version  # Should be 18+
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+forge init
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+forge init
+BASE_RPC_URL="https://mainnet.base.org"
+BASE_SEPOLIA_RPC_URL="https://sepolia.base.org"
+source .env
+cast wallet import deployer --interactive
+forge create ./src/Counter.sol:Counter --rpc-url $BASE_SEPOLIA_RPC_URL --account deployer
+forge create ./src/Counter.sol:Counter --rpc-url $BASE_SEPOLIA_RPC_URL --account deployer --broadcast
+Deployer: 0x...
+Deployed to: 0x...  <-- YOUR CONTRACT ADDRESS
+Transaction hash: 0x...
+source .env
+COUNTER_CONTRACT_ADDRESS="0x..."
+cast call $COUNTER_CONTRACT_ADDRESS "number()(uint256)" --rpc-url $BASE_SEPOLIA_RPC_URL

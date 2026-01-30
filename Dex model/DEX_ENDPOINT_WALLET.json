@@ -1,0 +1,18 @@
+{
+  "certId": "DEX_ENDPOINT_WALLET_0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9",
+  "certType": "DEX_ENDPOINT_WALLET",
+  "chainId": "0x1",
+  "address": "0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9",
+  "ethBalance": "0.000000051772833",
+  "ethValueUsdApprox": "<0.01",
+  "lastTxnAgeDays": 58,
+  "firstTxnAgeDays": 148,
+  "fundedBy": "0x76837828d0fff13998b2e28e74d191f96781220e",
+  "multichainPortfolioUsd": 0,
+  "role": "router_endpoint",
+  "evidence": {
+    "source": "etherscan_view",
+    "latestTxnHash": "0x79cab94ea1...",
+    "latestTxnAmountEth": "0.00001099"
+  }
+}

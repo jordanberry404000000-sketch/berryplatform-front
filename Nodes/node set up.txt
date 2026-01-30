@@ -1,0 +1,238 @@
+Jordan — perfect.  
+You’re asking for the full canonical set of DX Terminal node types — the complete taxonomy your engine can run, monitor, and certify.  
+
+This is the official, movement‑grade list: every node category, every subtype, every operational role.  
+This is the backbone of the DX Terminal architecture.
+
+I’ll lay them out cleanly, with descriptions and what each one is responsible for.
+
+---
+
+🟦 1. METRICS NODES
+These measure infrastructure health, RPC performance, and system latency.
+
+1.1 rpc-metrics
+- Measures RPC latency  
+- Tracks error rates  
+- Detects rate limits  
+- Logs uptime  
+
+1.2 block-metrics
+- Tracks latest block  
+- Detects chain lag  
+- Measures block propagation  
+
+1.3 gas-metrics
+- Tracks gas price  
+- Detects spikes  
+- Logs historical averages  
+
+1.4 network-metrics
+- Measures peer count  
+- Detects network instability  
+
+---
+
+🟩 2. SCANNER NODES
+These read blockchain data, events, and contract state.
+
+2.1 block-scanner
+- Reads new blocks  
+- Extracts transactions  
+- Logs anomalies  
+
+2.2 event-scanner
+- Watches contract events  
+- Decodes logs  
+- Tracks mint/burn/transfer  
+
+2.3 balance-scanner
+- Reads wallet balances  
+- Tracks deltas  
+- Detects dust movements  
+
+2.4 contract-state-scanner
+- Reads contract variables  
+- Tracks supply, ownerOf, metadata  
+
+2.5 dex-scanner
+- Reads swap events  
+- Tracks liquidity  
+- Detects MEV patterns  
+
+---
+
+🟥 3. CERT NODES
+These produce cryptographic lineage, hashes, and tamper‑proof artefacts.
+
+3.1 cert-hash-node
+- Hashes JSON outputs  
+- Produces SHA‑256 lineage  
+- Writes cert files  
+
+3.2 cert-integrity-node
+- Verifies previous hashes  
+- Detects tampering  
+- Logs integrity failures  
+
+3.3 cert-ledger-node
+- Maintains cert history  
+- Tracks file ancestry  
+- Produces audit trails  
+
+3.4 cert-snapshot-node
+- Takes periodic snapshots  
+- Hashes entire directories  
+- Produces “state of system” certs  
+
+---
+
+🟧 4. DEX NODES
+These monitor decentralized exchange activity.
+
+4.1 dex-activity-node
+- Tracks swaps  
+- Logs volume  
+- Detects unusual patterns  
+
+4.2 dex-liquidity-node
+- Reads liquidity pools  
+- Tracks inflow/outflow  
+- Detects rug patterns  
+
+4.3 dex-price-node
+- Tracks token price  
+- Logs volatility  
+- Detects manipulation  
+
+4.4 dex-arbitrage-node
+- Detects cross‑DEX price gaps  
+- Logs arbitrage windows  
+
+---
+
+🟪 5. HEARTBEAT NODES
+These ensure the system is alive and running.
+
+5.1 heartbeat-basic
+- Writes timestamp  
+- Confirms engine is alive  
+
+5.2 heartbeat-contract
+- Confirms contract is reachable  
+- Logs block number  
+
+5.3 heartbeat-wallet
+- Confirms wallet is reachable  
+- Logs balance  
+
+5.4 heartbeat-dex
+- Confirms DEX endpoints are reachable  
+
+---
+
+🟫 6. FILESYSTEM NODES
+These monitor the local environment.
+
+6.1 fs-health-node
+- Checks disk space  
+- Detects corruption  
+- Logs file count  
+
+6.2 fs-sync-node
+- Ensures JSON files are written  
+- Detects missing artefacts  
+
+6.3 fs-archive-node
+- Moves old files to archive  
+- Maintains retention policy  
+
+---
+
+🟨 7. ORCHESTRATION NODES
+These coordinate the entire DX Terminal.
+
+7.1 orchestrator-core
+- Runs all nodes  
+- Handles scheduling  
+- Logs failures  
+
+7.2 orchestrator-recovery
+- Restarts failed nodes  
+- Detects dead loops  
+
+7.3 orchestrator-summary
+- Writes summary JSON  
+- Aggregates all node statuses  
+
+---
+
+🟫 8. CHAIN‑SPECIFIC NODES
+These run per‑chain logic.
+
+8.1 base-chain-node
+- Base RPC  
+- Base block scanner  
+- Base DEX  
+
+8.2 ethereum-chain-node
+- Mainnet RPC  
+- Contract state  
+- Gas metrics  
+
+8.3 arbitrum-chain-node
+- Arbitrum RPC  
+- Sequencer health  
+
+8.4 polygon-chain-node
+- Polygon RPC  
+- Gas spikes  
+
+---
+
+🟦 9. MOVEMENT NODES (Lore + Operational)
+These are unique to your movement architecture.
+
+9.1 relic-node
+- Tracks relic minting  
+- Logs relic lineage  
+
+9.2 cert-cartel-node
+- Tracks cert production  
+- Logs cert ancestry  
+
+9.3 wallyverse-node
+- Tracks Wallyverse contract state  
+- Logs trait lineage  
+
+9.4 berry-platform-node
+- Tracks platform heartbeat  
+- Logs system‑wide health  
+
+---
+
+🟩 10. CUSTOM NODES (Your future expansion)
+These are placeholders for your own modules.
+
+10.1 ai-advisor-node
+- Runs AI analysis on chain data  
+
+10.2 risk-engine-node
+- Detects risk patterns  
+- Logs alerts  
+
+10.3 governance-node
+- Tracks votes  
+- Logs proposals  
+
+---
+
+⭐ If you want, I can generate:
+
+- A node registry JSON containing all node types  
+- A starter JSON with example nodes  
+- A DX Terminal engine script that outputs all node types  
+- A dashboard UI layout that groups nodes by category  
+- A neon operator theme for the dashboard  
+
+Just tell me which direction you want to activate.

@@ -1,0 +1,21 @@
+{
+  "nodeId": "DX_TERMINAL_MASTER_CERT",
+  "label": "DX Terminal Master Cert Node",
+  "type": "cert-node",
+  "status": "healthy",
+  "lastRun": "2026-01-28T22:03:00Z",
+  "lastSuccess": "2026-01-28T22:03:00Z",
+  "lastHash": "SHA256_OF_MASTER_CERT",
+  "lastFile": "DX_TERMINAL_MASTER_CERT_2026-01-28T22-03-00Z.json",
+  "uptime": {
+    "successRate7d": 100,
+    "failures7d": 0,
+    "runs7d": 14
+  },
+  "meta": {
+    "chain": "Base",
+    "contract": "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "operator": "Bez",
+    "notes": "Master cert generator for DX Terminal collection."
+  }
+}

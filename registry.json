@@ -1,0 +1,254 @@
+{
+  "version": "1.0.0",
+  "description": "Berry Platform — DX Terminal Max Registry (placeholders for RPC + addresses)",
+  "nodes": [
+    {
+      "nodeId": "metrics-base-01",
+      "label": "Base Metrics",
+      "type": "metrics-node",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Base",
+        "rpc": "https://base-mainnet.placeholder-rpc.com"
+      }
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "label": "Ethereum Metrics",
+      "type": "metrics-node",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Ethereum",
+        "rpc": "https://eth-mainnet.placeholder-rpc.com"
+      }
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "label": "Arbitrum Metrics",
+      "type": "metrics-node",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Arbitrum",
+        "rpc": "https://arb-mainnet.placeholder-rpc.com"
+      }
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "label": "Polygon Metrics",
+      "type": "metrics-node",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Polygon",
+        "rpc": "https://polygon-mainnet.placeholder-rpc.com"
+      }
+    },
+
+    {
+      "nodeId": "scanner-base-contract-01",
+      "label": "Base Contract Scanner",
+      "type": "scanner-node",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Base",
+        "rpc": "https://base-mainnet.placeholder-rpc.com",
+        "contract": "0xBaseContractPlaceholder000000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "scanner-eth-wallet-01",
+      "label": "Ethereum Wallet Scanner",
+      "type": "scanner-node",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Ethereum",
+        "rpc": "https://eth-mainnet.placeholder-rpc.com",
+        "wallet": "0xEthWalletPlaceholder0000000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "scanner-arb-events-01",
+      "label": "Arbitrum Event Scanner",
+      "type": "scanner-node",
+      "schedule": "*/4 * * * *",
+      "meta": {
+        "chain": "Arbitrum",
+        "rpc": "https://arb-mainnet.placeholder-rpc.com",
+        "contract": "0xArbContractPlaceholder00000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "scanner-poly-multi-01",
+      "label": "Polygon Multi Scanner",
+      "type": "scanner-node",
+      "schedule": "*/4 * * * *",
+      "meta": {
+        "chain": "Polygon",
+        "rpc": "https://polygon-mainnet.placeholder-rpc.com",
+        "contract": "0xPolyContractPlaceholder0000000000000000000001",
+        "wallet": "0xPolyWalletPlaceholder000000000000000000000001"
+      }
+    },
+
+    {
+      "nodeId": "dex-base-pool-01",
+      "label": "Base DEX Pool",
+      "type": "dex-node",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Base",
+        "rpc": "https://base-mainnet.placeholder-rpc.com",
+        "pool": "0xBasePoolPlaceholder0000000000000000000000001",
+        "token0": "0xBaseToken0Placeholder0000000000000000000001",
+        "token1": "0xBaseToken1Placeholder0000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "dex-eth-pool-01",
+      "label": "Ethereum DEX Pool",
+      "type": "dex-node",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Ethereum",
+        "rpc": "https://eth-mainnet.placeholder-rpc.com",
+        "pool": "0xEthPoolPlaceholder0000000000000000000000001",
+        "token0": "0xEthToken0Placeholder0000000000000000000001",
+        "token1": "0xEthToken1Placeholder0000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "dex-arb-pool-01",
+      "label": "Arbitrum DEX Pool",
+      "type": "dex-node",
+      "schedule": "*/4 * * * *",
+      "meta": {
+        "chain": "Arbitrum",
+        "rpc": "https://arb-mainnet.placeholder-rpc.com",
+        "pool": "0xArbPoolPlaceholder0000000000000000000000001",
+        "token0": "0xArbToken0Placeholder0000000000000000000001",
+        "token1": "0xArbToken1Placeholder0000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "dex-poly-pool-01",
+      "label": "Polygon DEX Pool",
+      "type": "dex-node",
+      "schedule": "*/4 * * * *",
+      "meta": {
+        "chain": "Polygon",
+        "rpc": "https://polygon-mainnet.placeholder-rpc.com",
+        "pool": "0xPolyPoolPlaceholder0000000000000000000000001",
+        "token0": "0xPolyToken0Placeholder0000000000000000000001",
+        "token1": "0xPolyToken1Placeholder0000000000000000000001"
+      }
+    },
+
+    {
+      "nodeId": "cert-latest-01",
+      "label": "Cert Latest Artefact",
+      "type": "cert-node",
+      "schedule": "*/5 * * * *",
+      "meta": {
+        "notes": "Hashes latest artefact and updates cert ledger"
+      }
+    },
+    {
+      "nodeId": "cert-latest-02",
+      "label": "Cert Latest Artefact (Secondary)",
+      "type": "cert-node",
+      "schedule": "*/7 * * * *",
+      "meta": {
+        "notes": "Secondary cert pass for redundancy"
+      }
+    },
+
+    {
+      "nodeId": "heartbeat-core-01",
+      "label": "Core Engine Heartbeat",
+      "type": "heartbeat",
+      "schedule": "*/1 * * * *",
+      "meta": {}
+    },
+    {
+      "nodeId": "heartbeat-base-contract-01",
+      "label": "Base Contract Heartbeat",
+      "type": "heartbeat",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Base",
+        "rpc": "https://base-mainnet.placeholder-rpc.com",
+        "contract": "0xBaseContractPlaceholder000000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "label": "Ethereum Wallet Heartbeat",
+      "type": "heartbeat",
+      "schedule": "*/2 * * * *",
+      "meta": {
+        "chain": "Ethereum",
+        "rpc": "https://eth-mainnet.placeholder-rpc.com",
+        "wallet": "0xEthWalletPlaceholder0000000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "heartbeat-arb-contract-01",
+      "label": "Arbitrum Contract Heartbeat",
+      "type": "heartbeat",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Arbitrum",
+        "rpc": "https://arb-mainnet.placeholder-rpc.com",
+        "contract": "0xArbContractPlaceholder00000000000000000000001"
+      }
+    },
+    {
+      "nodeId": "heartbeat-poly-wallet-01",
+      "label": "Polygon Wallet Heartbeat",
+      "type": "heartbeat",
+      "schedule": "*/3 * * * *",
+      "meta": {
+        "chain": "Polygon",
+        "rpc": "https://polygon-mainnet.placeholder-rpc.com",
+        "wallet": "0xPolyWalletPlaceholder000000000000000000000001"
+      }
+    },
+
+    {
+      "nodeId": "orchestrator-summary-01",
+      "label": "Global Orchestrator Summary",
+      "type": "orchestrator",
+      "schedule": "*/5 * * * *",
+      "meta": {
+        "notes": "Aggregates all node outputs into a global summary"
+      }
+    },
+    {
+      "nodeId": "orchestrator-healthmap-01",
+      "label": "Health Map Orchestrator",
+      "type": "orchestrator",
+      "schedule": "*/10 * * * *",
+      "meta": {
+        "notes": "Secondary orchestrator for health mapping and redundancy"
+      }
+    },
+
+    {
+      "nodeId": "movement-core-01",
+      "label": "Core Movement Status",
+      "type": "movement",
+      "schedule": "*/10 * * * *",
+      "meta": {
+        "notes": "Reads artefacts + certs to derive movement status"
+      }
+    },
+    {
+      "nodeId": "movement-relics-01",
+      "label": "Relic Lineage Movement Node",
+      "type": "movement",
+      "schedule": "*/15 * * * *",
+      "meta": {
+        "notes": "Reserved for relic-lineage.json integration"
+      }
+    }
+  ]
+}

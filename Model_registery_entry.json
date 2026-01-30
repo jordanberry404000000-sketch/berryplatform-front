@@ -1,0 +1,15 @@
+{
+  "moduleId": "CERT_DEX_CORRIDOR_ARCHIVE",
+  "layer": "movement",
+  "description": "DEX receipts, router endpoints, and corridor groupings between discovery and verification layers.",
+  "certTypes": [
+    "DEX_TX_RECEIPT",
+    "DEX_ENDPOINT_WALLET",
+    "DEX_CORRIDOR"
+  ],
+  "relatedLineage": [
+    "CERT-COINSTATS-ERA-DCPOWER-ARCHIVE",
+    "CERT-COINSTATS-ERA-CCPOWER-ARCHIVE",
+    "CERT-CERTCARTEL-ERA-ARCHIVE"
+  ]
+}

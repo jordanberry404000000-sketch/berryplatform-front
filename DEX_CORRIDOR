@@ -1,0 +1,22 @@
+{
+  "certId": "DEX_CORRIDOR_ETH_ROUTER_0x7bb2_27d3f6",
+  "certType": "DEX_CORRIDOR",
+  "chainId": "0x1",
+  "label": "ETH inbound via router endpoint",
+  "primaryEndpoint": "0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9",
+  "participants": [
+    "0x76837828d0fff13998b2e28e74d191f96781220e",
+    "0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9"
+  ],
+  "txReceipts": [
+    "DX_TX_RECEIPT_ETH_INBOUND_0x27d3f6"
+  ],
+  "endpointCerts": [
+    "DEX_ENDPOINT_WALLET_0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9"
+  ],
+  "metrics": {
+    "totalEthDelta": "0xba19e2d51dc72",
+    "txCount": 1
+  },
+  "notes": "DEX corridor anchored in Coinstats/CERT lineage as operational movement layer."
+}

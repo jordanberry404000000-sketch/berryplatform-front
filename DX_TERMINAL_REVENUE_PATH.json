@@ -1,0 +1,23 @@
+{
+  "certId": "DEX_CORRIDOR_DXTERMINAL_REVENUE_2025Q4",
+  "certType": "DEX_CORRIDOR",
+  "chainId": "Base",
+  "label": "DX Terminal → Treasury Revenue Corridor",
+  "primaryEndpoint": "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2",
+  "participants": [
+    "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2"
+  ],
+  "txReceipts": [
+    "DX_TX_RECEIPT_ETH_OUTBOUND_DXTERMINAL_0x41dc69_0xf8f5f4_1875"
+  ],
+  "endpointCerts": [
+    "DEX_ENDPOINT_WALLET_0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2"
+  ],
+  "metrics": {
+    "totalEthDelta": 0.1875,
+    "txCount": 1
+  },
+  "linkedMasterCert": "CERT_DX_TERMINAL_MASTER_2025Q4",
+  "notes": "Corridor represents mint revenue forwarding from DX Terminal contract to treasury."
+}

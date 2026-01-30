@@ -1,0 +1,72 @@
+{
+  "moduleId": "DX_TERMINAL_SUBSYSTEM",
+  "label": "DX Terminal Full Stack Module",
+  "version": "2026.01.28",
+  "status": "ready-for-onboarding",
+  "location": "/mnt/chromeos/removable/Berry02",
+  "nodes": [
+    {
+      "id": "DX_TERMINAL_NFT_METRICS",
+      "type": "metrics",
+      "script": "dx_terminal_nft_metrics.js",
+      "wrapper": "dx_nft_metrics_wrapper.js",
+      "entrypoint": "dx_nft_metrics_entrypoint.sh",
+      "heartbeat": "DX_TERMINAL_NFT_METRICS_HEARTBEAT.json",
+      "outputPattern": "DX_TERMINAL_NFT_METRICS_*.json"
+    },
+    {
+      "id": "DX_TERMINAL_METRICS",
+      "type": "metrics",
+      "script": "dx_terminal_metrics.js",
+      "wrapper": "dx_metrics_wrapper.js",
+      "entrypoint": "dx_metrics_entrypoint.sh",
+      "heartbeat": "DX_TERMINAL_METRICS_HEARTBEAT.json",
+      "outputPattern": "DX_TERMINAL_METRICS_*.json"
+    },
+    {
+      "id": "DX_TERMINAL_MASTER_CERT",
+      "type": "cert-node",
+      "script": "dx_terminal_master_cert.js",
+      "wrapper": "dx_master_cert_wrapper.js",
+      "entrypoint": "dx_master_cert_entrypoint.sh",
+      "heartbeat": "DX_TERMINAL_MASTER_HEARTBEAT.json",
+      "outputPattern": "DX_TERMINAL_MASTER_CERT_*.json"
+    }
+  ],
+  "orchestrator": {
+    "script": "dx_terminal_orchestrator.js",
+    "heartbeat": "DX_TERMINAL_SUBSYSTEM_HEARTBEAT.json",
+    "logfile": "/tmp/dx_terminal_orchestrator.log",
+    "cron": "0 */4 * * *"
+  },
+  "vault": {
+    "path": "/mnt/chromeos/removable/Berry02",
+    "usbSafe": true,
+    "sharedWithLinux": true
+  },
+  "lineage": {
+    "flow": [
+      "DX_TERMINAL_NFT_METRICS → DX_TERMINAL_MASTER_CERT",
+      "DX_TERMINAL_METRICS → DX_TERMINAL_MASTER_CERT",
+      "DX_TERMINAL_MASTER_CERT → DEX_CORRIDOR_DXTERMINAL"
+    ],
+    "contracts": [
+      "0x41dc69132cce31fcbf6755c84538ca268520246f",
+      "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2"
+    ],
+    "chain": "Base"
+  },
+  "certsProduced": [
+    "CERT_DX_TERMINAL_MASTER_2025Q4",
+    "CERT_DX_ITEM_EDIREJECT_27770",
+    "DEX_CORRIDOR_DXTERMINAL_REVENUE_2025Q4",
+    "DEX_TX_RECEIPT_ETH_OUTBOUND_*",
+    "DEX_ENDPOINT_WALLET_*"
+  ],
+  "operator": {
+    "name": "Bez",
+    "wallet": "0xEb8447eeeEDaE9715F0c7600983BDa8e335fB256",
+    "ens": "berry1984second.cb.id"
+  },
+  "notes": "This manifest certifies the DX Terminal subsystem as a complete, vault-safe, orchestrator-driven module ready for onboarding into Berry Platform. All nodes are heartbeat-tracked, cron-safe, and lineage-anchored."
+}

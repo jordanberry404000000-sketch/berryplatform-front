@@ -1,0 +1,9 @@
+{
+  "nodeId": "cert-hash-01",
+  "label": "Cert Hash Node",
+  "type": "cert-node",
+  "schedule": "*/3 * * * *",
+  "meta": {
+    "notes": "Hashes latest artefact and updates cert lineage"
+  }
+}

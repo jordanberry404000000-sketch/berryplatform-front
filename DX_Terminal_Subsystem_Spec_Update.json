@@ -1,0 +1,33 @@
+{
+  "subsystemId": "DX_TERMINAL",
+  "label": "DX Terminal Collection Subsystem",
+  "nodes": [
+    "DX_TERMINAL_METRICS",
+    "DX_TERMINAL_NFT_METRICS",
+    "DX_TERMINAL_MASTER_CERT",
+    "DEX_CORRIDOR_DXTERMINAL"
+  ],
+  "artefacts": [
+    "DX_TERMINAL_METRICS_*.json",
+    "DX_TERMINAL_NFT_METRICS_*.json",
+    "DX_TERMINAL_MASTER_CERT_*.json",
+    "DEX_TX_RECEIPT_ETH_OUTBOUND_*",
+    "DEX_CORRIDOR_DXTERMINAL_REVENUE_2025Q4"
+  ],
+  "contracts": [
+    "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "0xf8f5f4EB7C3d1b7A150109B2d9B0888fEc9f11E2"
+  ],
+  "lineage": {
+    "metricsNode": "DX_TERMINAL_METRICS",
+    "nftMetricsNode": "DX_TERMINAL_NFT_METRICS",
+    "masterCertNode": "DX_TERMINAL_MASTER_CERT",
+    "dexCorridorNode": "DEX_CORRIDOR_DXTERMINAL",
+    "feeds": [
+      "metrics → masterCert",
+      "nftMetrics → masterCert",
+      "masterCert → dexCorridor",
+      "dexCorridor → receipts/endpoints"
+    ]
+  }
+}

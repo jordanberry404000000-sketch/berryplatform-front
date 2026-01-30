@@ -1,0 +1,7 @@
+{
+  "nodeId": "heartbeat-core-01",
+  "label": "Core Heartbeat",
+  "type": "heartbeat",
+  "schedule": "*/1 * * * *",
+  "meta": {}
+}

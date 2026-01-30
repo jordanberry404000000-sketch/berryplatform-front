@@ -1,0 +1,9 @@
+{
+  "nodeId": "orchestrator-summary-01",
+  "label": "Orchestrator Summary",
+  "type": "orchestrator",
+  "schedule": "*/5 * * * *",
+  "meta": {
+    "notes": "Aggregates all node outputs into a global summary"
+  }
+}

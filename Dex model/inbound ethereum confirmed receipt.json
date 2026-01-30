@@ -1,0 +1,23 @@
+{
+  "certId": "DX_TX_RECEIPT_ETH_INBOUND",
+  "chainId": "0x1",
+  "status": "confirmed",
+  "transactionHash": "0x27d3f635f8ee9c4319d1f7b7ecfafd24f2860d15f9b0387088638610f65ea0d",
+  "from": "0x76837828d0fff13998b2e28e74d191f96781220e",
+  "to": "0x7bb23bddb37c0af8d4f9bbe0f4c7ca0cfe7726f9",
+  "value": "0x0",
+  "gasUsed": "0x523f",
+  "effectiveGasPrice": "0x7cf8b299",
+  "baseFeePerGas": "0x415de899",
+  "blockNumber": "0x1644166",
+  "blockHash": "0x8839793194eb2465be083595c4625ca9d5b9da1a3bce58859aea1262ae1dc564",
+  "logs": [],
+  "logsBloom": "0x000...000",
+  "nativeBalanceChange": {
+    "previousBalance": "0x8935f7339a",
+    "newBalance": "0x49f532215d2e",
+    "difference": "0xba19e2d51dc72",
+    "isDecrease": true
+  },
+  "submittedTime": 1757687030560
+}

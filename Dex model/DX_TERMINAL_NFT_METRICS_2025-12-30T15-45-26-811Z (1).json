@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-12-30T15:45:26.811Z",
+  "collection": "DX Terminal",
+  "chain": "Base",
+  "contract": "0x41dc69132cce31fcbf6755c84538ca268520246f",
+  "market": {
+    "items": null,
+    "floorPriceEth": null,
+    "topOfferEth": null,
+    "volume24hEth": null,
+    "totalVolumeEth": null
+  },
+  "contractInfo": {
+    "creationTx": null,
+    "createdAt": null,
+    "ageDays": null,
+    "verified": false,
+    "contractName": null,
+    "compilerVersion": null,
+    "totalSupply": null
+  },
+  "nftActivity": {
+    "sampleTransferCount": 0,
+    "approxDistinctHoldersFromSample": 0,
+    "sampleTransfers": []
+  },
+  "notes": "Auto-generated DX Terminal NFT metrics snapshot (OpenSea + BaseScan, ERC-721, IPv4-safe)"
+}

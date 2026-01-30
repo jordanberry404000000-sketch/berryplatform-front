@@ -1,0 +1,13 @@
+{
+  "node": "DX_TERMINAL_MASTER_CERT",
+  "lastRun": "2026-01-28T22:03:00Z",
+  "lastSuccess": "2026-01-28T22:03:00Z",
+  "lastHash": "SHA256_OF_MASTER_CERT",
+  "lastFile": "DX_TERMINAL_MASTER_CERT_2026-01-28T22-03-00Z.json",
+  "status": "healthy",
+  "meta": {
+    "chain": "Base",
+    "contract": "0x41dc69132cce31fcbf6755c84538ca268520246f",
+    "operator": "Bez"
+  }
+}
