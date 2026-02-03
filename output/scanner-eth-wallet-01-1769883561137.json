@@ -1,0 +1,19 @@
+{
+  "nodeId": "scanner-eth-wallet-01",
+  "type": "scanner-node",
+  "label": "Ethereum Wallet Scanner",
+  "timestamp": "2026-01-31T18:19:02.164Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "scanner-eth-wallet-01",
+    "label": "Ethereum Wallet Scanner",
+    "type": "scanner-node",
+    "timestamp": "2026-01-31T18:19:02.164Z",
+    "chain": "ethereum",
+    "scanner": {
+      "latestBlock": 24356600
+    },
+    "status": "error",
+    "error": "no response"
+  }
+}

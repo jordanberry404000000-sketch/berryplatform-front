@@ -1,0 +1,53 @@
+[SCHEDULER] Loaded 23 nodes from registry.json
+[SCHEDULER] Scheduling metrics-base-01 (metrics-node) every 2 min
+[SCHEDULER] Scheduling metrics-eth-01 (metrics-node) every 2 min
+[SCHEDULER] Scheduling metrics-arb-01 (metrics-node) every 2 min
+[SCHEDULER] Scheduling metrics-poly-01 (metrics-node) every 2 min
+[SCHEDULER] Scheduling scanner-base-contract-01 (scanner-node) every 3 min
+[SCHEDULER] Scheduling scanner-eth-wallet-01 (scanner-node) every 3 min
+[SCHEDULER] Scheduling scanner-arb-events-01 (scanner-node) every 4 min
+[SCHEDULER] Scheduling scanner-poly-multi-01 (scanner-node) every 4 min
+[SCHEDULER] Scheduling dex-base-pool-01 (dex-node) every 3 min
+[SCHEDULER] Scheduling dex-eth-pool-01 (dex-node) every 3 min
+[SCHEDULER] Scheduling dex-arb-pool-01 (dex-node) every 4 min
+[SCHEDULER] Scheduling dex-poly-pool-01 (dex-node) every 4 min
+[SCHEDULER] Scheduling cert-latest-01 (cert-node) every 5 min
+[SCHEDULER] Scheduling cert-latest-02 (cert-node) every 7 min
+[SCHEDULER] Scheduling heartbeat-core-01 (heartbeat) every 1 min
+[SCHEDULER] Scheduling heartbeat-base-contract-01 (heartbeat) every 2 min
+[SCHEDULER] Scheduling heartbeat-eth-wallet-01 (heartbeat) every 2 min
+[SCHEDULER] Scheduling heartbeat-arb-contract-01 (heartbeat) every 3 min
+[SCHEDULER] Scheduling heartbeat-poly-wallet-01 (heartbeat) every 3 min
+[SCHEDULER] Scheduling orchestrator-summary-01 (orchestrator) every 5 min
+[SCHEDULER] Scheduling orchestrator-healthmap-01 (orchestrator) every 10 min
+[SCHEDULER] Scheduling movement-core-01 (movement) every 10 min
+[SCHEDULER] Scheduling movement-relics-01 (movement) every 15 min
+[SCHEDULER] DX Terminal scheduler is running.
+(node:4925) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/berry-base/BerryPlatform/scheduler.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /home/berry-base/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[EXECUTOR] metrics-arb-01 (metrics-node) → error @ 2026-01-30T20:11:15.742Z
+[EXECUTOR] cert-latest-01 (cert-node) → error @ 2026-01-30T20:11:15.863Z
+[EXECUTOR] cert-latest-02 (cert-node) → error @ 2026-01-30T20:11:15.877Z
+[EXECUTOR] metrics-eth-01 (metrics-node) → error @ 2026-01-30T20:11:15.846Z
+[EXECUTOR] dex-arb-pool-01 (dex-node) → error @ 2026-01-30T20:11:15.906Z
+[EXECUTOR] dex-eth-pool-01 (dex-node) → error @ 2026-01-30T20:11:15.926Z
+[EXECUTOR] metrics-base-01 (metrics-node) → error @ 2026-01-30T20:11:15.935Z
+[EXECUTOR] metrics-poly-01 (metrics-node) → error @ 2026-01-30T20:11:15.984Z
+[EXECUTOR] dex-base-pool-01 (dex-node) → error @ 2026-01-30T20:11:15.995Z
+[EXECUTOR] dex-poly-pool-01 (dex-node) → error @ 2026-01-30T20:11:16.001Z
+[EXECUTOR] movement-core-01 (movement) → healthy @ 2026-01-30T20:11:16.046Z
+[EXECUTOR] heartbeat-core-01 (heartbeat) → degraded @ 2026-01-30T20:11:16.056Z
+[EXECUTOR] movement-relics-01 (movement) → healthy @ 2026-01-30T20:11:16.230Z
+[EXECUTOR] scanner-eth-wallet-01 (scanner-node) → error @ 2026-01-30T20:11:16.433Z
+[EXECUTOR] scanner-arb-events-01 (scanner-node) → error @ 2026-01-30T20:11:16.442Z
+[EXECUTOR] scanner-poly-multi-01 (scanner-node) → error @ 2026-01-30T20:11:16.478Z
+[EXECUTOR] heartbeat-eth-wallet-01 (heartbeat) → error @ 2026-01-30T20:11:16.654Z
+[EXECUTOR] scanner-base-contract-01 (scanner-node) → error @ 2026-01-30T20:11:16.736Z
+[EXECUTOR] heartbeat-poly-wallet-01 (heartbeat) → error @ 2026-01-30T20:11:16.785Z
+[EXECUTOR] orchestrator-summary-01 (orchestrator) → error @ 2026-01-30T20:11:16.798Z
+[EXECUTOR] heartbeat-arb-contract-01 (heartbeat) → error @ 2026-01-30T20:11:16.855Z
+[EXECUTOR] heartbeat-base-contract-01 (heartbeat) → error @ 2026-01-30T20:11:16.957Z
+[EXECUTOR] orchestrator-healthmap-01 (orchestrator) → error @ 2026-01-30T20:11:16.965Z
+[EXECUTOR] heartbeat-core-01 (heartbeat) → degraded @ 2026-01-30T20:12:16.103Z

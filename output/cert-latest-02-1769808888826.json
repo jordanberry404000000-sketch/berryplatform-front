@@ -1,0 +1,14 @@
+{
+  "nodeId": "cert-latest-02",
+  "label": "Cert Latest Artefact (Secondary)",
+  "type": "cert-node",
+  "timestamp": "2026-01-30T21:34:48.810Z",
+  "status": "error",
+  "cert": {
+    "file": "heartbeat-core-01-1769808829874.json",
+    "hash": "4d4b875641c9fd1fa2afc2fa6eb58d35917d60554de4a5e85faa981463219620",
+    "integrity": "changed",
+    "previousHash": "e9fee8d351e5c7127dd6b0bf5abb0d05aafe937eb8168889012c75a695dc98d0",
+    "ledgerUpdated": true
+  }
+}

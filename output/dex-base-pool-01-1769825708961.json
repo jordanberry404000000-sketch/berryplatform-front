@@ -1,0 +1,12 @@
+{
+  "nodeId": "dex-base-pool-01",
+  "label": "Base DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-31T02:15:08.357Z",
+  "chain": "base",
+  "dex": {
+    "latestBlock": 41518180
+  },
+  "status": "error",
+  "error": "invalid argument 0: invalid address: hex string without 0x prefix"
+}

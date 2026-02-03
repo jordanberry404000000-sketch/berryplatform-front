@@ -1,0 +1,9 @@
+{
+  "nodeId": "heartbeat-arb-contract-01",
+  "type": "heartbeat",
+  "label": "Arbitrum Contract Heartbeat",
+  "timestamp": "2026-01-31T11:07:29.786Z",
+  "status": "error",
+  "data": {},
+  "error": "runHeartbeatNode is not defined"
+}

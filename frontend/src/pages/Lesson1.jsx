@@ -1,72 +1,130 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Web3Context } from "../App.jsx";
 import Guidance from "../components/Guidance.jsx";
-import { BERRY_BACKEND_URL } from "../config.js";
 
 export default function Lesson1() {
-  const [updating, setUpdating] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  const navigate = useNavigate();
+  const { account } = useContext(Web3Context);
+  const isConnected = !!account;
 
-  const completeLesson = async () => {
+  const [lesson, setLesson] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [complete, setComplete] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchLesson() {
+      if (!isConnected) return;
+
+      try {
+        setLoading(true);
+        setError(null);
+
+        const res = await fetch("/api/lesson/1");
+        const data = await res.json();
+
+        setLesson(data);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load Lesson 1.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchLesson();
+  }, [isConnected]);
+
+  async function completeLesson() {
     try {
-      setUpdating(true);
+      setComplete(true);
 
-      const tokenId = window.localStorage.getItem("berry_token_id") || 1; // placeholder
-
-      await fetch(`${BERRY_BACKEND_URL}/api/updateMetadata`, {
+      await fetch("/api/lesson/1/complete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tokenId,
-          progress: ["lesson1"]
-        })
+        body: JSON.stringify({ account })
       });
 
-      setCompleted(true);
-
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1000);
     } catch (err) {
-      console.error("Lesson completion failed:", err);
-      alert("Lesson completion failed. Check console.");
-    } finally {
-      setUpdating(false);
+      console.error(err);
     }
-  };
+  }
+
+  if (!isConnected) {
+    return (
+      <div style={{ padding: "40px", color: "#e0e0ff" }}>
+        <Guidance state="noWallet" />
+      </div>
+    );
+  }
+
+  if (loading) {
+    return <p style={{ color: "#7df9ff" }}>Loading Lesson 1...</p>;
+  }
+
+  if (error) {
+    return <p style={{ color: "#ff6b6b" }}>{error}</p>;
+  }
+
+  if (!lesson) {
+    return null;
+  }
 
   return (
-    <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-      <h1>Lesson 1 — Relic as Proof</h1>
-      <p style={{ color: "#aaa", fontSize: "14px" }}>
-        This lesson binds your relic to more than a mint. It becomes your record of survival and discipline.
-      </p>
+    <div
+      style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "40px 20px",
+        color: "#e0e0ff",
+        fontFamily: "Orbitron, sans-serif",
+      }}
+    >
+      <h1 style={{ fontSize: "36px", color: "#7df9ff" }}>
+        LESSON 1 — ORIGIN SIGNAL
+      </h1>
 
       <Guidance state="lesson1" />
 
-      {!completed && (
+      <div
+        style={{
+          marginTop: "30px",
+          padding: "20px",
+          background: "rgba(0, 20, 40, 0.6)",
+          borderRadius: "12px",
+          boxShadow: "0 0 20px rgba(0, 255, 255, 0.2)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        <h2 style={{ color: "#00eaff" }}>{lesson.title}</h2>
+        <p style={{ marginTop: "10px", opacity: 0.9 }}>{lesson.body}</p>
+      </div>
+
+      {!complete ? (
         <button
           onClick={completeLesson}
-          disabled={updating}
           style={{
-            marginTop: "24px",
-            padding: "12px 20px",
-            borderRadius: "999px",
+            marginTop: "30px",
+            padding: "12px 24px",
+            fontSize: "18px",
+            background: "#00eaff",
             border: "none",
-            background: updating ? "#444" : "#20bf6b",
-            color: "#fff",
-            fontWeight: 600,
-            cursor: updating ? "default" : "pointer"
+            borderRadius: "8px",
+            cursor: "pointer",
+            color: "#000",
+            boxShadow: "0 0 12px #00eaff",
           }}
         >
-          {updating ? "Updating your relic…" : "Complete Lesson"}
+          Mark Lesson Complete
         </button>
-      )}
-
-      {completed && (
-        <p style={{ marginTop: "16px", fontSize: "14px", color: "#20bf6b" }}>
-          Lesson completed — returning to dashboard…
+      ) : (
+        <p
+          style={{
+            marginTop: "30px",
+            color: "#00ff9d",
+            textShadow: "0 0 10px #00ff9d",
+          }}
+        >
+          Lesson Complete — Movement Logged
         </p>
       )}
     </div>

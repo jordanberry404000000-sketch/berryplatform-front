@@ -1,0 +1,9 @@
+{
+  "nodeId": "heartbeat-eth-wallet-01",
+  "type": "heartbeat",
+  "label": "Ethereum Wallet Heartbeat",
+  "timestamp": "2026-01-31T11:07:29.067Z",
+  "status": "error",
+  "data": {},
+  "error": "runHeartbeatNode is not defined"
+}

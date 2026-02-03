@@ -1,0 +1,11 @@
+{
+  "nodeId": "cert-latest-02",
+  "label": "Cert Latest Artefact (Secondary)",
+  "type": "cert-node",
+  "schedule": "*/7 * * * *",
+  "meta": {
+    "artefactPath": "./cert-ledger/",
+    "ledgerFile": "./cert-ledger/cert-ledger.json",
+    "notes": "Secondary cert node — redundancy pass"
+  }
+}

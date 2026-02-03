@@ -1,0 +1,12 @@
+{
+  "nodeId": "dex-arb-pool-01",
+  "label": "Arbitrum DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-31T11:42:52.493Z",
+  "chain": "arbitrum",
+  "dex": {
+    "latestBlock": 427137259
+  },
+  "status": "error",
+  "error": "invalid argument 0: invalid address: hex string without 0x prefix"
+}

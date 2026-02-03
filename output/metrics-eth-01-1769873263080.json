@@ -1,0 +1,24 @@
+{
+  "nodeId": "metrics-eth-01",
+  "type": "metrics-node",
+  "label": "Ethereum Metrics",
+  "timestamp": "2026-01-31T15:27:39.174Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "metrics-eth-01",
+    "label": "Ethereum Metrics",
+    "type": "metrics-node",
+    "timestamp": "2026-01-31T15:27:39.174Z",
+    "chain": "ethereum",
+    "metrics": {
+      "rpcLatencyMs": 429.04010699968785,
+      "latestBlock": 24355749,
+      "gasPriceWei": "0x472a350f",
+      "filesystem": {
+        "outputDirExists": true,
+        "outputFileCount": 2504
+      }
+    },
+    "status": "healthy"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "nodeId": "heartbeat-core-01",
+  "label": "Core Engine Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-30T19:13:23.220Z",
+  "chain": "unknown",
+  "heartbeat": {
+    "engine": "alive",
+    "warning": "No RPC URL provided"
+  },
+  "status": "degraded"
+}

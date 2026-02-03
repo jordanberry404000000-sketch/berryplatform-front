@@ -1,0 +1,32 @@
+{
+  "nodeId": "movement-core-01",
+  "label": "Core Movement Status",
+  "type": "movement",
+  "timestamp": "2026-01-30T21:30:48.932Z",
+  "movement": {
+    "relics": {
+      "enabled": false,
+      "info": "No relic-lineage.json found yet"
+    },
+    "platform": {
+      "artefactScore": 1,
+      "certScore": 1,
+      "movementScore": 2,
+      "status": "alive"
+    },
+    "artefacts": {
+      "outputDirExists": true,
+      "totalArtefacts": 371
+    },
+    "certs": {
+      "certDirExists": true,
+      "totalCerts": 20,
+      "lastCert": {
+        "timestamp": "2026-01-30T21:30:48.849Z",
+        "file": "heartbeat-arb-contract-01-1769808590952.json",
+        "hash": "e9fee8d351e5c7127dd6b0bf5abb0d05aafe937eb8168889012c75a695dc98d0"
+      }
+    }
+  },
+  "status": "healthy"
+}

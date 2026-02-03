@@ -1,0 +1,11 @@
+{
+  "nodeId": "cert-latest-01",
+  "label": "Cert Latest Artefact",
+  "type": "cert-node",
+  "schedule": "*/5 * * * *",
+  "meta": {
+    "artefactPath": "./cert-ledger/",
+    "ledgerFile": "./cert-ledger/cert-ledger.json",
+    "notes": "Primary cert node — hashes latest artefact and updates ledger"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "nodeId": "heartbeat-arb-contract-01",
+  "label": "Arbitrum Contract Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-30T21:10:26.085Z",
+  "chain": "Arbitrum",
+  "heartbeat": {
+    "engine": "alive"
+  },
+  "status": "error",
+  "error": "request to https://arb-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND arb-mainnet.placeholder-rpc.com"
+}

@@ -1,0 +1,14 @@
+{
+  "nodeId": "heartbeat-core-01",
+  "label": "Core Engine Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-31T02:13:08.549Z",
+  "chain": "base",
+  "heartbeat": {
+    "engine": "alive",
+    "latestBlock": 41518120,
+    "contractReachable": null,
+    "walletReachable": null
+  },
+  "status": "healthy"
+}

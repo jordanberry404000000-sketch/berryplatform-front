@@ -1,0 +1,24 @@
+{
+  "nodeId": "metrics-poly-01",
+  "type": "metrics-node",
+  "label": "Polygon Metrics",
+  "timestamp": "2026-01-31T13:49:34.839Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "metrics-poly-01",
+    "label": "Polygon Metrics",
+    "type": "metrics-node",
+    "timestamp": "2026-01-31T13:49:34.839Z",
+    "chain": "polygon",
+    "metrics": {
+      "rpcLatencyMs": 90.47842299984768,
+      "latestBlock": 82373684,
+      "gasPriceWei": "0xa1e97271b7",
+      "filesystem": {
+        "outputDirExists": true,
+        "outputFileCount": 1770
+      }
+    },
+    "status": "healthy"
+  }
+}

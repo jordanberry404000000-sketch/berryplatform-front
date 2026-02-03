@@ -1,0 +1,12 @@
+{
+  "nodeId": "scanner-arb-events-01",
+  "label": "Arbitrum Event Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-31T00:37:10.103Z",
+  "chain": "arbitrum",
+  "scanner": {
+    "latestBlock": 426977071
+  },
+  "status": "error",
+  "error": "invalid argument 0: hex string has length 38, want 40 for common.Address"
+}

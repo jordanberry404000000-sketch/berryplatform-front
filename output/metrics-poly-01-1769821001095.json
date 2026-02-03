@@ -1,0 +1,17 @@
+{
+  "nodeId": "metrics-poly-01",
+  "label": "Polygon Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-31T00:56:40.554Z",
+  "chain": "polygon",
+  "metrics": {
+    "rpcLatencyMs": 372.33089100000007,
+    "latestBlock": 82350497,
+    "gasPriceWei": "0x6fb0a96a6e",
+    "filesystem": {
+      "outputDirExists": true,
+      "outputFileCount": 941
+    }
+  },
+  "status": "healthy"
+}

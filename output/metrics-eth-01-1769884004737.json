@@ -1,0 +1,19 @@
+{
+  "nodeId": "metrics-eth-01",
+  "type": "metrics-node",
+  "label": "Ethereum Metrics",
+  "timestamp": "2026-01-31T18:26:11.506Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "metrics-eth-01",
+    "label": "Ethereum Metrics",
+    "type": "metrics-node",
+    "timestamp": "2026-01-31T18:26:11.506Z",
+    "chain": "ethereum",
+    "metrics": {
+      "rpcLatencyMs": 33214.04942300171
+    },
+    "status": "error",
+    "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  }
+}

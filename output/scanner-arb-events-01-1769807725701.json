@@ -1,0 +1,10 @@
+{
+  "nodeId": "scanner-arb-events-01",
+  "label": "Arbitrum Event Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-30T21:15:25.694Z",
+  "chain": "Arbitrum",
+  "scanner": {},
+  "status": "error",
+  "error": "request to https://arb-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND arb-mainnet.placeholder-rpc.com"
+}

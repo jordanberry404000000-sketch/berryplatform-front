@@ -1,0 +1,10 @@
+{
+  "nodeId": "metrics-eth-01",
+  "label": "Ethereum Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-30T20:06:54.493Z",
+  "chain": "Ethereum",
+  "metrics": {},
+  "status": "error",
+  "error": "request to https://eth-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND eth-mainnet.placeholder-rpc.com"
+}

@@ -4,30 +4,44 @@ import { Web3Context } from "../App.jsx";
 import Guidance from "../components/Guidance.jsx";
 
 export default function Mint() {
-  const { account, contract, connectWallet } = useContext(Web3Context);
+  const { account, connectWallet } = useContext(Web3Context);
   const [loading, setLoading] = useState(false);
   const [txHash, setTxHash] = useState(null);
   const navigate = useNavigate();
 
   const handleMint = async () => {
-    if (!account || !contract) {
+    if (!account) {
       await connectWallet();
-      if (!contract) return;
+      if (!account) return;
     }
+
     try {
       setLoading(true);
       setTxHash(null);
 
-      const placeholderUri = "ipfs://REPLACE_WITH_INITIAL_METADATA";
-      const tx = await contract.methods
-        .mint(account, placeholderUri)
-        .send({ from: account, value: "0" });
+      const response = await fetch(
+        "https://api.berryplatform.co.uk/api/mint",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ address: account })
+        }
+      );
 
-      setTxHash(tx.transactionHash);
+      const data = await response.json();
+
+      if (!data.ok) {
+        console.error("Mint failed:", data.error);
+        alert("Mint failed. Check console for details.");
+        return;
+      }
+
+      setTxHash(data.txHash);
 
       setTimeout(() => {
         navigate("/lesson1");
       }, 1200);
+
     } catch (err) {
       console.error("Mint failed:", err);
       alert("Mint failed. Check console for details.");

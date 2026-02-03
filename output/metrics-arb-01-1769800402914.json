@@ -1,0 +1,10 @@
+{
+  "nodeId": "metrics-arb-01",
+  "label": "Arbitrum Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-30T19:13:22.877Z",
+  "chain": "Arbitrum",
+  "metrics": {},
+  "status": "error",
+  "error": "request to https://arb-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND arb-mainnet.placeholder-rpc.com"
+}

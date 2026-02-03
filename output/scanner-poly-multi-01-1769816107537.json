@@ -1,0 +1,12 @@
+{
+  "nodeId": "scanner-poly-multi-01",
+  "label": "Polygon Multi Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-30T23:35:06.968Z",
+  "chain": "polygon",
+  "scanner": {
+    "latestBlock": 82348050
+  },
+  "status": "error",
+  "error": "invalid argument 0: json: cannot unmarshal hex string without 0x prefix into Go struct field TransactionArgs.to of type common.Address"
+}

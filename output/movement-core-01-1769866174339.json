@@ -1,0 +1,39 @@
+{
+  "nodeId": "movement-core-01",
+  "type": "movement",
+  "label": "Core Movement Status",
+  "timestamp": "2026-01-31T13:29:34.334Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "movement-core-01",
+    "label": "Core Movement Status",
+    "type": "movement",
+    "timestamp": "2026-01-31T13:29:34.334Z",
+    "movement": {
+      "relics": {
+        "enabled": false,
+        "info": "No relic-lineage.json found yet"
+      },
+      "platform": {
+        "artefactScore": 1,
+        "certScore": 1,
+        "movementScore": 2,
+        "status": "alive"
+      },
+      "artefacts": {
+        "outputDirExists": true,
+        "totalArtefacts": 1618
+      },
+      "certs": {
+        "certDirExists": true,
+        "totalCerts": 43,
+        "lastCert": {
+          "timestamp": "2026-01-31T00:19:47.429Z",
+          "file": "cert-latest-01-1769818787428.json",
+          "hash": "0538ba657fa6ce6de56f16f8bc10ab6a89bc77fea300eb2dc36df0e3ba28da33"
+        }
+      }
+    },
+    "status": "healthy"
+  }
+}

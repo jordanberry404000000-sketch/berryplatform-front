@@ -1,0 +1,12 @@
+{
+  "nodeId": "scanner-base-contract-01",
+  "label": "Base Contract Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-30T23:29:39.746Z",
+  "chain": "base",
+  "scanner": {
+    "latestBlock": 41513216
+  },
+  "status": "error",
+  "error": "invalid argument 0: json: cannot unmarshal hex string without 0x prefix into Go struct field TransactionArgs.to of type common.Address"
+}

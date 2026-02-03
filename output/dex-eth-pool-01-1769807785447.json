@@ -1,0 +1,10 @@
+{
+  "nodeId": "dex-eth-pool-01",
+  "label": "Ethereum DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-30T21:16:25.409Z",
+  "chain": "Ethereum",
+  "dex": {},
+  "status": "error",
+  "error": "request to https://eth-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND eth-mainnet.placeholder-rpc.com"
+}

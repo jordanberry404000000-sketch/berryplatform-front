@@ -1,0 +1,15 @@
+{
+  "nodeId": "heartbeat-base-contract-01",
+  "label": "Base Contract Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-31T01:02:42.063Z",
+  "chain": "base",
+  "heartbeat": {
+    "engine": "alive",
+    "latestBlock": 41516007,
+    "contractReachable": true,
+    "contractResponse": "0x",
+    "walletReachable": null
+  },
+  "status": "healthy"
+}

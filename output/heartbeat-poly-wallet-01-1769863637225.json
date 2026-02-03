@@ -1,0 +1,15 @@
+{
+  "nodeId": "heartbeat-poly-wallet-01",
+  "label": "Polygon Wallet Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-31T12:47:16.518Z",
+  "chain": "polygon",
+  "heartbeat": {
+    "engine": "alive",
+    "latestBlock": 82371815,
+    "contractReachable": null,
+    "walletReachable": true,
+    "walletBalanceWei": "0x17c7dd668dc520"
+  },
+  "status": "healthy"
+}

@@ -1,0 +1,10 @@
+{
+  "nodeId": "dex-arb-pool-01",
+  "label": "Arbitrum DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-30T20:11:15.906Z",
+  "chain": "Arbitrum",
+  "dex": {},
+  "status": "error",
+  "error": "request to https://arb-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND arb-mainnet.placeholder-rpc.com"
+}

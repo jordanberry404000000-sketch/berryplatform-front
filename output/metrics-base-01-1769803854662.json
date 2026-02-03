@@ -1,0 +1,10 @@
+{
+  "nodeId": "metrics-base-01",
+  "label": "Base Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-30T20:10:54.611Z",
+  "chain": "Base",
+  "metrics": {},
+  "status": "error",
+  "error": "request to https://base-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND base-mainnet.placeholder-rpc.com"
+}

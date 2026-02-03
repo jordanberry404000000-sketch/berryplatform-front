@@ -1,0 +1,24 @@
+{
+  "nodeId": "metrics-arb-01",
+  "type": "metrics-node",
+  "label": "Arbitrum Metrics",
+  "timestamp": "2026-01-31T17:03:46.333Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "metrics-arb-01",
+    "label": "Arbitrum Metrics",
+    "type": "metrics-node",
+    "timestamp": "2026-01-31T17:03:46.600Z",
+    "chain": "arbitrum",
+    "metrics": {
+      "rpcLatencyMs": 709.7155049983412,
+      "latestBlock": 427214742,
+      "gasPriceWei": "0x15c53e0",
+      "filesystem": {
+        "outputDirExists": true,
+        "outputFileCount": 3218
+      }
+    },
+    "status": "healthy"
+  }
+}

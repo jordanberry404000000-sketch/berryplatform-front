@@ -1,0 +1,14 @@
+{
+  "nodeId": "scanner-poly-multi-01",
+  "label": "Polygon Wallet Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-31T11:15:43.491Z",
+  "chain": "polygon",
+  "scanner": {
+    "latestBlock": 82369068,
+    "walletBalanceWei": "0x17c7dd668dc520",
+    "walletBalance": 0.006693678186612,
+    "events": "Event scanning not implemented yet"
+  },
+  "status": "healthy"
+}

@@ -1,0 +1,32 @@
+{
+  "nodeId": "movement-relics-01",
+  "label": "Relic Lineage Movement Node",
+  "type": "movement",
+  "timestamp": "2026-01-30T21:20:49.178Z",
+  "movement": {
+    "relics": {
+      "enabled": false,
+      "info": "No relic-lineage.json found yet"
+    },
+    "platform": {
+      "artefactScore": 1,
+      "certScore": 1,
+      "movementScore": 2,
+      "status": "alive"
+    },
+    "artefacts": {
+      "outputDirExists": true,
+      "totalArtefacts": 292
+    },
+    "certs": {
+      "certDirExists": true,
+      "totalCerts": 17,
+      "lastCert": {
+        "timestamp": "2026-01-30T21:20:48.771Z",
+        "file": "cert-latest-01-1769808048770.json",
+        "hash": "44e6672e779392991f9caa3f1bc8188dda195e78ae3af971d5b4f55658b88ec2"
+      }
+    }
+  },
+  "status": "healthy"
+}

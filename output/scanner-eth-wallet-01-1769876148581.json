@@ -1,0 +1,21 @@
+{
+  "nodeId": "scanner-eth-wallet-01",
+  "type": "scanner-node",
+  "label": "Ethereum Wallet Scanner",
+  "timestamp": "2026-01-31T16:15:47.867Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "scanner-eth-wallet-01",
+    "label": "Ethereum Wallet Scanner",
+    "type": "scanner-node",
+    "timestamp": "2026-01-31T16:15:47.867Z",
+    "chain": "ethereum",
+    "scanner": {
+      "latestBlock": 24355988,
+      "walletBalanceWei": "0x8fee9c3a9dd8",
+      "walletBalance": 0.000158254986075608,
+      "events": "Event scanning not implemented yet"
+    },
+    "status": "healthy"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "nodeId": "scanner-eth-wallet-01",
+  "label": "Ethereum Wallet Scanner",
+  "type": "scanner-node",
+  "timestamp": "2026-01-31T00:04:58.684Z",
+  "chain": "ethereum",
+  "scanner": {
+    "latestBlock": 24351151,
+    "walletBalanceWei": "0x8fee9c3a9dd8",
+    "walletBalance": 0.000158254986075608,
+    "events": "Event scanning not implemented yet"
+  },
+  "status": "healthy"
+}

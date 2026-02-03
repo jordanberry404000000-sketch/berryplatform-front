@@ -1,0 +1,12 @@
+{
+  "nodeId": "dex-poly-pool-01",
+  "label": "Polygon DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-31T01:04:40.619Z",
+  "chain": "polygon",
+  "dex": {
+    "latestBlock": 82350737
+  },
+  "status": "error",
+  "error": "Block range is too large"
+}

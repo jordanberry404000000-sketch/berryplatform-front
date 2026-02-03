@@ -3,5 +3,8 @@
   "label": "Core Heartbeat",
   "type": "heartbeat",
   "schedule": "*/1 * * * *",
-  "meta": {}
+  "meta": {
+    "chain": "base",
+    "rpc": "https://mainnet.base.org"
+  }
 }

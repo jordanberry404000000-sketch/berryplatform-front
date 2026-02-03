@@ -1,0 +1,20 @@
+{
+  "nodeId": "heartbeat-arb-contract-01",
+  "type": "heartbeat",
+  "label": "Arbitrum Contract Heartbeat",
+  "timestamp": "2026-01-31T13:24:35.709Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "heartbeat-arb-contract-01",
+    "label": "Arbitrum Contract Heartbeat",
+    "type": "heartbeat",
+    "timestamp": "2026-01-31T13:24:35.709Z",
+    "chain": "arbitrum",
+    "heartbeat": {
+      "engine": "alive",
+      "latestBlock": 427161761
+    },
+    "status": "error",
+    "error": "invalid argument 0: hex string has length 38, want 40 for common.Address"
+  }
+}

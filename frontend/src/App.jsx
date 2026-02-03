@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Web3 from "web3";
 import { BERRY_CONTRACT_ADDRESS, CHAIN_ID_HEX } from "./config.js";
-import abiJson from "../../contracts/out/BoundlessBerriesABI.json";
+import BoundlessBerriesABI from "./abi/BoundlessBerriesABI.json";
 import Mint from "./pages/Mint.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import MyRelic from "./pages/MyRelic.jsx";
 import Lesson1 from "./pages/Lesson1.jsx";
+import { useWarpTransition } from "./hooks/useWarpTransition";
+import warpSoundFile from "./assets/warp.mp3";
 
 export const Web3Context = React.createContext(null);
 
@@ -14,6 +16,9 @@ export default function App() {
   const [account, setAccount] = useState(null);
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
+
+  const warpSound = new Audio(warpSoundFile);
+  const navigateWithWarp = useWarpTransition(warpSound);
 
   const connectWallet = async () => {
     if (!window.ethereum) {
@@ -30,7 +35,7 @@ export default function App() {
     }
     const accounts = await provider.request({ method: "eth_requestAccounts" });
     const w3 = new Web3(provider);
-    const c = new w3.eth.Contract(abiJson.abi, BERRY_CONTRACT_ADDRESS);
+    const c = new w3.eth.Contract(BoundlessBerriesABI.abi, BERRY_CONTRACT_ADDRESS);
     setAccount(accounts[0]);
     setWeb3(w3);
     setContract(c);
@@ -55,11 +60,13 @@ export default function App() {
               Berry Platform
             </Link>
           </div>
+
           <nav style={{ display: "flex", gap: "16px", fontSize: "14px" }}>
             <Link to="/mint" style={{ color: "#aaa", textDecoration: "none" }}>Mint</Link>
             <Link to="/dashboard" style={{ color: "#aaa", textDecoration: "none" }}>Dashboard</Link>
             <Link to="/myrelic" style={{ color: "#aaa", textDecoration: "none" }}>My Relic</Link>
           </nav>
+
           <button
             onClick={connectWallet}
             style={{
@@ -77,6 +84,10 @@ export default function App() {
         </header>
 
         <main style={{ padding: "24px" }}>
+          <button onClick={() => navigateWithWarp("/dashboard")}>
+            Warp to Dashboard
+          </button>
+
           <Routes>
             <Route path="/" element={<Mint />} />
             <Route path="/mint" element={<Mint />} />

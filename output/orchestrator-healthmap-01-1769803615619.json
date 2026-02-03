@@ -1,0 +1,505 @@
+{
+  "nodeId": "orchestrator-healthmap-01",
+  "label": "Health Map Orchestrator",
+  "type": "orchestrator",
+  "timestamp": "2026-01-30T20:06:55.616Z",
+  "summary": {
+    "totalNodes": 70,
+    "healthy": 5,
+    "degraded": 6,
+    "error": 59
+  },
+  "nodes": [
+    {
+      "nodeId": "cert-latest-01",
+      "type": "cert-node",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:22.967Z",
+      "file": "cert-latest-01-1769800282972.json"
+    },
+    {
+      "nodeId": "cert-latest-01",
+      "type": "cert-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.501Z",
+      "file": "cert-latest-01-1769803614509.json"
+    },
+    {
+      "nodeId": "cert-latest-02",
+      "type": "cert-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.974Z",
+      "file": "cert-latest-02-1769800282977.json"
+    },
+    {
+      "nodeId": "cert-latest-02",
+      "type": "cert-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.511Z",
+      "file": "cert-latest-02-1769803614515.json"
+    },
+    {
+      "nodeId": "dex-arb-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.983Z",
+      "file": "dex-arb-pool-01-1769800283098.json"
+    },
+    {
+      "nodeId": "dex-arb-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.028Z",
+      "file": "dex-arb-pool-01-1769800523125.json"
+    },
+    {
+      "nodeId": "dex-arb-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.516Z",
+      "file": "dex-arb-pool-01-1769803614577.json"
+    },
+    {
+      "nodeId": "dex-base-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.060Z",
+      "file": "dex-base-pool-01-1769800283118.json"
+    },
+    {
+      "nodeId": "dex-base-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.099Z",
+      "file": "dex-base-pool-01-1769800463132.json"
+    },
+    {
+      "nodeId": "dex-base-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.609Z",
+      "file": "dex-base-pool-01-1769803614654.json"
+    },
+    {
+      "nodeId": "dex-eth-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.021Z",
+      "file": "dex-eth-pool-01-1769800283107.json"
+    },
+    {
+      "nodeId": "dex-eth-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.094Z",
+      "file": "dex-eth-pool-01-1769800463126.json"
+    },
+    {
+      "nodeId": "dex-eth-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.542Z",
+      "file": "dex-eth-pool-01-1769803614625.json"
+    },
+    {
+      "nodeId": "dex-poly-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.071Z",
+      "file": "dex-poly-pool-01-1769800283143.json"
+    },
+    {
+      "nodeId": "dex-poly-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.127Z",
+      "file": "dex-poly-pool-01-1769800523175.json"
+    },
+    {
+      "nodeId": "dex-poly-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.643Z",
+      "file": "dex-poly-pool-01-1769803614665.json"
+    },
+    {
+      "nodeId": "heartbeat-arb-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.738Z",
+      "file": "heartbeat-arb-contract-01-1769800283792.json"
+    },
+    {
+      "nodeId": "heartbeat-arb-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.743Z",
+      "file": "heartbeat-arb-contract-01-1769800463774.json"
+    },
+    {
+      "nodeId": "heartbeat-arb-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.509Z",
+      "file": "heartbeat-arb-contract-01-1769803615514.json"
+    },
+    {
+      "nodeId": "heartbeat-base-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.840Z",
+      "file": "heartbeat-base-contract-01-1769800283850.json"
+    },
+    {
+      "nodeId": "heartbeat-base-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:23.844Z",
+      "file": "heartbeat-base-contract-01-1769800403853.json"
+    },
+    {
+      "nodeId": "heartbeat-base-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.846Z",
+      "file": "heartbeat-base-contract-01-1769800523861.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:11:23.173Z",
+      "file": "heartbeat-core-01-1769800283173.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:12:23.219Z",
+      "file": "heartbeat-core-01-1769800343219.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:13:23.220Z",
+      "file": "heartbeat-core-01-1769800403220.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:14:23.220Z",
+      "file": "heartbeat-core-01-1769800463220.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:15:23.221Z",
+      "file": "heartbeat-core-01-1769800523224.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T20:06:54.720Z",
+      "file": "heartbeat-core-01-1769803614721.json"
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.537Z",
+      "file": "heartbeat-eth-wallet-01-1769800283550.json"
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:23.544Z",
+      "file": "heartbeat-eth-wallet-01-1769800403554.json"
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.546Z",
+      "file": "heartbeat-eth-wallet-01-1769800523559.json"
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.309Z",
+      "file": "heartbeat-eth-wallet-01-1769803615316.json"
+    },
+    {
+      "nodeId": "heartbeat-poly-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.668Z",
+      "file": "heartbeat-poly-wallet-01-1769800283689.json"
+    },
+    {
+      "nodeId": "heartbeat-poly-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.677Z",
+      "file": "heartbeat-poly-wallet-01-1769800463715.json"
+    },
+    {
+      "nodeId": "heartbeat-poly-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.440Z",
+      "file": "heartbeat-poly-wallet-01-1769803615444.json"
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.649Z",
+      "file": "metrics-arb-01-1769800282888.json"
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:22.877Z",
+      "file": "metrics-arb-01-1769800402914.json"
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:22.932Z",
+      "file": "metrics-arb-01-1769800522984.json"
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.413Z",
+      "file": "metrics-arb-01-1769803614560.json"
+    },
+    {
+      "nodeId": "metrics-base-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.038Z",
+      "file": "metrics-base-01-1769800283115.json"
+    },
+    {
+      "nodeId": "metrics-base-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:23.049Z",
+      "file": "metrics-base-01-1769800403087.json"
+    },
+    {
+      "nodeId": "metrics-base-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.076Z",
+      "file": "metrics-base-01-1769800523137.json"
+    },
+    {
+      "nodeId": "metrics-base-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.592Z",
+      "file": "metrics-base-01-1769803614633.json"
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.922Z",
+      "file": "metrics-eth-01-1769800283094.json"
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:22.961Z",
+      "file": "metrics-eth-01-1769800402995.json"
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:22.962Z",
+      "file": "metrics-eth-01-1769800523012.json"
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.493Z",
+      "file": "metrics-eth-01-1769803614565.json"
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.052Z",
+      "file": "metrics-poly-01-1769800283133.json"
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:13:23.059Z",
+      "file": "metrics-poly-01-1769800403105.json"
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.092Z",
+      "file": "metrics-poly-01-1769800523165.json"
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:54.599Z",
+      "file": "metrics-poly-01-1769803614661.json"
+    },
+    {
+      "nodeId": "movement-core-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:23.087Z",
+      "file": "movement-core-01-1769800283089.json"
+    },
+    {
+      "nodeId": "movement-core-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T20:06:54.671Z",
+      "file": "movement-core-01-1769803614674.json"
+    },
+    {
+      "nodeId": "movement-relics-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:23.175Z",
+      "file": "movement-relics-01-1769800283180.json"
+    },
+    {
+      "nodeId": "movement-relics-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T20:06:54.868Z",
+      "file": "movement-relics-01-1769803614870.json"
+    },
+    {
+      "nodeId": "orchestrator-healthmap-01",
+      "type": "orchestrator",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.847Z",
+      "file": "orchestrator-healthmap-01-1769800283849.json"
+    },
+    {
+      "nodeId": "orchestrator-summary-01",
+      "type": "orchestrator",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.693Z",
+      "file": "orchestrator-summary-01-1769800283724.json"
+    },
+    {
+      "nodeId": "orchestrator-summary-01",
+      "type": "orchestrator",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.449Z",
+      "file": "orchestrator-summary-01-1769803615461.json"
+    },
+    {
+      "nodeId": "scanner-arb-events-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.385Z",
+      "file": "scanner-arb-events-01-1769800283408.json"
+    },
+    {
+      "nodeId": "scanner-arb-events-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.391Z",
+      "file": "scanner-arb-events-01-1769800523398.json"
+    },
+    {
+      "nodeId": "scanner-arb-events-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.112Z",
+      "file": "scanner-arb-events-01-1769803615122.json"
+    },
+    {
+      "nodeId": "scanner-base-contract-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.631Z",
+      "file": "scanner-base-contract-01-1769800283644.json"
+    },
+    {
+      "nodeId": "scanner-base-contract-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.641Z",
+      "file": "scanner-base-contract-01-1769800463646.json"
+    },
+    {
+      "nodeId": "scanner-base-contract-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.405Z",
+      "file": "scanner-base-contract-01-1769803615410.json"
+    },
+    {
+      "nodeId": "scanner-eth-wallet-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.337Z",
+      "file": "scanner-eth-wallet-01-1769800283403.json"
+    },
+    {
+      "nodeId": "scanner-eth-wallet-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:14:23.381Z",
+      "file": "scanner-eth-wallet-01-1769800463387.json"
+    },
+    {
+      "nodeId": "scanner-eth-wallet-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.103Z",
+      "file": "scanner-eth-wallet-01-1769803615118.json"
+    },
+    {
+      "nodeId": "scanner-poly-multi-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.426Z",
+      "file": "scanner-poly-multi-01-1769800283471.json"
+    },
+    {
+      "nodeId": "scanner-poly-multi-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:15:23.443Z",
+      "file": "scanner-poly-multi-01-1769800523459.json"
+    },
+    {
+      "nodeId": "scanner-poly-multi-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T20:06:55.141Z",
+      "file": "scanner-poly-multi-01-1769803615147.json"
+    }
+  ],
+  "status": "error"
+}

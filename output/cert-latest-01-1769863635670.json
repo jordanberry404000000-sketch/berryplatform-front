@@ -1,0 +1,14 @@
+{
+  "nodeId": "cert-latest-01",
+  "label": "Cert Latest Artefact",
+  "type": "cert-node",
+  "timestamp": "2026-01-31T12:47:15.574Z",
+  "status": "error",
+  "cert": {
+    "file": "heartbeat-arb-contract-01-1769863225100.json",
+    "hash": "50d092db879f160150e1c1b7d21f3c7f9e54177d45ab1be26e655ef6a6939514",
+    "integrity": "changed",
+    "previousHash": "ae2490df7ebf041209d6674849c9a95cf5bc86b45974035841a759200d8aaeea",
+    "ledgerUpdated": true
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "nodeId": "orchestrator-healthmap-01",
+  "label": "Health Map Orchestrator",
+  "type": "orchestrator",
+  "timestamp": "2026-01-30T19:11:23.847Z",
+  "summary": {
+    "totalNodes": 21,
+    "healthy": 3,
+    "degraded": 1,
+    "error": 17
+  },
+  "nodes": [
+    {
+      "nodeId": "cert-latest-01",
+      "type": "cert-node",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:22.967Z",
+      "file": "cert-latest-01-1769800282972.json"
+    },
+    {
+      "nodeId": "cert-latest-02",
+      "type": "cert-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.974Z",
+      "file": "cert-latest-02-1769800282977.json"
+    },
+    {
+      "nodeId": "dex-arb-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.983Z",
+      "file": "dex-arb-pool-01-1769800283098.json"
+    },
+    {
+      "nodeId": "dex-base-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.060Z",
+      "file": "dex-base-pool-01-1769800283118.json"
+    },
+    {
+      "nodeId": "dex-eth-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.021Z",
+      "file": "dex-eth-pool-01-1769800283107.json"
+    },
+    {
+      "nodeId": "dex-poly-pool-01",
+      "type": "dex-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.071Z",
+      "file": "dex-poly-pool-01-1769800283143.json"
+    },
+    {
+      "nodeId": "heartbeat-arb-contract-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.738Z",
+      "file": "heartbeat-arb-contract-01-1769800283792.json"
+    },
+    {
+      "nodeId": "heartbeat-core-01",
+      "type": "heartbeat",
+      "status": "degraded",
+      "timestamp": "2026-01-30T19:11:23.173Z",
+      "file": "heartbeat-core-01-1769800283173.json"
+    },
+    {
+      "nodeId": "heartbeat-eth-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.537Z",
+      "file": "heartbeat-eth-wallet-01-1769800283550.json"
+    },
+    {
+      "nodeId": "heartbeat-poly-wallet-01",
+      "type": "heartbeat",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.668Z",
+      "file": "heartbeat-poly-wallet-01-1769800283689.json"
+    },
+    {
+      "nodeId": "metrics-arb-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.649Z",
+      "file": "metrics-arb-01-1769800282888.json"
+    },
+    {
+      "nodeId": "metrics-base-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.038Z",
+      "file": "metrics-base-01-1769800283115.json"
+    },
+    {
+      "nodeId": "metrics-eth-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:22.922Z",
+      "file": "metrics-eth-01-1769800283094.json"
+    },
+    {
+      "nodeId": "metrics-poly-01",
+      "type": "metrics-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.052Z",
+      "file": "metrics-poly-01-1769800283133.json"
+    },
+    {
+      "nodeId": "movement-core-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:23.087Z",
+      "file": "movement-core-01-1769800283089.json"
+    },
+    {
+      "nodeId": "movement-relics-01",
+      "type": "movement",
+      "status": "healthy",
+      "timestamp": "2026-01-30T19:11:23.175Z",
+      "file": "movement-relics-01-1769800283180.json"
+    },
+    {
+      "nodeId": "orchestrator-summary-01",
+      "type": "orchestrator",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.693Z",
+      "file": "orchestrator-summary-01-1769800283724.json"
+    },
+    {
+      "nodeId": "scanner-arb-events-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.385Z",
+      "file": "scanner-arb-events-01-1769800283408.json"
+    },
+    {
+      "nodeId": "scanner-base-contract-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.631Z",
+      "file": "scanner-base-contract-01-1769800283644.json"
+    },
+    {
+      "nodeId": "scanner-eth-wallet-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.337Z",
+      "file": "scanner-eth-wallet-01-1769800283403.json"
+    },
+    {
+      "nodeId": "scanner-poly-multi-01",
+      "type": "scanner-node",
+      "status": "error",
+      "timestamp": "2026-01-30T19:11:23.426Z",
+      "file": "scanner-poly-multi-01-1769800283471.json"
+    }
+  ],
+  "status": "error"
+}

@@ -1,0 +1,17 @@
+{
+  "nodeId": "metrics-base-01",
+  "label": "Base Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-30T21:22:48.846Z",
+  "chain": "Base",
+  "metrics": {
+    "rpcLatencyMs": 428.96693799999775,
+    "latestBlock": 41509411,
+    "gasPriceWei": "0x92f16e",
+    "filesystem": {
+      "outputDirExists": true,
+      "outputFileCount": 311
+    }
+  },
+  "status": "healthy"
+}

@@ -1,0 +1,17 @@
+{
+  "nodeId": "scanner-eth-wallet-01",
+  "type": "scanner-node",
+  "label": "Ethereum Wallet Scanner",
+  "timestamp": "2026-01-31T17:51:49.321Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "scanner-eth-wallet-01",
+    "label": "Ethereum Wallet Scanner",
+    "type": "scanner-node",
+    "timestamp": "2026-01-31T17:51:49.321Z",
+    "chain": "ethereum",
+    "scanner": {},
+    "status": "error",
+    "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  }
+}

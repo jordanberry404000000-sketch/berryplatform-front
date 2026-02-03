@@ -1,0 +1,21 @@
+{
+  "nodeId": "heartbeat-eth-wallet-01",
+  "type": "heartbeat",
+  "label": "Ethereum Wallet Heartbeat",
+  "timestamp": "2026-01-31T17:11:47.159Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "heartbeat-eth-wallet-01",
+    "label": "Ethereum Wallet Heartbeat",
+    "type": "heartbeat",
+    "timestamp": "2026-01-31T17:11:47.159Z",
+    "chain": "ethereum",
+    "heartbeat": {
+      "engine": "alive",
+      "latestBlock": 24356267,
+      "contractReachable": null
+    },
+    "status": "error",
+    "error": "no response"
+  }
+}

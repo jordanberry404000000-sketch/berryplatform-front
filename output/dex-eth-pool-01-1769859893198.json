@@ -1,0 +1,12 @@
+{
+  "nodeId": "dex-eth-pool-01",
+  "label": "Ethereum DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-31T11:44:52.562Z",
+  "chain": "ethereum",
+  "dex": {
+    "latestBlock": 24354639
+  },
+  "status": "error",
+  "error": "Invalid params"
+}

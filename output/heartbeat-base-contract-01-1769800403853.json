@@ -1,0 +1,12 @@
+{
+  "nodeId": "heartbeat-base-contract-01",
+  "label": "Base Contract Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-30T19:13:23.844Z",
+  "chain": "Base",
+  "heartbeat": {
+    "engine": "alive"
+  },
+  "status": "error",
+  "error": "request to https://base-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND base-mainnet.placeholder-rpc.com"
+}

@@ -1,0 +1,12 @@
+{
+  "nodeId": "heartbeat-eth-wallet-01",
+  "label": "Ethereum Wallet Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-30T21:20:49.583Z",
+  "chain": "Ethereum",
+  "heartbeat": {
+    "engine": "alive"
+  },
+  "status": "error",
+  "error": "request to https://eth-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND eth-mainnet.placeholder-rpc.com"
+}

@@ -25,6 +25,13 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 
 export async function executeNode(node) {
   const startedAt = new Date().toISOString();
+
+  // Special case: cert node returns its own result object
+  if (node.type === "cert-node") {
+    return await runCertNode(node);
+  }
+
+  // Default executor result for all other node types
   let result = {
     nodeId: node.nodeId,
     type: node.type,
@@ -37,26 +44,35 @@ export async function executeNode(node) {
   try {
     switch (node.type) {
       case "metrics-node":
-        result = await runMetricsNode(node);
+        result.data = await runMetricsNode(node);
+        result.status = "healthy";
         break;
+
       case "scanner-node":
-        result = await runScannerNode(node);
+        result.data = await runScannerNode(node);
+        result.status = "healthy";
         break;
+
       case "dex-node":
-        result = await runDexNode(node);
+        result.data = await runDexNode(node);
+        result.status = "healthy";
         break;
-      case "cert-node":
-        result = await runCertNode(node);
-        break;
+
       case "heartbeat":
-        result = await runHeartbeatNode(node);
+        result.data = await runHeartbeatNode(node);
+        result.status = "healthy";
         break;
+
       case "orchestrator":
-        result = await runOrchestratorNode(node);
+        result.data = await runOrchestratorNode(node);
+        result.status = "healthy";
         break;
+
       case "movement":
-        result = await runMovementNode(node);
+        result.data = await runMovementNode(node);
+        result.status = "healthy";
         break;
+
       default:
         result.status = "error";
         result.error = `Unknown node type: ${node.type}`;
@@ -64,6 +80,7 @@ export async function executeNode(node) {
   } catch (err) {
     result.status = "error";
     result.error = err.message || String(err);
+    console.error(err.stack || err);
   }
 
   // Ensure minimal shape
@@ -84,6 +101,10 @@ export async function executeNode(node) {
   console.log(
     `[EXECUTOR] ${result.nodeId} (${result.type}) → ${result.status} @ ${result.timestamp}`
   );
+
+  if (result.status === "error") {
+    console.error(`[ERROR DETAILS] ${result.nodeId}:`, result.error);
+  }
 
   return result;
 }

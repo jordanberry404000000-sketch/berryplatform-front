@@ -1,0 +1,20 @@
+{
+  "nodeId": "scanner-base-contract-01",
+  "type": "scanner-node",
+  "label": "Base Contract Scanner",
+  "timestamp": "2026-01-31T13:39:35.128Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "scanner-base-contract-01",
+    "label": "Base Contract Scanner",
+    "type": "scanner-node",
+    "timestamp": "2026-01-31T13:39:35.128Z",
+    "chain": "base",
+    "scanner": {
+      "latestBlock": 41538714,
+      "totalSupply": null,
+      "events": "Event scanning not implemented yet"
+    },
+    "status": "healthy"
+  }
+}

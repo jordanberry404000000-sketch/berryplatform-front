@@ -1,0 +1,762 @@
+[
+  {
+    "timestamp": "2026-01-31T00:37:09.482Z",
+    "file": "artefact-0001.json",
+    "hash": "0efa6a69fc50fe520dcd68acc189ec4774c2a7101214ecaed2732c0b87ca0df4"
+  },
+  {
+    "timestamp": "2026-01-31T00:37:09.502Z",
+    "file": "cert-ledger.json",
+    "hash": "abe0a67f3ec165de635422759d08446c1f7fccded867065799d51c343cc08cbf"
+  },
+  {
+    "timestamp": "2026-01-31T00:41:12.674Z",
+    "file": "cert-ledger.json",
+    "hash": "02b56b4a73ec270f9f53f8530148316ef4b34a42cad484130481a60416bd5e34"
+  },
+  {
+    "timestamp": "2026-01-31T00:41:12.678Z",
+    "file": "cert-ledger.json",
+    "hash": "cc6a30ed8c5a49a4862e64466b010fea0aaaee955c46c8d6d19cc68932aa20d2"
+  },
+  {
+    "timestamp": "2026-01-31T00:45:16.564Z",
+    "file": "cert-ledger.json",
+    "hash": "aa5f90cc80cd777ffa4bd545d4eb5a2ce00a96c4c9fca2e57ace8963f7e0df96"
+  },
+  {
+    "timestamp": "2026-01-31T00:45:16.569Z",
+    "file": "cert-ledger.json",
+    "hash": "270b9cd2bfe49a0797ac8129f17de1ec02f233112c6a47ccaffb558123b6a0fa"
+  },
+  {
+    "timestamp": "2026-01-31T00:50:16.576Z",
+    "file": "cert-ledger.json",
+    "hash": "bee30eef0c22b0c5bf15c7d026117d9201e874cf1561109f8fca466837c220ee"
+  },
+  {
+    "timestamp": "2026-01-31T00:52:16.622Z",
+    "file": "cert-ledger.json",
+    "hash": "9d48e4739a05f31c3ca10114ef160a0b4b6eb90f9bf266e2e116e4d3251a875c"
+  },
+  {
+    "timestamp": "2026-01-31T00:55:16.627Z",
+    "file": "cert-ledger.json",
+    "hash": "b0d78aafc638923cba1f3bd30e903f45fba5fb5ab1f3dbd756355da351324292"
+  },
+  {
+    "timestamp": "2026-01-31T00:56:40.500Z",
+    "file": "cert-ledger.json",
+    "hash": "36163d95b299521c0b0b954ff8ae93c0f41360210f2e13f0822fd502d73fc0d9"
+  },
+  {
+    "timestamp": "2026-01-31T00:56:40.504Z",
+    "file": "cert-ledger.json",
+    "hash": "a7584988054c22a463e12299044a5a20eb639f37835a36c89d490c3323e9746e"
+  },
+  {
+    "timestamp": "2026-01-31T01:01:40.520Z",
+    "file": "cert-ledger.json",
+    "hash": "c86ff0fc58b960aebe118993ba6d070013fe2023ebb1d1737ea5f5ae59be58fb"
+  },
+  {
+    "timestamp": "2026-01-31T01:03:40.551Z",
+    "file": "cert-ledger.json",
+    "hash": "e96dd77cb402e511a034b6f606ed2761d33178a61b9de2a8c3a801d80f8f0a9a"
+  },
+  {
+    "timestamp": "2026-01-31T01:17:24.797Z",
+    "file": "cert-ledger.json",
+    "hash": "4b09da15e5f8ac7430a66684a1956f40bc11c1e2e1f7de54ecbc537874726eda"
+  },
+  {
+    "timestamp": "2026-01-31T01:17:24.807Z",
+    "file": "cert-ledger.json",
+    "hash": "59f769b6f87b4f51e88f77f59fe6960c1b3f11387b4139ebc0264209209c3478"
+  },
+  {
+    "timestamp": "2026-01-31T01:48:22.171Z",
+    "file": "cert-ledger.json",
+    "hash": "8e732b5636d7b8517cddc4664a8649018430e3179c20c884bf56217d256be11d"
+  },
+  {
+    "timestamp": "2026-01-31T01:48:22.178Z",
+    "file": "cert-ledger.json",
+    "hash": "b95046d701e5bcf25f0c4f59ad86c3bd56ff567fad84d215b19049f046279b8a"
+  },
+  {
+    "timestamp": "2026-01-31T01:54:25.913Z",
+    "file": "cert-ledger.json",
+    "hash": "3aad0e1002a7d10e883cbb27f01764ffed17e7e48f9f699fd40b8c02c2d7be28"
+  },
+  {
+    "timestamp": "2026-01-31T01:54:25.942Z",
+    "file": "cert-ledger.json",
+    "hash": "9ddad0881eacc410e012617e800dc9cfd9ec0d34bba6210415be20f63a3fbb07"
+  },
+  {
+    "timestamp": "2026-01-31T02:02:12.342Z",
+    "file": "cert-ledger.json",
+    "hash": "c06eee430bbcb82771d89b1f5aa6ca1369a58961506ca7365e4c0bd39038aec5"
+  },
+  {
+    "timestamp": "2026-01-31T02:02:12.353Z",
+    "file": "cert-ledger.json",
+    "hash": "7a33bfb9e1d358ff7954ce795809407dc25341da2062db8b267c52cc8bad0ef1"
+  },
+  {
+    "timestamp": "2026-01-31T02:05:33.950Z",
+    "file": "cert-ledger.json",
+    "hash": "4deab19c60220c39244eae173c011b2fb9fd763f5a96d620b04adce5e49ddb3f"
+  },
+  {
+    "timestamp": "2026-01-31T02:05:33.959Z",
+    "file": "cert-ledger.json",
+    "hash": "cf8eb999dd8c13ede9a8bfb256a0756e30baf21fb0796f84b4cb186d06d4d08e"
+  },
+  {
+    "timestamp": "2026-01-31T02:12:08.274Z",
+    "file": "cert-ledger.json",
+    "hash": "c88e831c6deab2df08cf1b6efacd179e652b6ea0539e6809f91e2d69435f075e"
+  },
+  {
+    "timestamp": "2026-01-31T02:12:08.279Z",
+    "file": "cert-ledger.json",
+    "hash": "41f4f8557845ffe48f98bd26328bb5391ade4cadfe3fc1ad31034a5f1ac3381f"
+  },
+  {
+    "timestamp": "2026-01-31T11:07:28.276Z",
+    "file": "scanner-eth-wallet-01-1769825710144.json",
+    "hash": "eb1e84fe7b5ff17fb554ca80d0155c6c57a85aa9094668f7e33365cdd68bfbd5"
+  },
+  {
+    "timestamp": "2026-01-31T11:07:28.358Z",
+    "file": "cert-latest-01-1769857648355.json",
+    "hash": "87d3a095590d5d6a4c974a1f05c97f8a6a6c021170fe8cde5b89f630e1f85630"
+  },
+  {
+    "timestamp": "2026-01-31T11:13:38.175Z",
+    "file": "heartbeat-core-01-1769857708620.json",
+    "hash": "a352ebabf019e7017efc5ef6ffb5d31b25e6cef4abccf5ab5f49e2b65f2cea95"
+  },
+  {
+    "timestamp": "2026-01-31T11:13:38.274Z",
+    "file": "cert-latest-01-1769858018270.json",
+    "hash": "1dd81345ddc48b1db6c433f49dc32cfeca29d3d4c4a1b661208f11d67b1b8c9d"
+  },
+  {
+    "timestamp": "2026-01-31T11:15:42.836Z",
+    "file": "metrics-base-01-1769858138931.json",
+    "hash": "37e546fea2695be3fc4c49a34651576b3fa6dff9195f52174d9578a1085ddb09"
+  },
+  {
+    "timestamp": "2026-01-31T11:15:42.903Z",
+    "file": "cert-latest-01-1769858142898.json",
+    "hash": "c1436128f85c624c8237e0f1631cea445af73831a181d554acdd024450023557"
+  },
+  {
+    "timestamp": "2026-01-31T11:38:52.287Z",
+    "file": "heartbeat-eth-wallet-01-1769858265396.json",
+    "hash": "4c3ad80304972bdd3b26bacb828c9d8ef93b8d0ad059fdab9495901fbe00d692"
+  },
+  {
+    "timestamp": "2026-01-31T11:38:52.383Z",
+    "file": "cert-latest-01-1769859532378.json",
+    "hash": "0583081ee2bd4fadaf6bcc8251021e5578c058171135a4be45d85b08403293f1"
+  },
+  {
+    "timestamp": "2026-01-31T11:43:52.400Z",
+    "file": "metrics-eth-01-1769859780250.json",
+    "hash": "9452cc269e507d50556ef3869e8f7bc0fc7cd6c7e1f5e6ea3137405edb31e8b6"
+  },
+  {
+    "timestamp": "2026-01-31T11:45:52.511Z",
+    "file": "heartbeat-eth-wallet-01-1769859895007.json",
+    "hash": "e15e1244f744f39c88037b803f6d960b239394b1c73215a18dcdc49d90229f8d"
+  },
+  {
+    "timestamp": "2026-01-31T11:48:52.447Z",
+    "file": "dex-eth-pool-01-1769860078018.json",
+    "hash": "8a34e2f1aacbb9f3a1f2c9b78a031953704b2bb223a682a2dd20a1d938ed0a57"
+  },
+  {
+    "timestamp": "2026-01-31T12:19:03.875Z",
+    "file": "movement-test.json",
+    "hash": "40a60f94badca8209021ee6c52f5c258111d89a8d11d627a8097f705b553116e"
+  },
+  {
+    "timestamp": "2026-01-31T12:19:04.011Z",
+    "file": "cert-latest-01-1769861944004.json",
+    "hash": "373d15756ec44fcd54ddcef7bc3b647d9125f9dec635cf32226517a8e575787f"
+  },
+  {
+    "timestamp": "2026-01-31T12:37:23.203Z",
+    "file": "metrics-eth-01-1769862067300.json",
+    "hash": "0c0db3982edc8e8792a5b2dbfa1522bdb1c8a66202cd05ff2d74ad6d1c4ca0c2"
+  },
+  {
+    "timestamp": "2026-01-31T12:37:23.266Z",
+    "file": "cert-latest-01-1769863043264.json",
+    "hash": "ae2490df7ebf041209d6674849c9a95cf5bc86b45974035841a759200d8aaeea"
+  },
+  {
+    "timestamp": "2026-01-31T12:47:15.574Z",
+    "file": "heartbeat-arb-contract-01-1769863225100.json",
+    "hash": "50d092db879f160150e1c1b7d21f3c7f9e54177d45ab1be26e655ef6a6939514"
+  },
+  {
+    "timestamp": "2026-01-31T12:47:15.673Z",
+    "file": "cert-latest-01-1769863635670.json",
+    "hash": "85dcd275e88d09300d4d25297e6fe736df4b2717d4471f0546ecd4fedfe94d34"
+  },
+  {
+    "timestamp": "2026-01-31T13:09:34.041Z",
+    "file": "heartbeat-eth-wallet-01-1769863639722.json",
+    "hash": "757e37a6501c2cc72f615fa0a6987c319ff8d0aebca8460571e6b12d1b6e4465"
+  },
+  {
+    "timestamp": "2026-01-31T13:09:34.102Z",
+    "file": "heartbeat-eth-wallet-01-1769863639722.json",
+    "hash": "757e37a6501c2cc72f615fa0a6987c319ff8d0aebca8460571e6b12d1b6e4465"
+  },
+  {
+    "timestamp": "2026-01-31T13:14:34.141Z",
+    "file": "heartbeat-eth-wallet-01-1769865230717.json",
+    "hash": "801296fbcd196368a2380490c4971626328ffc744d82030e7edd41f0cb1156f3"
+  },
+  {
+    "timestamp": "2026-01-31T13:16:34.207Z",
+    "file": "dex-eth-pool-01-1769865339993.json",
+    "hash": "56cfa2f434c2f6725a44d9db7f4d5bb4cca33814228e8a71972043e45701042a"
+  },
+  {
+    "timestamp": "2026-01-31T13:19:34.175Z",
+    "file": "heartbeat-arb-contract-01-1769865515925.json",
+    "hash": "b4a893f7cff139998ab43363b11fd238ed44cd5760679ce262557cff22b232ab"
+  },
+  {
+    "timestamp": "2026-01-31T13:23:34.262Z",
+    "file": "heartbeat-core-01-1769865755361.json",
+    "hash": "9107351b0634e12d736389c2b2bee670ca9ef3d8693ab95a225282d5c7a9fa71"
+  },
+  {
+    "timestamp": "2026-01-31T13:24:34.227Z",
+    "file": "metrics-eth-01-1769865816689.json",
+    "hash": "1625e5bd1db08f31a548c2db97d652920a4ce1cede740661ebc37692d973c204"
+  },
+  {
+    "timestamp": "2026-01-31T13:29:34.283Z",
+    "file": "heartbeat-core-01-1769866115430.json",
+    "hash": "544c6e0e80faf1dcb07e949526a859810ec71dc55dd070b7f30b46452b1d44cb"
+  },
+  {
+    "timestamp": "2026-01-31T13:30:34.314Z",
+    "file": "metrics-eth-01-1769866177106.json",
+    "hash": "1f52bbc03cafd39ca3ec3e9c20c3ccb7b2a7145e21c61d4a592f04052c716337"
+  },
+  {
+    "timestamp": "2026-01-31T13:34:34.335Z",
+    "file": "dex-eth-pool-01-1769866417394.json",
+    "hash": "bcd271e1e31b8ff05d9d47a116b6dae388b0f129da252db4e44182bf17c5b060"
+  },
+  {
+    "timestamp": "2026-01-31T13:37:34.367Z",
+    "file": "heartbeat-arb-contract-01-1769866596317.json",
+    "hash": "2893a9748c1323cf846167c26092317206b9dd0d2a5efb60193e1ab4caaa0132"
+  },
+  {
+    "timestamp": "2026-01-31T13:39:34.377Z",
+    "file": "movement-core-01-1769866774376.json",
+    "hash": "db6f199eb6cca7985fc01bcb5332cdbc8ccefd63e693722f581c9187c098a3f9"
+  },
+  {
+    "timestamp": "2026-01-31T13:44:34.416Z",
+    "file": "heartbeat-base-contract-01-1769867016920.json",
+    "hash": "6075fe26c63605c1fdafef1c122b79763e917b75c1141fb03a87fe04575df1ce"
+  },
+  {
+    "timestamp": "2026-01-31T13:44:34.478Z",
+    "file": "heartbeat-base-contract-01-1769867016920.json",
+    "hash": "6075fe26c63605c1fdafef1c122b79763e917b75c1141fb03a87fe04575df1ce"
+  },
+  {
+    "timestamp": "2026-01-31T13:49:34.478Z",
+    "file": "movement-core-01-1769867374431.json",
+    "hash": "542055a1eaa3c82e10f7b1ecf0656190a6e8b7e0982c3792fc927e8896c16e1d"
+  },
+  {
+    "timestamp": "2026-01-31T13:51:34.471Z",
+    "file": "heartbeat-core-01-1769867436253.json",
+    "hash": "5cf90b421ba154538d0efbc46d5856c34c45735ceae2f007a2d76f67a5cc0ca5"
+  },
+  {
+    "timestamp": "2026-01-31T13:54:34.488Z",
+    "file": "movement-relics-01-1769867674487.json",
+    "hash": "6cd785273e55874971a60ea9854bffb2e35bf948fd587412d91f44dbca5e4078"
+  },
+  {
+    "timestamp": "2026-01-31T13:58:34.520Z",
+    "file": "dex-eth-pool-01-1769867861481.json",
+    "hash": "e169a60a7a329f49909c9f3ce4bbabae990ff8314aae679433bcc405e5311aaf"
+  },
+  {
+    "timestamp": "2026-01-31T13:59:34.488Z",
+    "file": "movement-core-01-1769867974483.json",
+    "hash": "06483e1191c7d86d1d5f844ccd8e4102074a4f4e5fff3af9e08bfefead3aa338"
+  },
+  {
+    "timestamp": "2026-01-31T14:04:34.535Z",
+    "file": "scanner-eth-wallet-01-1769868223004.json",
+    "hash": "739992780929f48cea2e335de643a5898a6e67a468bc31d82ab1ac881102f103"
+  },
+  {
+    "timestamp": "2026-01-31T14:05:34.567Z",
+    "file": "heartbeat-core-01-1769868276293.json",
+    "hash": "3665a756e06d18a3fcfdd9f8034872b590cce97f76acda0734a42379697707a8"
+  },
+  {
+    "timestamp": "2026-01-31T14:09:34.539Z",
+    "file": "movement-relics-01-1769868574529.json",
+    "hash": "2958c33e376766281478beb69f6db06c5793c53aec26cef6281566c6616b9f46"
+  },
+  {
+    "timestamp": "2026-01-31T14:12:34.620Z",
+    "file": "heartbeat-base-contract-01-1769868697121.json",
+    "hash": "bb1d51a2a85adadd79da3e771dee8e6e1ef1356b191a8373722ef3ca5e4efc00"
+  },
+  {
+    "timestamp": "2026-01-31T14:14:34.583Z",
+    "file": "metrics-eth-01-1769868825332.json",
+    "hash": "d66831ac4188ddaaaff2027fd9b8c294e912ac46fc25de2b14c8b21716d901d4"
+  },
+  {
+    "timestamp": "2026-01-31T14:19:34.583Z",
+    "file": "movement-core-01-1769869174556.json",
+    "hash": "4bacedc82a143f8a3411d880f4dddb7962e71f5048627bf77717f44fec9c811f"
+  },
+  {
+    "timestamp": "2026-01-31T14:19:34.632Z",
+    "file": "movement-core-01-1769869174556.json",
+    "hash": "4bacedc82a143f8a3411d880f4dddb7962e71f5048627bf77717f44fec9c811f"
+  },
+  {
+    "timestamp": "2026-01-31T14:24:34.588Z",
+    "file": "movement-relics-01-1769869474584.json",
+    "hash": "a15035ad59ae8988080deab8a804ecddfd96f9acd9b0e84f8d35cf403a932d13"
+  },
+  {
+    "timestamp": "2026-01-31T14:26:34.642Z",
+    "file": "metrics-eth-01-1769869585871.json",
+    "hash": "75b8bcba387e87c864930587963611efaabc0eab65232d4c1e39c8b729e1a389"
+  },
+  {
+    "timestamp": "2026-01-31T14:29:34.593Z",
+    "file": "movement-core-01-1769869774565.json",
+    "hash": "629b4c88be76ac150cac567f86a61bfd289244ecf70bbc715a1ce4e378db70cc"
+  },
+  {
+    "timestamp": "2026-01-31T14:33:34.694Z",
+    "file": "heartbeat-core-01-1769869957905.json",
+    "hash": "977784574f34521a0a8ed5eff83085f4c017f331e05d3b0760700785e315ca8c"
+  },
+  {
+    "timestamp": "2026-01-31T14:34:34.638Z",
+    "file": "scanner-eth-wallet-01-1769870026011.json",
+    "hash": "31d1d9fe726ea42513279182ca3a0a3fcbf9977dca727e785d91e34681cdf714"
+  },
+  {
+    "timestamp": "2026-01-31T14:39:34.653Z",
+    "file": "movement-relics-01-1769870374652.json",
+    "hash": "a7175c9cc92a33c2307ac76836ad2b63a86b3895cef632e5577f0f49c4b3159e"
+  },
+  {
+    "timestamp": "2026-01-31T14:40:34.881Z",
+    "file": "heartbeat-eth-wallet-01-1769870395464.json",
+    "hash": "9c2217c898a95c6e2f0f93355039c2812370df3c10fa83b3be5e57a01f027cd1"
+  },
+  {
+    "timestamp": "2026-01-31T14:44:34.680Z",
+    "file": "heartbeat-eth-wallet-01-1769870628204.json",
+    "hash": "ace0a93becd01721b07c8a32775f166027db79cd15628e05334c1f2415bc5326"
+  },
+  {
+    "timestamp": "2026-01-31T14:47:34.881Z",
+    "file": "heartbeat-core-01-1769870800037.json",
+    "hash": "ca4ce62a355a590a5f805233186ef155f669218d29c739ca1c0714a21ad4d442"
+  },
+  {
+    "timestamp": "2026-01-31T14:49:34.679Z",
+    "file": "movement-core-01-1769870974626.json",
+    "hash": "57b62b2350995b430dfff3fbf62d3ec658a3eb792dc43e7b8daf65658c0a2cc8"
+  },
+  {
+    "timestamp": "2026-01-31T14:54:39.312Z",
+    "file": "movement-relics-01-1769871277445.json",
+    "hash": "52da1c70cdd5000a50a6a6050bb4210dac01ba51202a620decad65a306fe5291"
+  },
+  {
+    "timestamp": "2026-01-31T14:54:41.300Z",
+    "file": "movement-relics-01-1769871277445.json",
+    "hash": "52da1c70cdd5000a50a6a6050bb4210dac01ba51202a620decad65a306fe5291"
+  },
+  {
+    "timestamp": "2026-01-31T14:59:39.310Z",
+    "file": "metrics-arb-01-1769871578250.json",
+    "hash": "2477088ff5877214d0e101154a931081c7d9dbada984976f67394655bf473895"
+  },
+  {
+    "timestamp": "2026-01-31T15:01:41.302Z",
+    "file": "metrics-eth-01-1769871700873.json",
+    "hash": "56aa24aef31621c9895b4bf3a773ed3a34976ec3edf72503953df7379f6b2a42"
+  },
+  {
+    "timestamp": "2026-01-31T15:04:39.444Z",
+    "file": "heartbeat-arb-contract-01-1769871829962.json",
+    "hash": "82fbb31e5c3902ff812875d39edb36aa24783c1ce69f6644b70582a4934c171a"
+  },
+  {
+    "timestamp": "2026-01-31T15:08:41.375Z",
+    "file": "heartbeat-core-01-1769872072885.json",
+    "hash": "61b215502ee4889e5c2cdc5e6bb1ac72781016839da8bae0b56e08b0193a8f02"
+  },
+  {
+    "timestamp": "2026-01-31T15:09:39.374Z",
+    "file": "metrics-arb-01-1769872178971.json",
+    "hash": "1176f6ed1bfabcf845d1aa6d0821620bd4a0bed1d3a9e42b6b865c33ab9ba3ee"
+  },
+  {
+    "timestamp": "2026-01-31T15:14:39.578Z",
+    "file": "heartbeat-core-01-1769872432964.json",
+    "hash": "27b7450a11b9df6605095527091fc8b39cdac607754b74cd0ffa98ddac079237"
+  },
+  {
+    "timestamp": "2026-01-31T15:15:41.349Z",
+    "file": "metrics-base-01-1769872541193.json",
+    "hash": "c5fb0dded54264f1bb27f4674c0ee2c327548557aa6a5298bcdaadb1bbda5d9d"
+  },
+  {
+    "timestamp": "2026-01-31T15:19:39.486Z",
+    "file": "orchestrator-healthmap-01-1769872779078.json",
+    "hash": "063284f86780d753c88d0d10dd6cca3016b5ef2b299812af887d48ef27ba79f8"
+  },
+  {
+    "timestamp": "2026-01-31T15:22:41.372Z",
+    "file": "heartbeat-core-01-1769872912779.json",
+    "hash": "a62516523bd70b7b66c1644c566127f06c79e45f975bf57a1d95df8a8ce73cbf"
+  },
+  {
+    "timestamp": "2026-01-31T15:24:39.490Z",
+    "file": "movement-relics-01-1769873075792.json",
+    "hash": "2989796c1352bb3c32e301dc5f63bb141f8fbbb19b082a51119e22d15d0f702b"
+  },
+  {
+    "timestamp": "2026-01-31T15:29:39.556Z",
+    "file": "scanner-arb-events-01-1769873378677.json",
+    "hash": "e8dd551602c6cb262bdeada3b7e75ca78fea3707c6adf08432e5af7d2d4f6f24"
+  },
+  {
+    "timestamp": "2026-01-31T15:29:41.371Z",
+    "file": "heartbeat-base-contract-01-1769873381207.json",
+    "hash": "cb3f7a7ad32eaab7fe92521e0ff4795f567c1c9480bc04a3e05918232e55e293"
+  },
+  {
+    "timestamp": "2026-01-31T15:34:39.595Z",
+    "file": "heartbeat-core-01-1769873632968.json",
+    "hash": "ec94567c8268d2a41c0216d7132ffb4de4a6f1fdc13adab92e3e654a57e0f44a"
+  },
+  {
+    "timestamp": "2026-01-31T15:36:41.414Z",
+    "file": "heartbeat-core-01-1769873753249.json",
+    "hash": "47fa86c0baa0942ee5fc909486063ee1b619cece232406bdcfbfb5b8b7e09544"
+  },
+  {
+    "timestamp": "2026-01-31T15:39:39.596Z",
+    "file": "orchestrator-healthmap-01-1769873976823.json",
+    "hash": "dc0338b33901c0b481375876c3000a36863a69a21ae0b14846dcfa1abca17818"
+  },
+  {
+    "timestamp": "2026-01-31T15:43:41.581Z",
+    "file": "heartbeat-core-01-1769874173080.json",
+    "hash": "2a0760d2d613d7a9c7cd4afa312f36626d9597f21b3699c6ce1a3760a76d9753"
+  },
+  {
+    "timestamp": "2026-01-31T15:44:39.777Z",
+    "file": "heartbeat-core-01-1769874233457.json",
+    "hash": "8d4b90ce669a4a60deecc61222e958c08c289654a9ba466bd98e017e5651926f"
+  },
+  {
+    "timestamp": "2026-01-31T15:49:39.675Z",
+    "file": "scanner-arb-events-01-1769874578645.json",
+    "hash": "7bb8a131bc1d782b2a68abc57e11e711f133b7803474d15def709c0f805d178d"
+  },
+  {
+    "timestamp": "2026-01-31T15:50:41.634Z",
+    "file": "heartbeat-core-01-1769874593394.json",
+    "hash": "8b2ce83cf262d8430df501142783952de2c4a8ab09dc456ffe931a75a6c57b00"
+  },
+  {
+    "timestamp": "2026-01-31T15:54:39.679Z",
+    "file": "movement-relics-01-1769874875839.json",
+    "hash": "bf0a2154fed33cf88283f8d885300b802ad5eb765a14c180d85461b32269e957"
+  },
+  {
+    "timestamp": "2026-01-31T15:57:41.632Z",
+    "file": "heartbeat-base-contract-01-1769875061160.json",
+    "hash": "9df3e456f28001b5d95cd027bd8c904a5bcaa0f5f72a0ac8d938f62e56def6fe"
+  },
+  {
+    "timestamp": "2026-01-31T15:59:39.680Z",
+    "file": "orchestrator-healthmap-01-1769875177026.json",
+    "hash": "e934a1aeca5244e299dfd024a9b71666d47ac1af356e1820ca4f865567827c42"
+  },
+  {
+    "timestamp": "2026-01-31T16:04:39.756Z",
+    "file": "metrics-eth-01-1769875435141.json",
+    "hash": "0b055af1afcee3635ba6cfe6be1319547a8b49672ed6b15901087026f3834bdd"
+  },
+  {
+    "timestamp": "2026-01-31T16:04:41.637Z",
+    "file": "metrics-eth-01-1769875435141.json",
+    "hash": "0b055af1afcee3635ba6cfe6be1319547a8b49672ed6b15901087026f3834bdd"
+  },
+  {
+    "timestamp": "2026-01-31T16:09:39.753Z",
+    "file": "scanner-poly-multi-01-1769875778721.json",
+    "hash": "2735b0b0609b1eb39265a5f7c8f4a4f624b806bd195f97b93d9f6b1de42a40c2"
+  },
+  {
+    "timestamp": "2026-01-31T16:11:41.637Z",
+    "file": "metrics-eth-01-1769875901177.json",
+    "hash": "d17114893fab931670b9601bfe1e64d28b812c48aaf38f4b7cc33510e8b01d42"
+  },
+  {
+    "timestamp": "2026-01-31T16:14:39.806Z",
+    "file": "heartbeat-core-01-1769876033795.json",
+    "hash": "9405ded0780bc691fbb256730339e3deed4fda2f8398cbad68efb1a3aee4f9ac"
+  },
+  {
+    "timestamp": "2026-01-31T16:18:41.679Z",
+    "file": "metrics-eth-01-1769876276177.json",
+    "hash": "8e4716a401b800f92338e7b020059a4fb1a35e3045ffdf43c3370df06bcfeef1"
+  },
+  {
+    "timestamp": "2026-01-31T16:19:39.875Z",
+    "file": "orchestrator-healthmap-01-1769876378102.json",
+    "hash": "b668148f046d22d6f68377e6a6b506853738fac37d7f830324552dbc9557550e"
+  },
+  {
+    "timestamp": "2026-01-31T16:24:39.880Z",
+    "file": "movement-relics-01-1769876676138.json",
+    "hash": "40a83537857dcb124bde322546bd577717f340694ed4e9960bce25b213f9de1c"
+  },
+  {
+    "timestamp": "2026-01-31T16:25:41.679Z",
+    "file": "heartbeat-eth-wallet-01-1769876741212.json",
+    "hash": "d5a5e78388cbd25454682071ed0c16c6ed8ba5c46a15a0e45381037f1d63c6ee"
+  },
+  {
+    "timestamp": "2026-01-31T16:29:41.083Z",
+    "file": "orchestrator-healthmap-01-1769876980959.json",
+    "hash": "c19c302674d2658f5e4a6d0f1f12a6acd020afe6ec3700e69074f8e9fd712317"
+  },
+  {
+    "timestamp": "2026-01-31T16:32:41.718Z",
+    "file": "heartbeat-eth-wallet-01-1769877117810.json",
+    "hash": "e439855ec425003f7419a646754fc12aa76769fca785504dba3256f400b2c2a8"
+  },
+  {
+    "timestamp": "2026-01-31T16:34:41.121Z",
+    "file": "metrics-eth-01-1769877238629.json",
+    "hash": "d9d5097476f4c1113cc5ec28eda7c4ff58265cebe063788190d2a1aa0ece905a"
+  },
+  {
+    "timestamp": "2026-01-31T16:39:41.123Z",
+    "file": "orchestrator-healthmap-01-1769877578974.json",
+    "hash": "b8feeb06c1c82631f48ed0a13fd1b6811cfd13e76dee3541349d2aa574269e8a"
+  },
+  {
+    "timestamp": "2026-01-31T16:39:41.720Z",
+    "file": "metrics-poly-01-1769877581691.json",
+    "hash": "efe31f7495c97f237d737057c5ca6f8ad16eb7b72fbeaa4dbe81c21db1769267"
+  },
+  {
+    "timestamp": "2026-01-31T16:44:41.189Z",
+    "file": "heartbeat-eth-wallet-01-1769877837778.json",
+    "hash": "3123ff16b9870e013a9bc280fe807970fbede3ff5c97f1b38d1c04627dd6f0d2"
+  },
+  {
+    "timestamp": "2026-01-31T16:46:41.754Z",
+    "file": "dex-eth-pool-01-1769877962287.json",
+    "hash": "96cd7b5b9e2d9d811fface1dd2aa91c23d962b10f4166de7b6cb1b90f6760675"
+  },
+  {
+    "timestamp": "2026-01-31T16:49:42.958Z",
+    "file": "orchestrator-healthmap-01-1769878182917.json",
+    "hash": "60b105ae12b38847525ea02fab3f7e56e0e9173f988a6aa06909a9bb1c5fc4b5"
+  },
+  {
+    "timestamp": "2026-01-31T16:53:41.797Z",
+    "file": "heartbeat-core-01-1769878374303.json",
+    "hash": "f5b4f6a0674809b8eb4db21160a6e0972970779521c3f2c1e0725cccad38e227"
+  },
+  {
+    "timestamp": "2026-01-31T16:54:42.966Z",
+    "file": "movement-relics-01-1769878475930.json",
+    "hash": "10474dd0f83e0b0abaf9e380dc59113939e0c9503259c81736ff79553e4182ae"
+  },
+  {
+    "timestamp": "2026-01-31T16:59:42.972Z",
+    "file": "orchestrator-healthmap-01-1769878777421.json",
+    "hash": "4b50832add2069a4dd5a2bc293f60af0b13f1fc84df74eaeca3199ac1623703e"
+  },
+  {
+    "timestamp": "2026-01-31T17:00:41.842Z",
+    "file": "heartbeat-core-01-1769878794500.json",
+    "hash": "5e99511c8690f31b12a5a626228e80434388abe03694ca980696d3273d21aeee"
+  },
+  {
+    "timestamp": "2026-01-31T17:04:42.988Z",
+    "file": "metrics-eth-01-1769879043383.json",
+    "hash": "2d94aa5ef584caf0bda3bb9b7ffb3f1d472d0f4cf5823324b2976b09a51cc4be"
+  },
+  {
+    "timestamp": "2026-01-31T17:07:41.872Z",
+    "file": "heartbeat-core-01-1769879214447.json",
+    "hash": "59db78a2c7df8ddf6661c53726ea8400da26cbe7003a384ae71f619f2be6c2a1"
+  },
+  {
+    "timestamp": "2026-01-31T17:09:42.992Z",
+    "file": "orchestrator-healthmap-01-1769879377860.json",
+    "hash": "2c62ebde9940a991f95706d960b5020cd1c9cd4132ec9488a8c0daab093b130d"
+  },
+  {
+    "timestamp": "2026-01-31T17:14:41.907Z",
+    "file": "heartbeat-eth-wallet-01-1769879643287.json",
+    "hash": "79bcf7d90bf21f4e1eac2fc5cc70b8529b02ac4badc465c1d0460252057e1090"
+  },
+  {
+    "timestamp": "2026-01-31T17:14:42.993Z",
+    "file": "heartbeat-eth-wallet-01-1769879643287.json",
+    "hash": "79bcf7d90bf21f4e1eac2fc5cc70b8529b02ac4badc465c1d0460252057e1090"
+  },
+  {
+    "timestamp": "2026-01-31T17:19:42.999Z",
+    "file": "orchestrator-healthmap-01-1769879977859.json",
+    "hash": "b390343e1d94e228183266dcc3c87d3d7fd7878e6c0a598805c5a42ec1dda1cc"
+  },
+  {
+    "timestamp": "2026-01-31T17:21:41.951Z",
+    "file": "heartbeat-core-01-1769880054778.json",
+    "hash": "652383652cb6769f039e7c00274b1806b5754ddc221286cfb21a42ee5b3f6bee"
+  },
+  {
+    "timestamp": "2026-01-31T17:24:43.008Z",
+    "file": "movement-relics-01-1769880275970.json",
+    "hash": "150882ad4bc5c5d85f6fe3ed754c6d1d37f94dbbd0c47709054e4b2ee1b4fad5"
+  },
+  {
+    "timestamp": "2026-01-31T17:28:42.128Z",
+    "file": "heartbeat-core-01-1769880475070.json",
+    "hash": "b7cc0f51cb54dc02c2f925e8ab3353c21c9c28c498145faa84e4529aa9acb049"
+  },
+  {
+    "timestamp": "2026-01-31T17:29:46.513Z",
+    "file": "orchestrator-healthmap-01-1769880586469.json",
+    "hash": "484fd7c8bf1b91bc453d9b0c439aa6538da0baa6c986554f7aa3c1350d0d316c"
+  },
+  {
+    "timestamp": "2026-01-31T17:34:46.728Z",
+    "file": "metrics-eth-01-1769880838016.json",
+    "hash": "731f65f90c06cb0c5c4d783aed83387d5b67072d8ca954709bd6dc489f2c68db"
+  },
+  {
+    "timestamp": "2026-01-31T17:35:42.053Z",
+    "file": "heartbeat-core-01-1769880898351.json",
+    "hash": "fb962de52632caef61d8070956102b9b9f82ed2d4907b7e046886698526cadce"
+  },
+  {
+    "timestamp": "2026-01-31T17:39:46.657Z",
+    "file": "orchestrator-healthmap-01-1769881183744.json",
+    "hash": "017ae44ad1a78ad177e30e088033e486f2ae148bd6450bf06e1a59655565c804"
+  },
+  {
+    "timestamp": "2026-01-31T17:42:42.090Z",
+    "file": "heartbeat-core-01-1769881318293.json",
+    "hash": "b1e4370b527cc9ac20fbd1d84c00b52c5076f87eda65d5398a3cc473f6878487"
+  },
+  {
+    "timestamp": "2026-01-31T17:44:46.701Z",
+    "file": "heartbeat-core-01-1769881438240.json",
+    "hash": "49ca07d5b1ef734c87c03cf34b48cd7b7e6b53f3799220fade4ae20ce95929db"
+  },
+  {
+    "timestamp": "2026-01-31T17:49:42.097Z",
+    "file": "orchestrator-healthmap-01-1769881778129.json",
+    "hash": "e3356a3b3294b0ce7bd4afc29456e33a39997c4e42cbf921bf6e786a64ca6199"
+  },
+  {
+    "timestamp": "2026-01-31T17:49:46.707Z",
+    "file": "orchestrator-healthmap-01-1769881778129.json",
+    "hash": "e3356a3b3294b0ce7bd4afc29456e33a39997c4e42cbf921bf6e786a64ca6199"
+  },
+  {
+    "timestamp": "2026-01-31T17:54:46.719Z",
+    "file": "movement-relics-01-1769882076002.json",
+    "hash": "2fe2d0e69bdc5607c3606652ba64a931b3ab47761a1403628d15761af2c08cc6"
+  },
+  {
+    "timestamp": "2026-01-31T17:56:42.098Z",
+    "file": "metrics-eth-01-1769882201532.json",
+    "hash": "e80515e9195183a2867cdd47fa1f79b1db8612212d629c6930e37bdc797eadeb"
+  },
+  {
+    "timestamp": "2026-01-31T17:59:46.728Z",
+    "file": "orchestrator-healthmap-01-1769882378315.json",
+    "hash": "8a0f40f8c5ae1d20f517937ba1501f58f6c1d1292cf20b6390dffd6180d57a13"
+  },
+  {
+    "timestamp": "2026-01-31T18:03:42.106Z",
+    "file": "heartbeat-core-01-1769882579244.json",
+    "hash": "f2096f130257b57accd8c2b525487b868a05a6c763751bf7098f1c1acd57a9f1"
+  },
+  {
+    "timestamp": "2026-01-31T18:04:46.729Z",
+    "file": "heartbeat-core-01-1769882638925.json",
+    "hash": "e7fb32180e30155b45ec7909bedba5ea575402ed7b42e9222fecc93039d5cf6b"
+  },
+  {
+    "timestamp": "2026-01-31T18:09:51.970Z",
+    "file": "orchestrator-healthmap-01-1769882991932.json",
+    "hash": "b50332777cfddb443abd400e65494de8c2f8738846a3761c7c9ded3709b824e4"
+  },
+  {
+    "timestamp": "2026-01-31T18:10:42.191Z",
+    "file": "heartbeat-eth-wallet-01-1769883027810.json",
+    "hash": "40ee610e55432b561ccbefe4b9261f2c6577b3ffc2159222292230d1433dfec6"
+  },
+  {
+    "timestamp": "2026-01-31T18:14:52.043Z",
+    "file": "heartbeat-base-contract-01-1769883244130.json",
+    "hash": "19ba8252c0918b50ee7ff0c8bfdbcb75bd9387fa35fe8e96b6da344bdcac787a"
+  },
+  {
+    "timestamp": "2026-01-31T18:17:42.202Z",
+    "file": "heartbeat-core-01-1769883423038.json",
+    "hash": "518ef750321d2a764582e45c8b6d15b4c7ff57c5b586cb4592315c70737dfbba"
+  },
+  {
+    "timestamp": "2026-01-31T18:19:52.029Z",
+    "file": "orchestrator-healthmap-01-1769883590660.json",
+    "hash": "924a56e3fc80bcba3f82f4eec8bc1dbde1137144deaf48d47bbc47c0c34bfb3b"
+  },
+  {
+    "timestamp": "2026-01-31T18:24:42.204Z",
+    "file": "movement-relics-01-1769883876642.json",
+    "hash": "2515693ea40b56b70a55d8a2c508236c20cd73f10bc15298cd3b2d00b2ee749a"
+  },
+  {
+    "timestamp": "2026-01-31T18:24:52.316Z",
+    "file": "movement-relics-01-1769883876642.json",
+    "hash": "2515693ea40b56b70a55d8a2c508236c20cd73f10bc15298cd3b2d00b2ee749a"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "nodeId": "cert-latest-01",
+  "label": "Cert Latest Artefact",
+  "type": "cert-node",
+  "timestamp": "2026-01-31T01:48:22.171Z",
+  "status": "error",
+  "cert": {
+    "file": "cert-ledger.json",
+    "hash": "8e732b5636d7b8517cddc4664a8649018430e3179c20c884bf56217d256be11d",
+    "integrity": "changed",
+    "previousHash": "59f769b6f87b4f51e88f77f59fe6960c1b3f11387b4139ebc0264209209c3478",
+    "ledgerUpdated": true
+  }
+}

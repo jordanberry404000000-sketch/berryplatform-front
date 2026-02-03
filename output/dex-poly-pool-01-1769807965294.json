@@ -1,0 +1,10 @@
+{
+  "nodeId": "dex-poly-pool-01",
+  "label": "Polygon DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-30T21:19:25.252Z",
+  "chain": "Polygon",
+  "dex": {},
+  "status": "error",
+  "error": "request to https://polygon-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND polygon-mainnet.placeholder-rpc.com"
+}

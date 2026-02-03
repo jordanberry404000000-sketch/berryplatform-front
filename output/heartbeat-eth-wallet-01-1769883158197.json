@@ -1,0 +1,21 @@
+{
+  "nodeId": "heartbeat-eth-wallet-01",
+  "type": "heartbeat",
+  "label": "Ethereum Wallet Heartbeat",
+  "timestamp": "2026-01-31T18:12:00.837Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "heartbeat-eth-wallet-01",
+    "label": "Ethereum Wallet Heartbeat",
+    "type": "heartbeat",
+    "timestamp": "2026-01-31T18:12:00.837Z",
+    "chain": "ethereum",
+    "heartbeat": {
+      "engine": "alive",
+      "latestBlock": 24356566,
+      "contractReachable": null
+    },
+    "status": "error",
+    "error": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  }
+}

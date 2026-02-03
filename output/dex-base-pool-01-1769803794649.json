@@ -1,0 +1,10 @@
+{
+  "nodeId": "dex-base-pool-01",
+  "label": "Base DEX Pool",
+  "type": "dex-node",
+  "timestamp": "2026-01-30T20:09:54.619Z",
+  "chain": "Base",
+  "dex": {},
+  "status": "error",
+  "error": "request to https://base-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND base-mainnet.placeholder-rpc.com"
+}

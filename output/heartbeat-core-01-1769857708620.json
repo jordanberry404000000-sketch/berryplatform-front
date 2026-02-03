@@ -1,0 +1,9 @@
+{
+  "nodeId": "heartbeat-core-01",
+  "type": "heartbeat",
+  "label": "Core Engine Heartbeat",
+  "timestamp": "2026-01-31T11:08:28.617Z",
+  "status": "error",
+  "data": {},
+  "error": "runHeartbeatNode is not defined"
+}

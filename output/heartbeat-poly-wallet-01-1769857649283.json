@@ -1,0 +1,9 @@
+{
+  "nodeId": "heartbeat-poly-wallet-01",
+  "type": "heartbeat",
+  "label": "Polygon Wallet Heartbeat",
+  "timestamp": "2026-01-31T11:07:29.282Z",
+  "status": "error",
+  "data": {},
+  "error": "runHeartbeatNode is not defined"
+}

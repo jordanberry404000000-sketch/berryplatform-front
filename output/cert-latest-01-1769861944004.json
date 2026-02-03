@@ -1,0 +1,14 @@
+{
+  "nodeId": "cert-latest-01",
+  "label": "Cert Latest Artefact",
+  "type": "cert-node",
+  "timestamp": "2026-01-31T12:19:03.875Z",
+  "status": "error",
+  "cert": {
+    "file": "movement-test.json",
+    "hash": "40a60f94badca8209021ee6c52f5c258111d89a8d11d627a8097f705b553116e",
+    "integrity": "changed",
+    "previousHash": "8a34e2f1aacbb9f3a1f2c9b78a031953704b2bb223a682a2dd20a1d938ed0a57",
+    "ledgerUpdated": true
+  }
+}

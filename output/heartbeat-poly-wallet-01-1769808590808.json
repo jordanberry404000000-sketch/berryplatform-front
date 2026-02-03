@@ -1,0 +1,12 @@
+{
+  "nodeId": "heartbeat-poly-wallet-01",
+  "label": "Polygon Wallet Heartbeat",
+  "type": "heartbeat",
+  "timestamp": "2026-01-30T21:29:50.780Z",
+  "chain": "Polygon",
+  "heartbeat": {
+    "engine": "alive"
+  },
+  "status": "error",
+  "error": "request to https://polygon-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND polygon-mainnet.placeholder-rpc.com"
+}

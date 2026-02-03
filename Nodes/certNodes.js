@@ -1,4 +1,4 @@
-// nodes/certNode.js
+// Nodes/certNodes.js
 // DX Terminal — Cert Node Handler
 // Produces SHA-256 hashes, verifies integrity, and updates cert lineage.
 
@@ -8,14 +8,6 @@ import path from "path";
 
 export async function runCertNode(node) {
   const timestamp = new Date().toISOString();
-  const outputDir = "./output";
-  const certDir = "./certs";
-  const ledgerFile = path.join(certDir, "cert-ledger.json");
-
-  // Ensure cert directory exists
-  if (!fs.existsSync(certDir)) {
-    fs.mkdirSync(certDir);
-  }
 
   const result = {
     nodeId: node.nodeId,
@@ -27,19 +19,31 @@ export async function runCertNode(node) {
   };
 
   try {
+    // ---------------------------------------------
+    // 0. Validate meta + resolve paths
+    // ---------------------------------------------
+    if (!node.meta) throw new Error("Missing meta configuration");
+    if (!node.meta.artefactPath) throw new Error("Missing artefactPath");
+    if (!node.meta.ledgerFile) throw new Error("Missing ledgerFile");
+
+    const outputDir = path.resolve(node.meta.artefactPath);
+    const ledgerFile = path.resolve(node.meta.ledgerFile);
+
+    // Ensure output directory exists
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
     // ----------------------------------------------------
     // 1. Find latest output file
     // ----------------------------------------------------
-    const files = fs.existsSync(outputDir) ? fs.readdirSync(outputDir) : [];
-    const jsonFiles = files.filter(f => f.endsWith(".json"));
+    const files = fs.readdirSync(outputDir).filter(f => f.endsWith(".json"));
 
-    if (jsonFiles.length === 0) {
-      result.status = "degraded";
-      result.cert.warning = "No JSON artefacts found to certify";
-      return result;
+    if (files.length === 0) {
+      throw new Error("No JSON artefacts found to certify");
     }
 
-    const latestFile = jsonFiles
+    const latestFile = files
       .map(f => ({
         name: f,
         time: fs.statSync(path.join(outputDir, f)).mtime.getTime()
@@ -71,9 +75,9 @@ export async function runCertNode(node) {
     }
 
     // ----------------------------------------------------
-    // 4. Integrity check (compare to previous hash)
+    // 4. Integrity check
     // ----------------------------------------------------
-    const lastEntry = ledger.length > 0 ? ledger[ledger.length - 1] : null;
+    const lastEntry = ledger.at(-1);
 
     if (lastEntry && lastEntry.hash !== hash) {
       result.cert.integrity = "changed";
@@ -86,21 +90,15 @@ export async function runCertNode(node) {
     // ----------------------------------------------------
     // 5. Append new cert entry
     // ----------------------------------------------------
-    const newEntry = {
-      timestamp,
-      file: latestFile,
-      hash
-    };
-
-    ledger.push(newEntry);
-
+    ledger.push({ timestamp, file: latestFile, hash });
     fs.writeFileSync(ledgerFile, JSON.stringify(ledger, null, 2));
 
     result.cert.ledgerUpdated = true;
 
   } catch (err) {
-    result.status = "error";
-    result.error = err.message;
+    console.error("CERT NODE ERROR:", err);
+result.error = err?.message || String(err);
+console.log("CERT NODE DEBUG:", result);
   }
 
   return result;

@@ -1,0 +1,10 @@
+{
+  "nodeId": "metrics-poly-01",
+  "label": "Polygon Metrics",
+  "type": "metrics-node",
+  "timestamp": "2026-01-30T20:08:54.608Z",
+  "chain": "Polygon",
+  "metrics": {},
+  "status": "error",
+  "error": "request to https://polygon-mainnet.placeholder-rpc.com/ failed, reason: getaddrinfo ENOTFOUND polygon-mainnet.placeholder-rpc.com"
+}

@@ -1,0 +1,17 @@
+{
+  "nodeId": "dex-eth-pool-01",
+  "type": "dex-node",
+  "label": "Ethereum DEX Pool",
+  "timestamp": "2026-01-31T18:06:49.452Z",
+  "status": "healthy",
+  "data": {
+    "nodeId": "dex-eth-pool-01",
+    "label": "Ethereum DEX Pool",
+    "type": "dex-node",
+    "timestamp": "2026-01-31T18:06:49.454Z",
+    "chain": "ethereum",
+    "dex": {},
+    "status": "error",
+    "error": "Unexpected token '<', \"<!doctype \"... is not valid JSON"
+  }
+}
