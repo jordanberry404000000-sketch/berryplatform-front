@@ -89,7 +89,7 @@ export default function App() {
           </button>
 
           <Routes>
-            <Route path="/" element={<Mint />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/mint" element={<Mint />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/myrelic" element={<MyRelic />} />
