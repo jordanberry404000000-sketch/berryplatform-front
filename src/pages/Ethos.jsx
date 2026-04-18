@@ -6,129 +6,83 @@ export default function Ethos() {
       <h1>BERRY PLATFORM™ — ETHOS</h1>
 
       <div style={{ whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
-        {`
-BERRY PLATFORM™ — ETHOS
+        <p><strong>BERRY PLATFORM™ — ETHOS</strong></p>
 
-1. Why Berry Exists
-Berry was not built to follow trends, chase hype, or compete with noise.
-It was built because the crypto ecosystem lacked something essential:
+        <h3>1. Why Berry Exists</h3>
+        <p>
+          Berry was not built to follow trends, chase hype, or compete with noise.
+          It was built because the crypto ecosystem lacked something essential:
+        </p>
+        <p><em>A forensic‑grade platform that treats blockchain data as evidence, not entertainment.</em></p>
+        <p>
+          Berry exists to bring clarity where there is confusion, integrity where there is doubt,
+          and structure where there is chaos.
+        </p>
 
-A forensic‑grade platform that treats blockchain data as evidence, not entertainment.
+        <hr />
 
-Berry exists to bring clarity where there is confusion, integrity where there is doubt, and structure where there is chaos.
-It is a platform built on the belief that truth should be inspectable, verifiable, and preserved — not assumed.
+        <h3>2. The Forensic Standard</h3>
+        <p><em>If it cannot stand up in a courtroom, it should not stand up in our platform.</em></p>
+        <ul>
+          <li>Every subsystem is designed with evidential integrity</li>
+          <li>Every log is treated as a chain‑of‑custody artefact</li>
+          <li>Every output is deterministic and reproducible</li>
+          <li>Every action is traceable and accountable</li>
+        </ul>
 
----
+        <hr />
 
-2. The Forensic Standard
-Berry operates on a simple but uncompromising principle:
+        <h3>3. Transparency as a Foundation</h3>
+        <p>Most platforms hide their inner workings. Berry exposes them — intentionally.</p>
+        <ul>
+          <li>Governance</li>
+          <li>Policies</li>
+          <li>Risk models</li>
+          <li>Architecture</li>
+          <li>Operational commitments</li>
+        </ul>
 
-If it cannot stand up in a courtroom, it should not stand up in our platform.
+        <hr />
 
-This means:
-- Every subsystem is designed with evidential integrity
-- Every log is treated as a potential chain‑of‑custody artefact
-- Every output is deterministic, reproducible, and cryptographically anchored
-- Every action is traceable, reviewable, and accountable
+        <h3>4. Evidence Over Ego</h3>
+        <p>Berry does not care about opinions or narratives — only proof, integrity, and truth.</p>
 
-Berry does not guess.
-Berry does not speculate.
-Berry verifies.
+        <hr />
 
----
+        <h3>5. Built Slowly, Intentionally, Correctly</h3>
+        <p>
+          Berry was built over 12+ months with governance first, subsystems before UI,
+          policies before features, and logs before dashboards.
+        </p>
 
-3. Transparency as a Foundation
-Most platforms hide their inner workings.
-Berry exposes them.
+        <hr />
 
-Not recklessly — but intentionally.
+        <h3>6. The Berry Promise</h3>
+        <ul>
+          <li>Truth over convenience</li>
+          <li>Integrity over speed</li>
+          <li>Transparency over secrecy</li>
+          <li>Evidence over assumption</li>
+          <li>Users over hype</li>
+        </ul>
 
-Transparency is not a marketing slogan here.
-It is a design requirement.
+        <hr />
 
-Berry publishes:
-- Its governance
-- Its policies
-- Its risk models
-- Its architecture
-- Its operational commitments
+        <h3>7. The Founder’s Ethos</h3>
+        <p>
+          If it doesn’t meet the standard, it doesn’t ship.
+          If it compromises integrity, it doesn’t belong.
+          If it weakens trust, it is removed.
+        </p>
 
-Because trust is not earned through claims — it is earned through visibility.
+        <hr />
 
----
-
-4. Evidence Over Ego
-Berry does not care about opinions.
-Berry does not care about narratives.
-Berry does not care about personalities.
-
-Berry cares about:
-- Data
-- Proof
-- Integrity
-- Reproducibility
-- Cryptographic truth
-
-This ethos removes bias, emotion, and noise from the equation.
-It ensures that Berry remains neutral, factual, and grounded — always.
-
----
-
-5. Built Slowly, Intentionally, Correctly
-Berry could have launched months earlier.
-But it didn’t — because the foundation wasn’t ready.
-
-Berry was built:
-- Over 12+ months
-- With discipline
-- With governance first
-- With subsystems designed before UI
-- With policies written before features
-- With logs defined before dashboards
-
-This is not a rushed product.
-This is a constructed institution.
-
----
-
-6. The Berry Promise
-Berry will always:
-- Prioritize truth over convenience
-- Prioritize integrity over speed
-- Prioritize transparency over secrecy
-- Prioritize evidence over assumption
-- Prioritize users over hype
-
-Berry will never compromise its forensic standard for growth, trends, or pressure.
-
----
-
-7. The Founder’s Ethos
-Berry was built by someone who refused to cut corners, refused to rush, and refused to release something that wasn’t worthy of the vision behind it.
-
-The ethos is simple:
-If it doesn’t meet the standard, it doesn’t ship.
-If it compromises integrity, it doesn’t belong.
-If it weakens trust, it is removed.
-
-This is the mindset that shaped Berry.
-This is the mindset that will protect it.
-
----
-
-8. The Future
-Berry is not finished — because institutions are never finished.
-
-Berry will continue to evolve, expand, and strengthen, but always under the same guiding principles:
-- Forensic integrity
-- Operational transparency
-- Evidence‑first design
-- Zero‑trust architecture
-- Institutional governance
-
-Berry is not here to participate in the crypto ecosystem.
-Berry is here to elevate it.
-        `}
+        <h3>8. The Future</h3>
+        <p>
+          Berry will continue to evolve under the same principles:
+          forensic integrity, transparency, evidence‑first design, zero‑trust architecture,
+          and institutional governance.
+        </p>
       </div>
     </div>
   );
