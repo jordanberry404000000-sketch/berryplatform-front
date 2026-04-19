@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provenance Explorer — Berry Platform™</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #ff0066;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        h2 {
+            color: #ff99c2;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        .input-box {
+            margin-top: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #0d0d0d;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff0066;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #ff99c2;
+        }
+
+        .card p {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #000;
+            color: #777;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Provenance Explorer</h1>
+    <p>Trace lineage • Verify truth • Reveal origins</p>
+</header>
+
+<main>
+
+    <div class="section">
+        <h2>Search Provenance</h2>
+        <p>
+            Enter an asset address, transaction hash, ENS name, creator signature, or identifier.
+            Berry will trace its full lineage and reveal its verified history.
+        </p>
+
+        <div class="input-box">
+            <input type="text" placeholder="Enter asset address, ENS, or identifier…">
+        </div>
+
+        <a class="cta" href="#">Run Provenance Check</a>
+    </div>
+
+    <div class="section">
+        <h2>What You Can Discover</h2>
+        <div class="grid">
+
+            <div class="card">
+                <h3>Creator Lineage</h3>
+                <p>
+                    See who created the asset, when, and under what identity.  
+                    No fakes. No silent rewrites.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Ownership History</h3>
+                <p>
+                    Every transfer, every holder, every timestamp — all verified and immutable.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Authenticity Signals</h3>
+                <p>
+                    Detect forged assets, manipulated metadata, or suspicious provenance gaps.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Institutional Context</h3>
+                <p>
+                    See how the asset fits into Berry’s governance, identity, and creative layers.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Why Provenance Matters</h2>
+        <p>
+            Provenance is the difference between:
+        </p>
+
+        <ul>
+            <li>a real asset and a copy</li>
+            <li>a trusted creator and an impersonator</li>
+            <li>a verified edition and a forged one</li>
+            <li>a safe interaction and a dangerous one</li>
+        </ul>
+
+        <p>
+            Berry Platform™ exposes the truth behind digital assets —  
+            even when the truth is uncomfortable.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Linked Systems</h2>
+        <div class="grid">
+
+            <div class="card">
+                <h3>DX Terminal</h3>
+                <p>Identity diagnostics and system-level provenance tools.</p>
+                <p><a class="cta" href="/dx/index.html">Open DX Terminal</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Wallyverse</h3>
+                <p>Trace artefacts, editions, and canonical creative lineage.</p>
+                <p><a class="cta" href="/wallyverse/index.html">Enter Wallyverse</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Berry Identity</h3>
+                <p>Verify your own identity lineage and platform footprint.</p>
+                <p><a class="cta" href="/identity/index.html">View Identity</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    Berry Platform™ — Digital Truth & Public Governance<br>
+    © 2026 Berry Platform. All rights reserved.
+</footer>
+
+</body>
+</html>
