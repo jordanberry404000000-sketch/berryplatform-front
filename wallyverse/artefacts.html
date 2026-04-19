@@ -14,6 +14,57 @@
             line-height: 1.6;
         }
 
+        /* Wallyverse Side Navigation */
+        #wallyverse-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            background: #0b0b0b;
+            border-right: 1px solid #222;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            z-index: 999;
+        }
+
+        #wallyverse-nav h2 {
+            color: #ffcc66;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        #wallyverse-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #wallyverse-nav ul li {
+            margin-bottom: 14px;
+        }
+
+        #wallyverse-nav ul li a {
+            color: #e6e6e6;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 6px 0;
+            display: block;
+            border-left: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        #wallyverse-nav ul li a:hover {
+            color: #ffcc99;
+            border-left: 3px solid #ffcc66;
+        }
+
+        /* Push main content to the right */
+        main, header, footer {
+            margin-left: 260px;
+        }
+
         header {
             background: #000;
             padding: 40px;
@@ -26,185 +77,31 @@
             font-size: 38px;
             color: #ffcc66;
         }
-
-        header p {
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        main {
-            max-width: 1000px;
-            margin: 40px auto 60px;
-            padding: 0 20px;
-        }
-
-        h2 {
-            color: #ffcc99;
-            margin-bottom: 10px;
-        }
-
-        .section {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 10px;
-            padding: 24px;
-            margin-top: 30px;
-        }
-
-        .artefact {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 18px;
-            margin-top: 20px;
-        }
-
-        .artefact h3 {
-            margin-top: 0;
-            color: #ffcc99;
-        }
-
-        .meta {
-            font-size: 12px;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-top: 6px;
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-size: 11px;
-            background: #333;
-            color: #ffcc99;
-        }
-
-        a.cta {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #ff0066;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 999px;
-            font-size: 14px;
-        }
-
-        footer {
-            background: #000;
-            color: #777;
-            padding: 40px;
-            text-align: center;
-            border-top: 1px solid #222;
-            margin-top: 60px;
-        }
     </style>
 </head>
 
 <body>
 
+<!-- Wallyverse Side Navigation -->
+<nav id="wallyverse-nav">
+    <h2>Wallyverse</h2>
+    <ul>
+        <li><a href="/wallyverse/start-here.html">Start Here</a></li>
+        <li><a href="/wallyverse/characters.html">Characters</a></li>
+        <li><a href="/wallyverse/lore.html">Lore Library</a></li>
+        <li><a href="/wallyverse/worlds.html">World Index</a></li>
+        <li><a href="/wallyverse/timeline.html">Timeline Map</a></li>
+        <li><a href="/wallyverse/artefacts.html">Artefact Index</a></li>
+    </ul>
+</nav>
+
 <header>
     <h1>Wallyverse Artefact Index</h1>
-    <p>Canonical items • Provenance‑verified objects • Universe‑defining artefacts</p>
 </header>
 
 <main>
-
-    <div class="section">
-        <h2>What This Page Is</h2>
-        <p>
-            The Artefact Index is the official registry of all canonical items within the Wallyverse.
-            Every artefact listed here is registered through the Creator Console and backed by
-            provenance, creator identity, and version history.
-        </p>
-        <p>
-            These artefacts shape the universe — they hold meaning, power, history, and narrative weight.
-        </p>
-        <a class="cta" href="/creator/index.html">Register New Artefact</a>
-    </div>
-
-    <div class="section">
-        <h2>Core Artefacts</h2>
-
-        <div class="artefact">
-            <h3>The Archivist’s Ledger</h3>
-            <div class="meta">
-                Canonical • Provenance ID: ART‑LEDGER‑001 • First registered: Baseline Timeline
-            </div>
-            <p>
-                A bound record of timeline anomalies, character crossings, and universe‑level events.
-                The Ledger is the single most important artefact for understanding the Wallyverse’s
-                fractured continuity.
-            </p>
-            <span class="tag">Core</span>
-            <span class="tag">Lore‑critical</span>
-        </div>
-
-        <div class="artefact">
-            <h3>Shard Compass</h3>
-            <div class="meta">
-                Canonical • Provenance ID: ART‑COMPASS‑001 • Origin: Shard Worlds
-            </div>
-            <p>
-                A device that points not north, but toward narrative instability. Used to navigate
-                fractured realities created by The Split.
-            </p>
-            <span class="tag">Shard World</span>
-            <span class="tag">Experimental</span>
-        </div>
-
-        <div class="artefact">
-            <h3>Null Fragment</h3>
-            <div class="meta">
-                Non‑canonical • Provenance ID: ART‑NULL‑001 • Origin: Null Layer
-            </div>
-            <p>
-                A conceptual artefact from outside the narrative. Exists only in meta‑space and
-                cannot interact with canonical timelines.
-            </p>
-            <span class="tag">Non‑canonical</span>
-            <span class="tag">Meta</span>
-        </div>
-
-    </div>
-
-    <div class="section">
-        <h2>Timeline‑Linked Artefacts</h2>
-
-        <div class="artefact">
-            <h3>Baseline Anchor</h3>
-            <div class="meta">
-                Canonical • Provenance ID: ART‑ANCHOR‑001 • Timeline: Baseline
-            </div>
-            <p>
-                A stabilising artefact that maintains the integrity of the Baseline Timeline.
-                Without it, divergence accelerates uncontrollably.
-            </p>
-            <span class="tag">Baseline</span>
-            <span class="tag">Stability</span>
-        </div>
-
-        <div class="artefact">
-            <h3>Echo Shard</h3>
-            <div class="meta">
-                Experimental • Provenance ID: ART‑ECHO‑001 • Timeline: Shard Worlds
-            </div>
-            <p>
-                A fragment of a fractured reality, containing echoes of alternate Wally iterations.
-            </p>
-            <span class="tag">Shard</span>
-            <span class="tag">Experimental</span>
-        </div>
-
-    </div>
-
+    <!-- your page content here -->
 </main>
-
-<footer>
-    Berry Platform™ — Wallyverse Canon & Creative Integrity<br>
-    © 2026 Berry Platform. All rights reserved.
-</footer>
 
 </body>
 </html>
