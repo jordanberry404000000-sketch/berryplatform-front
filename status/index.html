@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Platform™ — System Status</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #ff0066;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        h2 {
+            color: #ff99c2;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #ff99c2;
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 6px 12px;
+            display: inline-block;
+            border-radius: 999px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .up { background: #0f0; color: #000; }
+        .partial { background: #ff0; color: #000; }
+        .down { background: #f00; color: #fff; }
+
+        footer {
+            background: #000;
+            color: #777;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Berry Platform™ Status</h1>
+    <p>Operational Integrity • Uptime • Subsystem Monitoring</p>
+</header>
+
+<main>
+
+    <div class="section">
+        <h2>Platform Overview</h2>
+        <p>
+            This page provides real-time visibility into the operational status of Berry Platform™.
+            Subsystems are monitored for uptime, integrity, and performance.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Core Systems</h2>
+        <div class="status-grid">
+
+            <div class="card">
+                <h3>Homepage</h3>
+                <span class="status up">Operational</span>
+                <p>The main entry point of Berry Platform™.</p>
+            </div>
+
+            <div class="card">
+                <h3>Constitution Library</h3>
+                <span class="status up">Operational</span>
+                <p>All constitutional documents and governance layers are accessible.</p>
+            </div>
+
+            <div class="card">
+                <h3>DX Terminal</h3>
+                <span class="status up">Operational</span>
+                <p>Identity, provenance, and diagnostics console.</p>
+            </div>
+
+            <div class="card">
+                <h3>Wallyverse</h3>
+                <span class="status up">Operational</span>
+                <p>Creative universe and artefact ecosystem.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Upcoming Systems</h2>
+        <div class="status-grid">
+
+            <div class="card">
+                <h3>Provenance Explorer</h3>
+                <span class="status partial">In Development</span>
+                <p>Trace asset lineage and creator signatures.</p>
+            </div>
+
+            <div class="card">
+                <h3>Creator Console</h3>
+                <span class="status partial">In Development</span>
+                <p>Register, version, and protect creative works.</p>
+            </div>
+
+            <div class="card">
+                <h3>Berry Identity</h3>
+                <span class="status partial">In Development</span>
+                <p>Public-facing identity verification and proofs.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>System Integrity</h2>
+        <p>
+            Berry Platform™ is monitored for uptime, routing stability, and deployment health.
+            Any disruptions will be reflected here.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    Berry Platform™ — Digital Truth & Public Governance<br>
+    © 2026 Berry Platform. All rights reserved.
+</footer>
+
+</body>
+</html>
