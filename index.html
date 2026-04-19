@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berry Platform™ — Digital Truth & Public Governance</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Constitution Library — Berry Platform™</title>
 
     <style>
         body {
@@ -12,71 +11,73 @@
             font-family: Arial, sans-serif;
             background: #f7f7f7;
             color: #222;
+            line-height: 1.6;
         }
 
-        /* HERO (Dark Section) */
-        #hero {
+        /* HEADER */
+        header {
             background: #000;
             color: #fff;
-            padding: 80px 40px;
-            text-align: center;
+            padding: 30px 40px;
         }
 
-        #hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+        header h1 {
+            margin: 0;
+            font-size: 32px;
         }
 
-        #hero h2 {
-            font-size: 22px;
-            font-weight: 300;
-            margin-bottom: 30px;
+        header p {
+            margin: 5px 0 0;
+            opacity: 0.8;
         }
 
-        #hero .cta {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #ff0066;
-            color: #fff;
+        /* BREADCRUMB */
+        nav {
+            background: #eaeaea;
+            padding: 12px 40px;
+            font-size: 14px;
+        }
+
+        nav a {
+            color: #ff0066;
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 18px;
-            margin-top: 10px;
         }
 
-        /* SECTION WRAPPER */
-        section {
-            padding: 60px 40px;
+        /* MAIN CONTENT */
+        main {
             max-width: 900px;
-            margin: auto;
-        }
-
-        h3 {
-            margin-top: 0;
-            font-size: 26px;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .card {
+            margin: 40px auto;
             background: #fff;
-            padding: 20px;
+            padding: 40px;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
 
-        .card a {
-            text-decoration: none;
+        h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        h3 {
+            margin-top: 40px;
+            font-size: 22px;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        a {
             color: #ff0066;
+            text-decoration: none;
             font-weight: bold;
         }
 
+        /* FOOTER */
         footer {
             background: #111;
             color: #aaa;
@@ -89,77 +90,57 @@
 
 <body>
 
-    <!-- HERO -->
-    <section id="hero">
-        <h1>Berry Platform™</h1>
-        <h2>Constitutional Digital Truth & Public Governance</h2>
+    <!-- HEADER -->
+    <header>
+        <h1>Berry Platform™ — Constitution Library</h1>
+        <p>Public Governance • Digital Truth • Institutional Integrity</p>
+    </header>
 
-        <a class="cta" href="/dx/index.html">Connect Wallet</a>
+    <!-- BREADCRUMB -->
+    <nav>
+        <a href="/index.html">Home</a> › 
+        <strong>Constitution Library</strong>
+    </nav>
 
-        <p style="margin-top: 20px; opacity: 0.8;">
-            Governance • Identity • Provenance • Integrity
-        </p>
-    </section>
+    <!-- MAIN CONTENT -->
+    <main>
 
-    <!-- FOUNDER'S PREAMBLE -->
-    <section>
-        <h3>Founder’s Preamble</h3>
+        <h2>Constitution Library</h2>
         <p>
-            Truth has always existed, but in the digital world it has never been protected.
-            Berry was created not as a product or protocol, but as an institution of digital truth —
-            where identity, provenance, lineage, and integrity are constitutional guarantees.
+            The Berry Platform Constitution defines the institutional guarantees that protect digital truth,
+            provenance, identity, and governance across all Berry systems.  
+            This library provides public access to the full constitutional framework.
         </p>
-        <a href="/public/constitution/preamble.html">Read Full Preamble →</a>
-    </section>
 
-    <!-- GOVERNANCE LIBRARY -->
-    <section>
-        <h3>Governance Library</h3>
-        <div class="card-grid">
+        <!-- CORE DOCUMENTS -->
+        <h3>Core Constitutional Documents</h3>
+        <ul>
+            <li><a href="/public/constitution/overview.html">Constitution Overview</a></li>
+            <li><a href="/public/constitution/preamble.html">Founder’s Preamble</a></li>
+            <li><a href="/public/constitution/00-introduction.html">00 — Introduction</a></li>
+            <li><a href="/public/constitution/01-scope-of-authority.html">01 — Scope of Authority</a></li>
+            <li><a href="/public/constitution/02-terms-of-operation.html">02 — Terms of Operation</a></li>
+        </ul>
 
-            <div class="card"><a href="/public/constitution/overview.html">Constitution Overview</a></div>
-            <div class="card"><a href="/public/constitution/asset-layer.html">Asset Layer</a></div>
-            <div class="card"><a href="/public/constitution/governance.html">Governance</a></div>
-            <div class="card"><a href="/public/constitution/security.html">Security</a></div>
-            <div class="card"><a href="/public/constitution/transparency.html">Transparency</a></div>
-            <div class="card"><a href="/public/constitution/enforcement.html">Enforcement</a></div>
-            <div class="card"><a href="/public/constitution/dispute.html">Dispute Resolution</a></div>
+        <!-- GOVERNANCE LAYERS -->
+        <h3>Governance Layers</h3>
+        <ul>
+            <li><a href="/public/constitution/governance.html">Governance Layer</a></li>
+            <li><a href="/public/constitution/security.html">Security Layer</a></li>
+            <li><a href="/public/constitution/transparency.html">Transparency Layer</a></li>
+            <li><a href="/public/constitution/enforcement.html">Enforcement Layer</a></li>
+            <li><a href="/public/constitution/dispute.html">Dispute Resolution Layer</a></li>
+            <li><a href="/public/constitution/asset-layer.html">Asset Layer</a></li>
+        </ul>
 
-            <div class="card"><a href="/public/constitution/00-introduction.html">00 — Introduction</a></div>
-            <div class="card"><a href="/public/constitution/01-scope-of-authority.html">01 — Scope of Authority</a></div>
-            <div class="card"><a href="/public/constitution/02-terms-of-operation.html">02 — Terms of Operation</a></div>
+        <!-- VERSIONING -->
+        <h3>Versioning & Amendments</h3>
+        <p>
+            Constitutional documents are versioned and maintained to ensure long-term institutional integrity.
+            Future amendments will be published here with full transparency.
+        </p>
 
-        </div>
-    </section>
-
-    <!-- PLATFORM LAYER -->
-    <section>
-        <h3>Platform Layer</h3>
-        <div class="card-grid">
-            <div class="card"><a href="/dx/index.html">DX Terminal</a></div>
-            <div class="card"><a href="/dx/index.html">Wallet Health</a></div>
-            <div class="card"><a href="/dx/index.html">Contract State</a></div>
-            <div class="card"><a href="/dx/index.html">DEX Activity</a></div>
-        </div>
-    </section>
-
-    <!-- BUILDER LAYER -->
-    <section>
-        <h3>Builder Layer</h3>
-        <div class="card-grid">
-            <div class="card"><a href="#">Developer Docs</a></div>
-            <div class="card"><a href="#">API Reference</a></div>
-            <div class="card"><a href="#">Governance Schemas</a></div>
-            <div class="card"><a href="#">Platform Architecture</a></div>
-        </div>
-    </section>
-
-    <!-- WALLYVERSE -->
-    <section>
-        <h3>Wallyverse</h3>
-        <p>The creative universe built on Berry’s provenance and identity guarantees.</p>
-        <a href="#">Enter Wallyverse →</a>
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
