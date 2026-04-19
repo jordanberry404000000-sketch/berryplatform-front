@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Console — Berry Platform™</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #ff0066;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        h2 {
+            color: #ff99c2;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        .input-box {
+            margin-top: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #0d0d0d;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff0066;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-size: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #ff99c2;
+        }
+
+        .card p {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #000;
+            color: #777;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #222;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Creator Console</h1>
+    <p>Register • Version • Protect • Verify</p>
+</header>
+
+<main>
+
+    <div class="section">
+        <h2>Connect Wallet</h2>
+        <p>
+            To register or manage your creative works, connect your wallet.  
+            Your creator identity is verified cryptographically — never stored.
+        </p>
+        <a class="cta" href="#">Connect Wallet</a>
+    </div>
+
+    <div class="section">
+        <h2>Register a New Artefact</h2>
+        <p>
+            Anchor your creation to Berry’s provenance system.  
+            Once registered, its lineage becomes permanent and tamper‑proof.
+        </p>
+
+        <div class="input-box">
+            <input type="text" placeholder="Artefact Title">
+        </div>
+
+        <div class="input-box">
+            <textarea placeholder="Describe your artefact, edition, or creative work…"></textarea>
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Upload link or asset reference (IPFS, URL, hash)…">
+        </div>
+
+        <a class="cta" href="#">Register Artefact</a>
+    </div>
+
+    <div class="section">
+        <h2>Your Registered Works</h2>
+        <p>
+            Once connected, you’ll see all your registered artefacts, editions, and canonical entries.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Artefact Lineage</h3>
+                <p>
+                    View the full provenance trail of your creations —  
+                    from first registration to latest version.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Version Control</h3>
+                <p>
+                    Publish new versions, mark canonical editions, and preserve historical states.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Creator Signature</h3>
+                <p>
+                    Your cryptographic identity is attached to every artefact you register.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Linked Systems</h2>
+        <div class="grid">
+
+            <div class="card">
+                <h3>Provenance Explorer</h3>
+                <p>Trace your artefacts and verify their lineage.</p>
+                <p><a class="cta" href="/provenance/index.html">Open Explorer</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Berry Identity</h3>
+                <p>Your creator identity and platform footprint.</p>
+                <p><a class="cta" href="/identity/index.html">View Identity</a></p>
+            </div>
+
+            <div class="card">
+                <h3>Wallyverse</h3>
+                <p>Register canonical scenes, characters, and editions.</p>
+                <p><a class="cta" href="/wallyverse/index.html">Enter Wallyverse</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    Berry Platform™ — Digital Truth & Public Governance<br>
+    © 2026 Berry Platform. All rights reserved.
+</footer>
+
+</body>
+</html>
